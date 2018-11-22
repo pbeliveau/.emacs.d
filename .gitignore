@@ -1,0 +1,8 @@
+*
+!.gitignore
+!README.md
+!init.el
+!pkg/*.el
+!pkg/
+!eshell/alias
+!lisp/
