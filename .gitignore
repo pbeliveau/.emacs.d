@@ -4,5 +4,7 @@
 !init.el
 !pkg/*.el
 !pkg/
+!eshell/
 !eshell/alias
 !lisp/
+!lisp/*.el
