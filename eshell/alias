@@ -1,7 +1,15 @@
 alias ff find-file $1
 alias d dired $1
+alias ll ls -lat $1
 alias pastebin ~/dotfiles/scripts/pastebin $*
 alias scan ~/dotfiles/scripts/scan2pdf $*
 alias speedtest ~/dotfiles/scripts/speedtest
 alias update ~/dotfiles/scripts/update $*
 alias layout ~/dotfiles/scripts/active-layout
+alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
+alias connect ~/dotfiles/scripts/network $*
+alias install sudo pacman -S $*
+alias remove sudo pacman -Rs $*
+alias bridge ~/dotfiles/scripts/bridge $*
+alias vpn sudo /usr/local/bin/protonvpn-cli $*
+alias ipify ~/dotfiles/scripts/ipify

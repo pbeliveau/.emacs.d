@@ -14,15 +14,15 @@
                   (cond
                    ((string-match google from) "gmail")
                    ((string-match ncf from) "ncf")
+                   ((string-match protonmail from) "protonmail")
                    ((string-match uqtr from) "uqtr"))))
               (setq message-sendmail-extra-arguments (list '"-a" account)))))))
   :config
-  (setq
-        message-kill-buffer-on-exit    t
+  (setq message-kill-buffer-on-exit    t
         message-sendmail-envelope-from 'header
         message-send-mail-function     'message-send-mail-with-sendmail
         message-signature-directory    "~/.emacs.d/mail/signatures"
-        sendmail-program               "/usr/bin/msmtp"
+        sendmail-program               "~/.emacs.d/mail/script/msmtp-enqueue.sh"
         user-full-name                 fullname)
   (add-hook 'message-send-mail-hook 'choose-msmtp-account))
 
@@ -56,7 +56,8 @@
                                         (:subject       .  nil))
         mu4e-user-mail-address-list  (list google
                                            ncf
-                                           uqtr)
+                                           uqtr
+                                           protonmail)
         mu4e-account-alist
 	  '(("gmail"
 	     (mu4e-sent-messages-behavior sent)
@@ -70,6 +71,12 @@
 	     (mu4e-drafts-folder "/ncf/drafts")
 	     (mu4e-get-mail-command "offlineimap -a ncf")
 	     (user-mail-address ncf))
+	    ("protonmail"
+	     (mu4e-sent-messages-behavior sent)
+	     (mu4e-sent-folder "/protonmail/sent")
+	     (mu4e-drafts-folder "/protonmail/drafts")
+	     (mu4e-get-mail-command "offlineimap -a protonmail")
+	     (user-mail-address protonmail))
 	    ("uqtr"
 	     (mu4e-send-messages-behavior sent)
 	     (mu4e-sent-folder "/uqtr/sent")
@@ -87,6 +94,8 @@
                 google)
               ((mu4e-message-contact-field-matches msg :to ncf)
                 ncf)
+              ((mu4e-message-contact-field-matches msg :to protonmail)
+                protonmail)
               ((mu4e-message-contact-field-matches msg :to uqtr)
                 uqtr)
               (t ncf))))))))
@@ -127,4 +136,9 @@
     (use-package org-mu4e
       :ensure nil
       :init
-      (setq org-mu4e-link-query-in-headers-mode nil))))
+      (setq org-mu4e-link-query-in-headers-mode nil)
+      (setq mu4e-org-contacts-file "~/org/system/contacts.org")
+      (add-to-list 'mu4e-headers-actions
+                   '("org-contact-add" . mu4e-action-add-org-contact) t)
+      (add-to-list 'mu4e-view-actions
+                   '("org-contact-add" . mu4e-action-add-org-contact) t))))

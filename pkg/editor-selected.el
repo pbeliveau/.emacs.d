@@ -1,12 +1,13 @@
 (use-package xah-lookup
   :ensure t
+  :diminish
   :init
   (setq xah-lookup-browser-function 'eww))
 
 (use-package selected
   :ensure t
   :demand t
-  :diminish selected-minor-mode
+  :diminish
   :bind (:map selected-keymap
               ("U" . unfill-region)
               ("a" . align)

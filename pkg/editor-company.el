@@ -1,5 +1,28 @@
+(use-package company
+  :ensure t
+  :diminish
+  :init (global-company-mode 1)
+  :commands (company-mode)
+  :bind (:map company-active-map
+          ("M-n" . nil)
+          ("M-p" . nil)
+          ([tab] . company-select-next)
+          ([backtab] . company-select-previous)
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous))
+  :config
+  (setq company-idle-delay            0.1
+        company-minimum-prefix-length 3
+        company-selection-wrap-around t
+        company-show-numbers          t))
+
+(use-package company-auctex
+  :ensure t
+  :after (company latex))
+
 (use-package auto-complete
   :ensure t
+  :disabled t
   :diminish auto-complete-mode
   :bind (("M-RET" . auto-complete)
            :map ac-menu-map

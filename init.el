@@ -9,6 +9,7 @@
             '((bind-key    . "melpa")
               (diminish    . "melpa")
               (use-package . "melpa")))
+(package-initialize)
 
 ;; use-package
 (unless (package-installed-p 'use-package)

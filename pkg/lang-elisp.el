@@ -1,6 +1,6 @@
 (use-package paredit
   :ensure t
-  :diminish paredit-mode
+  :diminish
   :hook ((emacs-lisp-mode                  . enable-paredit-mode)
          (eval-expression-minibuffer-setup . enable-paredit-mode)
          (ielm-mode                        . enable-paredit-mode)

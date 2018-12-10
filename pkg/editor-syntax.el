@@ -1,6 +1,6 @@
 (use-package auto-fill-mode
   :ensure nil
-  :diminish t
+  :diminish
   :init
   (setq-default fill-column 80)
   :hook

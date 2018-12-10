@@ -29,21 +29,21 @@
       mouse-yank-at-point t)
 
 ;; font
-(use-package all-the-icons
-  :ensure t)
+;; (use-package all-the-icons
+;;   :ensure t)
 
-(use-package all-the-icons-dired
-  :ensure t
-  :init
-  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+;; (use-package all-the-icons-dired
+;;   :ensure t
+;;   :init
+;;   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
-(use-package all-the-icons-ivy
-  :ensure t
-  :config
-  (all-the-icons-ivy-setup))
+;; (use-package all-the-icons-ivy
+;;   :ensure t
+;;   :config
+;;   (all-the-icons-ivy-setup))
 
-(use-package mode-icons
-  :ensure t)
+;; (use-package mode-icons
+;;   :ensure t)
 
 (set-face-attribute 'default nil :height 110)
 (set-frame-font "Misc Tamsyn:pixelsize=14")
@@ -59,12 +59,14 @@
         calendar-longitude -75.69)
   :config
   (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . atom-one-dark)))
+                           (:sunset  . tao-yang)
+                           ;; (:sunset  . atom-one-dark)
+))
   (circadian-setup))
 
 (use-package whitespace
   :ensure nil
-  :diminish whitespace-mode
+  :diminish
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)
   :config

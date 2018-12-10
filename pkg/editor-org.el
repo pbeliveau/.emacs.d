@@ -29,7 +29,7 @@
           ("PAUSED" :foreground "orange" :weight bold)
           ("TODELEGATE" :foreground "gray" :weight bold)
           ("DELEGATED" :foreground "dark gray" :weight bold)
-          ("WAITING" :foreground "snow" :weight bold)
+          ("WAITING" :foreground "PeachPuff3" :weight bold)
           ("SOMEDAY" :foreground "snow4" :weight bold)
           ("TOBLOG" :foreground "dark sea green" :weight bold)
           ("WRITING" :foreground "sea green" :weight bold)
@@ -59,9 +59,8 @@
 
 (use-package org-contacts
   :ensure nil
-  :after org
-  :config
-  (setq org-contacts-files (concat org-directory "/system/contacts.org")))
+  :custom
+  (org-contacts-files '("~/org/system/contacts.org")))
 
 (use-package org-agenda
   :ensure nil

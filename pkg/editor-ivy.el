@@ -1,7 +1,7 @@
 ;; jwiegley config of ivy,
 ;; will change later.
 (use-package ivy
-  :diminish t
+  :diminish
   :demand t
   :ensure t
   :bind (("C-x b"   . ivy-switch-buffer)
