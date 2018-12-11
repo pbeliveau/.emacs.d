@@ -8,3 +8,4 @@
 !eshell/alias
 !lisp/
 !lisp/*.el
+!screenshot.png
