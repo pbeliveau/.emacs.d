@@ -1,6 +1,8 @@
 ; dired custom settings
 (use-package dired
   :ensure nil
+  :bind (:map dired-mode-map
+        ("M-RET" . dired-do-xdg-open))
   :init
   (use-package dired-x
     :ensure nil)
@@ -11,8 +13,8 @@
       (dired-do-async-shell-command
       "xdg-open" current-prefix-arg
       (dired-get-marked-files t current-prefix-arg))))
-  :bind (:map dired-mode-map
-        ("M-RET" . dired-do-xdg-open)))
+  (setq wdired-create-parent-directories   t
+        wdired-allow-to-change-permissions t))
 
 (use-package treemacs
   :pin melpa-stable

@@ -62,3 +62,28 @@
   :config
   (ivy-mode 1)
   (ivy-set-occur 'ivy-switch-buffer 'ivy-switch-buffer-occur))
+
+(use-package swiper
+  :ensure t
+  :after ivy
+  :bind (("C-s" . swiper)
+         :map swiper-map
+              ("M-y" . yank)
+              ("M-%" . swiper-query-replace)
+              ("C-." . swiper-avy)))
+
+(use-package counsel
+  :diminish
+  :ensure t
+  :after ivy
+  :demand t
+  :bind (("C-*"     . counsel-org-agenda-headlines)
+         ("C-x C-f" . counsel-find-file)
+         ("M-x"     . counsel-M-x)
+         ("C-c e d" . counsel-describe-function)
+         ("C-c e f" . counsel-file-jump)
+         ("C-c e j" . counsel-dired-jump)
+         ("C-c e l" . counsel-find-library)
+         ("C-c e q" . counsel-set-variable)
+         ("C-c e u" . counsel-unicode-char)
+         ("C-x r b" . counsel-bookmark)))

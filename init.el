@@ -23,14 +23,14 @@
 (setq use-package-always-ensure t)
 
 ;; dependencies
-(use-package async    :pin melpa)
-(use-package dash     :pin melpa)
-(use-package ht       :pin melpa)
-(use-package s        :pin melpa)
-(use-package f        :pin melpa)
-(use-package queue    :pin gnu)
-(use-package epl      :pin melpa)
-(use-package pkg-info :pin melpa)
+(use-package async     :pin melpa)
+(use-package dash      :pin melpa)
+(use-package ht        :pin melpa)
+(use-package s         :pin melpa)
+(use-package f         :pin melpa)
+(use-package queue     :pin gnu)
+(use-package epl       :pin melpa)
+(use-package pkg-info  :pin melpa)
 
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)
