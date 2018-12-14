@@ -55,11 +55,12 @@
   :init
   (use-package tao-theme            :ensure t :defer t)
   (use-package atom-one-dark-theme  :ensure t :defer t)
+  (use-package purp-theme           :ensure t :defer t)
   (setq calendar-latitude   45.41
         calendar-longitude -75.69)
   :config
   (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . tao-yang)
+                           (:sunset  . purp)
                            ;; (:sunset  . atom-one-dark)
 ))
   (circadian-setup))
