@@ -96,3 +96,9 @@
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
+
+(use-package pack
+  :after dired
+  :ensure t
+  :bind (:map dired-mode-map
+        ("P" . pack-dired-dwim)))

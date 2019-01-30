@@ -15,6 +15,8 @@
         org-list-description-max-indent 4
         org-startup-folded              (quote overview)
         org-startup-indented            t
+        org-tag-alist                   '(
+                                          ("crypt" . ?C))
         org-todo-keywords
         '((sequence "TODO" "STARTED" "RECUR" "PAUSED" "|" "DONE")
           (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
@@ -175,8 +177,9 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-crypt
  :ensure nil
  :after org
- :config
+ :init
  (org-crypt-use-before-save-magic)
+ :config
  (setq org-crypt-key "8BED3C59AE2C7F3632720D33F40268B8FFE4102A"
        org-tags-exclude-from-inheritance (quote ("crypt"))))
 
@@ -188,7 +191,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (defun get-journal-file-yesterday ()
     "Gets filename for yesterday's journal entry."
     (let* ((yesterday (time-subtract (current-time) (days-to-time 1)))
-           (daily-name (format-time-string "%Y%m%d" yesterday)))
+           (daily-name (format-time-string "%Y%m%d.org" yesterday)))
       (expand-file-name (concat org-journal-dir daily-name))))
 
   (defun journal-file-yesterday ()
@@ -200,7 +203,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-dir (concat org-directory "/authorship/")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
-        org-journal-file-format               "%Y%m%d"
+        org-journal-file-format               "%Y%m%d.org"
         org-journal-time-format               ""))
 
 (use-package ox-word

@@ -1,4 +1,5 @@
 (use-package pdf-tools
+  :if (not (memq window-system '(w32)))
   :ensure t
   :config
   (pdf-tools-install)

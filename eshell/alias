@@ -2,8 +2,8 @@ alias ff find-file $1
 alias d dired $1
 alias ll ls -lat $1
 alias pastebin ~/dotfiles/scripts/pastebin $*
-alias scan ~/dotfiles/scripts/scan2pdf $*
-alias speedtest ~/dotfiles/scripts/speedtest
+alias scan ~/documents/software/bash/scan2pdf/scan2pdf.sh $*
+alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
 alias update ~/dotfiles/scripts/update $*
 alias layout ~/dotfiles/scripts/active-layout
 alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
@@ -13,3 +13,6 @@ alias remove sudo pacman -Rs $*
 alias bridge ~/dotfiles/scripts/bridge $*
 alias vpn sudo /usr/local/bin/protonvpn-cli $*
 alias ipify ~/dotfiles/scripts/ipify
+alias davsync rsync -avrc --size-only --no-whole-file $*
+alias tasks-work-dl sh ~/documents/software/bash/onedrive-business/download-task.sh
+alias tasks-work-up sh ~/documents/software/bash/onedrive-business/upload-org.sh

@@ -1,23 +1,24 @@
 (use-package elfeed
+  :if (not (memq window-system '(w32)))
   :ensure   t
   :commands elfeed
   :bind (("C-c 3" . elfeed)
          :map elfeed-search-mode-map
-                ("R" . elfeed-mark-all-as-read)
-                ("U" . elfeed-update)
-                ("A" . pb/elfeed-show-all)
-                ("D" . pb/elfeed-show-daily)
-                ("E" . pb/elfeed-show-emacs)
-                ("T" . pb/elfeed-show-tech)
-                ("P" . pb/elfeed-show-pol)
-                ("L" . pb/elfeed-show-lang)
-                ("O" . pb/elfeed-show-unix))
+         ("R" . elfeed-mark-all-as-read)
+         ("U" . elfeed-update)
+         ("A" . pb/elfeed-show-all)
+         ("D" . pb/elfeed-show-daily)
+         ("E" . pb/elfeed-show-emacs)
+         ("T" . pb/elfeed-show-tech)
+         ("P" . pb/elfeed-show-pol)
+         ("L" . pb/elfeed-show-lang)
+         ("O" . pb/elfeed-show-unix))
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (defun elfeed-mark-all-as-read ()
-      (interactive)
-      (mark-whole-buffer)
-      (elfeed-search-untag-all-unread))
+    (interactive)
+    (mark-whole-buffer)
+    (elfeed-search-untag-all-unread))
   (defun pb/elfeed-show-all ()
     (interactive)
     (bookmark-maybe-load-default-file)
@@ -50,6 +51,7 @@
   (shr-width 80))
 
 (use-package elfeed-org
+  :if (not (memq window-system '(w32)))
   :ensure t
   :after elfeed
   :config

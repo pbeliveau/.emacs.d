@@ -20,50 +20,20 @@
   :ensure t
   :after (company latex))
 
-(use-package auto-complete
+(use-package company-anaconda
   :ensure t
-  :disabled t
-  :diminish auto-complete-mode
-  :bind (("M-RET" . auto-complete)
-           :map ac-menu-map
-             ("C-n" . ac-next)
-             ("C-p" . ac-previous)
-             ("<tab>" . ac-complete)
-             ("C-SPC" . ac-expand))
-  :config
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t))
-  (setq ac-auto-start   nil
-        ac-dwim         t
-        ac-ignore-case  t
-        ac-menu-height  20
-        ac-use-fuzzy    nil
-        ac-use-menu-map t
-        ac-modes '(emacs-lisp-mode
-                   lisp-mode
-                   c-mode
-                   clojure-mode
-                   clojurescript-mode
-                   scala-mode
-                   scheme-mode
-                   perl-mode
-                   python-mode
-                   ruby-mode
-                   ecmascript-mode
-                   js-mode
-                   css-mode
-                   makefile-mode
-                   sh-mode
-                   xml-mode)))
+  :after (company python-mode anaconda-mode))
 
-(global-set-key (kbd "M-/") 'hippie-expand)
-(setq hippie-expand-try-functions-list
+(use-package hippie-exp
+  :ensure nil
+  :bind ("M-/" . hippie-expand)
+  :config
+  (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill
         try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
+        try-complete-lisp-symbol)))
 
 (use-package which-key
   :ensure t

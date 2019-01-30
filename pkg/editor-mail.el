@@ -1,4 +1,5 @@
 (use-package message
+  :if (not (memq window-system '(w32)))
   :ensure nil
   :init
   (load "~/.emacs.d/mail/.mailauth")
@@ -15,6 +16,7 @@
                    ((string-match google from) "gmail")
                    ((string-match ncf from) "ncf")
                    ((string-match protonmail from) "protonmail")
+                   ((string-match work from) "montfort")
                    ((string-match uqtr from) "uqtr"))))
               (setq message-sendmail-extra-arguments (list '"-a" account)))))))
   :config
@@ -27,6 +29,7 @@
   (add-hook 'message-send-mail-hook 'choose-msmtp-account))
 
 (use-package mu4e
+  :if (not (memq window-system '(w32)))
   :if (executable-find "mu")
   :ensure nil
   :load-path "site-lisp/mu4e/"
@@ -77,6 +80,12 @@
 	     (mu4e-drafts-folder "/protonmail/drafts")
 	     (mu4e-get-mail-command "offlineimap -a protonmail")
 	     (user-mail-address protonmail))
+	    ("work"
+	     (mu4e-sent-messages-behavior sent)
+	     (mu4e-sent-folder "/work/sent")
+	     (mu4e-drafts-folder "/work/drafts")
+	     (mu4e-get-mail-command "offlineimap -a work")
+	     (user-mail-address work))
 	    ("uqtr"
 	     (mu4e-send-messages-behavior sent)
 	     (mu4e-sent-folder "/uqtr/sent")
@@ -96,6 +105,8 @@
                 ncf)
               ((mu4e-message-contact-field-matches msg :to protonmail)
                 protonmail)
+              ((mu4e-message-contact-field-matches msg :to work)
+                work)
               ((mu4e-message-contact-field-matches msg :to uqtr)
                 uqtr)
               (t ncf)))))))
