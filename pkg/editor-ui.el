@@ -77,3 +77,7 @@
                                 empty
                                 space-before-tab::tab
                                 space-before-tab::space)))
+
+(use-package darkroom
+  :pin gnu
+  :ensure t)
