@@ -1,3 +1,10 @@
+(if (not (memq window-system '(w32)))
+    (setq tasksfile "tasks.org")
+  (setq tasksfile "tasks-work.org"))
+(if (not (memq window-system '(w32)))
+    (setq orgdir "~/org")
+  (setq orgdir "~/One Drive Hôpital Montfort/org"))
+
 (use-package org
   :pin org
   :ensure org-plus-contrib
@@ -8,8 +15,8 @@
   (use-package org-id :ensure nil)
   (setq fill-column                     80
         org-adapt-indentation           nil
+        org-directory                   orgdir
         org-default-notes-file          (concat org-directory "/journal.org")
-        org-directory                   "~/org"
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
         org-list-description-max-indent 4
@@ -57,7 +64,7 @@
   (defun switch-to-org-tasks ()
     (interactive)
     (find-file (concat org-directory "/tasks.org"))
-    (switch-to-buffer "tasks.org")))
+    (switch-to-buffer tasksfile)))
 
 (use-package org-contacts
   :ensure nil
@@ -82,6 +89,7 @@
   :hook (org-mode . org-bullets-mode))
 
 (use-package org-gcal
+  :if (not (memq window-system '(w32)))
   :ensure t
   :init
   (load "~/.emacs.d/.calauth")
@@ -151,7 +159,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       my/org-contacts-template
       :empty-lines 1)
      ("t" "todo" entry
-      (file+headline "tasks.org" "tasks"),
+      (file+headline tasksfile "tasks"),
       my/org-task-template
       :empty-lines 1
       :immediate-finish t)
@@ -164,21 +172,19 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
            :prepend t
            :immediate-finish t)
      ("b" "blog" entry
-      (file+headline "tasks.org" "tasks")
+      (file+headline tasksfile "tasks")
            "* TOBLOG %?"
            :prepend t)
      ("s" "schedule" entry
       (file "system/schedule.org"),
       my/org-schedule-template)
      ("m" "mail todo" entry
-      (file+headline "tasks.org" "Mail")
+      (file+headline tasksfile "Mail")
        my/org-mail-template))))
 
 (use-package org-crypt
  :ensure nil
  :after org
- :init
- (org-crypt-use-before-save-magic)
  :config
  (setq org-crypt-key "8BED3C59AE2C7F3632720D33F40268B8FFE4102A"
        org-tags-exclude-from-inheritance (quote ("crypt"))))
@@ -207,6 +213,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-time-format               ""))
 
 (use-package ox-word
+  :if (not (memq window-system '(w32)))
   :ensure nil
   :after org
   :init

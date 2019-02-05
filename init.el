@@ -31,7 +31,9 @@
 (use-package queue                             :pin gnu)
 (use-package epl                               :pin melpa)
 (use-package pkg-info                          :pin melpa)
-(use-package use-package-ensure-system package :pin melpa)
+(use-package use-package-ensure-system-package
+  :pin melpa
+  :if (not (memq window-system '(w32))))
 
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)

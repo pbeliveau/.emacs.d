@@ -131,6 +131,7 @@
               (lambda () (local-set-key (kbd "C-c C-w") #'my-mu4e-choose-signature))))
 
   (use-package mu4e-alert
+    :if (not (memq window-system '(w32)))
     :if (executable-find "mu")
     :ensure t
     :hook
@@ -144,6 +145,7 @@
     (mu4e-alert-set-default-style 'libnotify))
 
   (use-package mu4e-vars
+    :if (not (memq window-system '(w32)))
     :ensure nil
     :config
     (setq

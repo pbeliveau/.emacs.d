@@ -28,26 +28,13 @@
       apropos-do-all t
       mouse-yank-at-point t)
 
-;; font
-;; (use-package all-the-icons
-;;   :ensure t)
-
-;; (use-package all-the-icons-dired
-;;   :ensure t
-;;   :init
-;;   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
-
-;; (use-package all-the-icons-ivy
-;;   :ensure t
-;;   :config
-;;   (all-the-icons-ivy-setup))
-
-;; (use-package mode-icons
-;;   :ensure t)
+(if (not (memq window-system '(w32)))
+    (setq framefont "Misc Tamsyn:pixelsize=14")
+    (setq framefont "Consolas:pixelsize=14"))
 
 (set-face-attribute 'default nil :height 110)
-(set-frame-font "Misc Tamsyn:pixelsize=14")
-(setq default-frame-alist '((font . "Misc Tamsyn:pixelsize=14")))
+(set-frame-font framefont)
+(setq default-frame-alist '((font . framefont)))
 
 ;; theme
 (use-package circadian

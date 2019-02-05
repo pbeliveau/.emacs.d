@@ -10,7 +10,10 @@
            ("C-c i m" . ispell-message)
            ("C-c i r" . ispell-region)
            ("C-c i w" . ispell-word)))
-  (use-package flycheck-ledger :ensure t :after ledger-mode)
+  (use-package flycheck-ledger
+    :if (not (memq window-system '(w32)))
+    :ensure t
+    :after ledger-mode)
   :commands (flycheck-mode
              flycheck-next-error
              flycheck-previous-error)

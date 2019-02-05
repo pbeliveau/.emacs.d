@@ -1,5 +1,6 @@
 ;; Manage package outside GNU Emacs
 (use-package system-packages
+  :if (not (memq window-system '(w32)))
   :pin gnu
   :ensure t
   :bind
