@@ -221,5 +221,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :ensure nil)
   :load-path "lisp/")
 
+(use-package zpresent
+  :ensure t)
+
 (setq inhibit-startup-message t)
 (org-agenda-list)

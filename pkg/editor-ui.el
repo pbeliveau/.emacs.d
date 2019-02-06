@@ -28,13 +28,9 @@
       apropos-do-all t
       mouse-yank-at-point t)
 
-(if (not (memq window-system '(w32)))
-    (setq framefont "Misc Tamsyn:pixelsize=14")
-    (setq framefont "Consolas:pixelsize=14"))
-
 (set-face-attribute 'default nil :height 110)
-(set-frame-font framefont)
-(setq default-frame-alist '((font . framefont)))
+(set-frame-font "Consolas:pixelsize=13")
+(setq default-frame-alist '((font . "Consolas:pixelsize=13")))
 
 ;; theme
 (use-package circadian
