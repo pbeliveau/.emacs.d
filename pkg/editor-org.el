@@ -1,9 +1,9 @@
 (if (not (memq window-system '(w32)))
-    (setq tasksfile "tasks.org")
-  (setq tasksfile "tasks-work.org"))
+    (setq tasksfile "/tasks.org")
+  (setq tasksfile "/tasks-work.org"))
 (if (not (memq window-system '(w32)))
     (setq orgdir "~/org")
-  (setq orgdir "~/One Drive Hôpital Montfort/org"))
+  (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
 
 (use-package org
   :pin org
@@ -63,7 +63,7 @@
     (org-map-entries (lambda () (org-custom-id-get (point) 'create))))
   (defun switch-to-org-tasks ()
     (interactive)
-    (find-file (concat org-directory "/tasks.org"))
+    (find-file (concat org-directory tasksfile))
     (switch-to-buffer tasksfile)))
 
 (use-package org-contacts
@@ -80,7 +80,7 @@
         org-agenda-files                (list (concat org-directory
                                             "/system/schedule.org")
                                               (concat org-directory
-                                                      "/tasks.org")
+                                                      tasksfile)
                                               (concat org-directory
                                                  "/journal.org"))))
 

@@ -1,9 +1,11 @@
 (use-package flycheck
+  :pin melpa
   :ensure t
   :bind (("C-c i b"   . flyspell-buffer)
          ("C-c i f"   . flyspell-mode))
   :init
   (use-package ispell
+    :ensure nil
     :bind (("C-c i c" . ispell-comments-and-strings)
            ("C-c i d" . ispell-change-dictionary)
            ("C-c i k" . ispell-kill-ispell)
