@@ -69,7 +69,8 @@
 (use-package org-contacts
   :ensure nil
   :custom
-  (org-contacts-files '("~/org/system/contacts.org")))
+  (org-contacts-files '(concat org-directory
+                               "/system/contacts.org")))
 
 (use-package org-agenda
   :ensure nil

@@ -16,3 +16,4 @@ alias ipify ~/dotfiles/scripts/ipify
 alias davsync rsync -avrc --size-only --no-whole-file $*
 alias tasks-work-dl sh ~/documents/software/bash/onedrive-business/download-task.sh
 alias tasks-work-up sh ~/documents/software/bash/onedrive-business/upload-org.sh
+alias undervolt sudo undervolt $*
