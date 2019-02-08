@@ -28,4 +28,6 @@
   :ensure t
   :defer 1
   :config
+  (setq paradox-display-download-count t
+        paradox-execute-asynchronously t)
   (paradox-enable))
