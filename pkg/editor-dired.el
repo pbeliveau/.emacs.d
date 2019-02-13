@@ -102,3 +102,6 @@
   :ensure t
   :bind (:map dired-mode-map
         ("P" . pack-dired-dwim)))
+
+(use-package dired-rmjunk
+  :ensure t)
