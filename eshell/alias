@@ -2,19 +2,23 @@ alias bridge ~/dotfiles/scripts/bridge $*
 alias connect ~/dotfiles/scripts/network $*
 alias d dired $1
 alias davsync rsync -avrc --size-only --no-whole-file $*
-alias disconnect sudo netctl stop-all
+alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
 alias ff find-file $1
 alias install sudo pacman -S $*
 alias ipify ~/dotfiles/scripts/ipify
 alias layout ~/dotfiles/scripts/active-layout
 alias ll ls -lat $1
+alias modprobe sudo modprobe $*
 alias pastebin ~/dotfiles/scripts/pastebin $*
 alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
+alias pmake git pull && makepkg -si --needed
 alias remove sudo pacman -Rs $*
 alias scan ~/documents/software/bash/scan2pdf/scan2pdf.sh $*
+alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
 alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
 alias tasks-work-dl sh ~/documents/software/bash/onedrive-business/download-task.sh
 alias tasks-work-up sh ~/documents/software/bash/onedrive-business/upload-org.sh
+alias tping ping -c 3 archlinux.org
 alias undervolt sudo undervolt $*
 alias update ~/dotfiles/scripts/update $*
 alias vpn sudo /usr/local/bin/protonvpn-cli $*
