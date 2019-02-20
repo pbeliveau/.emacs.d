@@ -31,3 +31,7 @@
   (setq paradox-display-download-count t
         paradox-execute-asynchronously t)
   (paradox-enable))
+
+;; View and manager disk-usage
+(use-package disk-usage
+  :ensure t)
