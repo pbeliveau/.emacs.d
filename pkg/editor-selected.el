@@ -28,3 +28,10 @@
   (setq selected-org-mode-map (make-sparse-keymap))
   :config
   (selected-global-mode 1))
+
+(use-package palimpsest
+  :ensure t
+  :defer t
+  :diminish palimpsest-mode
+  :config
+  (setq palimpsest-trash-file-suffix ".archive"))

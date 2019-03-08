@@ -1,10 +1,3 @@
-(if (not (memq window-system '(w32)))
-    (setq tasksfile "/tasks.org")
-  (setq tasksfile "/tasks-work.org"))
-(if (not (memq window-system '(w32)))
-    (setq orgdir "~/org")
-  (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
-
 (use-package org
   :pin org
   :ensure org-plus-contrib
@@ -13,9 +6,10 @@
   :bind ("C-C t" . switch-to-org-tasks)
   :config
   (use-package org-id :ensure nil)
+  (use-package org-checklist :ensure nil)
   (setq fill-column                     80
         org-adapt-indentation           nil
-        org-directory                   orgdir
+        org-directory                   "~/org"
         org-default-notes-file          (concat org-directory "/journal.org")
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
@@ -24,6 +18,9 @@
         org-startup-indented            t
         org-tag-alist                   '(
                                           ("crypt" . ?C))
+        org-refile-targets
+          '((("~/org/tasks.org") :maxlevel . 2)
+            (("~/org/tasks-work.org") :maxlevel . 2))
         org-todo-keywords
         '((sequence "TODO" "STARTED" "RECUR" "PAUSED" "|" "DONE")
           (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
@@ -63,8 +60,8 @@
     (org-map-entries (lambda () (org-custom-id-get (point) 'create))))
   (defun switch-to-org-tasks ()
     (interactive)
-    (find-file (concat org-directory tasksfile))
-    (switch-to-buffer tasksfile)))
+    (find-file (concat org-directory "/tasks.org"))
+    (switch-to-buffer "tasks.org")))
 
 (use-package org-contacts
   :ensure nil
@@ -81,7 +78,9 @@
         org-agenda-files                (list (concat org-directory
                                             "/system/schedule.org")
                                               (concat org-directory
-                                                      tasksfile)
+                                                      "/tasks.org")
+                                              (concat org-directory
+                                                 "/tasks-work.org")
                                               (concat org-directory
                                                  "/journal.org"))))
 
@@ -160,7 +159,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       my/org-contacts-template
       :empty-lines 1)
      ("t" "todo" entry
-      (file+headline tasksfile "tasks"),
+      (file+headline "/tasks.org" "tasks"),
       my/org-task-template
       :empty-lines 1
       :immediate-finish t)
@@ -173,14 +172,14 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
            :prepend t
            :immediate-finish t)
      ("b" "blog" entry
-      (file+headline tasksfile "tasks")
+      (file+headline "/tasks.org" "tasks")
            "* TOBLOG %?"
            :prepend t)
      ("s" "schedule" entry
       (file "system/schedule.org"),
       my/org-schedule-template)
      ("m" "mail todo" entry
-      (file+headline tasksfile "Mail")
+      (file+headline "/tasks.org" "Mail")
        my/org-mail-template))))
 
 (use-package org-crypt
@@ -224,6 +223,3 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package zpresent
   :ensure t)
-
-(setq inhibit-startup-message t)
-(org-agenda-list)

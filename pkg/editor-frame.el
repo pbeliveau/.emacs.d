@@ -22,6 +22,11 @@
           ("M-o" . nil)))
   :bind ("M-o" . ace-window))
 
+(use-package buffer-expose
+  :ensure nil
+  :init
+  (buffer-expose-mode 1))
+
 (use-package buffer-flip
   :ensure t
   :bind  (("M-<tab>" . buffer-flip)
@@ -36,7 +41,7 @@
 
 (use-package golden-ratio
   :ensure t
-  :diminish golden-ratio-mode
+  :diminish
   :init
   (golden-ratio-mode 1)
   :config
@@ -45,7 +50,7 @@
 (use-package minimap
   :if (display-graphic-p)
   :ensure t
-  :diminish t
+  :diminish
   :bind ("C-c m" . minimap-mode)
   :config
   (setq minimap-window-location 'right
@@ -66,7 +71,3 @@
 
 (show-paren-mode 1)
 (global-hl-line-mode 1)
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)

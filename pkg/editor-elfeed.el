@@ -1,6 +1,6 @@
 (use-package elfeed
   :if (not (memq window-system '(w32)))
-  :ensure   t
+  :ensure t
   :commands elfeed
   :bind (("C-c 3" . elfeed)
          :map elfeed-search-mode-map

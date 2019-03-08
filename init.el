@@ -23,6 +23,7 @@
 (setq use-package-always-ensure t)
 
 ;; dependencies
+(use-package diminish                          :pin melpa)
 (use-package async                             :pin melpa)
 (use-package dash                              :pin melpa)
 (use-package ht                                :pin melpa)
