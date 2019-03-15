@@ -7,7 +7,7 @@
 (use-package selected
   :ensure t
   :demand t
-  :diminish
+  :diminish selected-minor-mode
   :bind (:map selected-keymap
               ("U" . unfill-region)
               ("a" . align)

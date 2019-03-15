@@ -49,6 +49,7 @@
         mu4e-compose-signature-auto-include nil
         mu4e-headers-date-format            "%Y/%m/%d %H:%M"
         mu4e-html2text-command              "iconv -c -t utf-8 | pandoc -f html -t plain"
+        mu4e-update-interval                300
         mu4e-view-show-addresses            t
         mu4e-view-show-images               t
         mu4e-view-image-max-width           800

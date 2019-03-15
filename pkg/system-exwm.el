@@ -32,6 +32,15 @@
     (setq dmenu-prompt-string "dmenu: ")
     (exwm-input-set-key (kbd "M-g d") 'dmenu))
 
+  (use-package exwm-randr
+    :after exwm
+    :ensure nil
+    :demand t
+    :init
+    (setq exwm-randr-workspace-monitor-plist '(0 "eDP1" 1 "HDMI1" 2 "DVI-I-1-1"))
+    :config
+    (exwm-randr-enable))
+
   (use-package exwm-input
     :ensure nil
     :after exwm
@@ -59,6 +68,13 @@
       :ensure t
       :demand t
       :after exwm-input
+      :bind (("s-y"   . desktop-environment-screenshot-part)
+             ("s-p"   . desktop-environment-screenshot)
+             ("s-s m" . desktop-environment-toggle-mute)
+             ("s-s i" . desktop-environment-volume-increment)
+             ("s-s d" . desktop-environment-volume-decrement)
+             ("s-b i" . desktop-environment-brightness-increment)
+             ("s-b d" . desktop-environment-brightness-decrement))
       :config
       (setq desktop-environment-screenshot-directory "~/media/screenshot")
       (progn
@@ -123,5 +139,11 @@
     (when (y-or-n-p "Really want to reboot?")
       (pbeliveau/emacs-teardown)
       (start-process-shell-command "reboot" nil "reboot")))
+  (defun pbeliveau/sleep ()
+    "Save all Emacs buffers and reboot."
+    (interactive)
+    (when (y-or-n-p "Really want to suspend?")
+      (start-process-shell-command "suspend" nil "suspend")))
 
-  (exwm-enable))
+  (exwm-enable)
+  (call-powersettings))

@@ -16,34 +16,32 @@
 
 (use-package ace-window
   :ensure t
-  :init
-  (use-package ibuffer
-    :bind (:map ibuffer-mode-map
-          ("M-o" . nil)))
   :bind ("M-o" . ace-window))
 
-(use-package buffer-expose
-  :ensure nil
-  :init
-  (buffer-expose-mode 1))
-
-(use-package buffer-flip
+(use-package winum
   :ensure t
-  :bind  (("M-<tab>" . buffer-flip)
-          :map buffer-flip-map
-          ( "M-<tab>" .   buffer-flip-forward)
-          ( "M-S-<tab>" . buffer-flip-backward)
-          ( "M-ESC" .     buffer-flip-abort))
+  :diminish winum-mode
+  :bind (("M-1" . winum-select-window-1)
+         ("M-2" . winum-select-window-2)
+         ("M-3" . winum-select-window-3)
+         ("M-4" . winum-select-window-4)
+         ("M-5" . winum-select-window-5))
   :config
-  (setq buffer-flip-skip-patterns
-        '("^\\*helm\\b"
-          "^\\*swiper\\*$")))
+  (winum-mode))
+
+(use-package dumb-jump
+  :ensure t
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy))
 
 (use-package golden-ratio
   :ensure t
   :diminish
-  :init
-  (golden-ratio-mode 1)
+  :bind ("C-c g" . golden-ratio-mode)
   :config
   (setq golden-ratio-auto-scale t))
 
@@ -59,15 +57,15 @@
   :custom-face
   (minimap-active-region-background ((t (:background "#b0b6c1")))))
 
-(use-package uniquify
-  :ensure nil
-  :config
-  (setq uniquify-buffer-name-style 'forward))
-
 (use-package move-text
   :ensure t
   :bind (("M-n" . move-text-down)
          ("M-p" . move-text-up)))
+
+(use-package uniquify
+  :ensure nil
+  :config
+  (setq uniquify-buffer-name-style 'forward))
 
 (show-paren-mode 1)
 (global-hl-line-mode 1)
