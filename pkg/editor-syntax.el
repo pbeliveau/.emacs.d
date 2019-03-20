@@ -19,7 +19,21 @@
          ("M-c" . fix-word-capitalize)))
 
 (use-package origami
-  :ensure t)
+  :ensure t
+  :diminish
+  :commands origami-mode
+  :hook prog-mode
+  :bind (("C-c C-o t" . origami-toggle-node)
+         ("C-c C-o r" . origami-toggle-all-nodes)
+         ("C-c C-o c" . origami-close-node)
+         ("C-c C-o o" . origami-open-node)
+         ("C-c C-o s" . origami-close-all-nodes)
+         ("C-c C-o w" . origami-open-all-nodes)
+         ("C-c C-o n" . origami-next-fold)
+         ("C-c C-o p" . origami-previous-fold)
+         ("C-c C-o f" . origami-forward-fold))
+  :config
+  (global-origami-mode))
 
 (use-package ws-butler
   :ensure t

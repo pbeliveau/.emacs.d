@@ -21,4 +21,8 @@ alias tasks-work-up sh ~/documents/software/bash/onedrive-business/upload-org.sh
 alias tping ping -c 3 archlinux.org
 alias undervolt sudo undervolt $*
 alias update ~/dotfiles/scripts/update $*
-alias vpn sudo /usr/local/bin/protonvpn-cli $*
+alias vpn sudo /usr/bin/protonvpn-cli $*
+alias tmute pamixer --sink 0 -t
+alias gmute pamixer --sink 0 --get-mute
+alias gvol pamixer --sink 0 --get-volume
+alias svol pamixer --sink -0 --set-volume $1

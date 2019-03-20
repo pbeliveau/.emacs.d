@@ -13,6 +13,7 @@
 
 (use-package eldoc
   :ensure nil
+  :diminish
   :hook ((emacs-lisp-mode        . turn-on-eldoc-mode)
           (lisp-interaction-mode . turn-on-eldoc-mode)
           (ielm-mode             . turn-on-eldoc-mode)

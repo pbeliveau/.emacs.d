@@ -10,6 +10,7 @@
   :diminish selected-minor-mode
   :bind (:map selected-keymap
               ("U" . unfill-region)
+              ("R" . query-replace)
               ("a" . align)
               ("d" . downcase-region)
               ("m" . apply-macro-to-region-lines)
