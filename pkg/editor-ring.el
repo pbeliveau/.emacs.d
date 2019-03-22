@@ -7,6 +7,7 @@
   :bind ("M-w" . easy-kill))
 
 (use-package simpleclip
+  :disabled t
   :ensure t
   :diminish
   :config

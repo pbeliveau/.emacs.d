@@ -110,26 +110,7 @@
                 work)
               ((mu4e-message-contact-field-matches msg :to uqtr)
                 uqtr)
-              (t ncf)))))))
-
-    (defun my-mu4e-choose-signature ()
-      "Insert one of a number of sigs"
-      (interactive)
-      (let ((message-signature
-              (mu4e-read-option "Signature:"
-                '(("formal" .
-                  (concat
-               "Philippe Beliveau\n"
-               "Corporate Financial Analyst\n"
-               "https://pbeliveau.ca\n"))
-                   ("informal" .
-                    (concat
-                     "Regards,\n"
-                     "Philippe"))))))
-        (message-insert-signature)))
-
-    (add-hook 'mu4e-compose-mode-hook
-              (lambda () (local-set-key (kbd "C-c C-w") #'my-mu4e-choose-signature))))
+              (t ncf))))))))
 
   (use-package mu4e-alert
     :if (not (memq window-system '(w32)))

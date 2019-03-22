@@ -45,6 +45,17 @@
   :config
   (setq golden-ratio-auto-scale t))
 
+(use-package link-hint
+  :ensure t
+  :bind
+  ("C-c C-c o" . link-hint-open-link)
+  ("C-c C-c c" . link-hint-copy-link)
+  ("C-c C-c y" . link-hint-copy-link-at-point)
+  ("C-c C-c d" . link-open-multiple-links)
+  :config
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "brave"))
+
 (use-package minimap
   :if (display-graphic-p)
   :ensure t
