@@ -1,3 +1,10 @@
+(if (not (memq window-system '(w32)))
+    (setq tasksfile "/tasks.org")
+  (setq tasksfile "/tasks-work.org"))
+(if (not (memq window-system '(w32)))
+    (setq orgdir "~/org")
+  (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
+
 (use-package org
   :pin org
   :ensure org-plus-contrib
@@ -9,7 +16,7 @@
   (use-package org-checklist :ensure nil)
   (setq fill-column                     80
         org-adapt-indentation           nil
-        org-directory                   "~/org"
+        org-directory                   orgdir
         org-default-notes-file          (concat org-directory "/journal.org")
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
@@ -19,8 +26,7 @@
         org-tag-alist                   '(
                                           ("crypt" . ?C))
         org-refile-targets
-          '((("~/org/tasks.org") :maxlevel . 2)
-            (("~/org/tasks-work.org") :maxlevel . 2))
+          '((((concat orgdir tasksfile) :maxlevel . 2)))
         org-todo-keywords
         '((sequence "TODO" "STARTED" "RECUR" "PAUSED" "|" "DONE")
           (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
@@ -64,6 +70,7 @@
     (switch-to-buffer "tasks.org")))
 
 (use-package org-contacts
+  :if (not (memq window-system '(w32)))
   :ensure nil
   :custom
   (org-contacts-files '(concat org-directory
