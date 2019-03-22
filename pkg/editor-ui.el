@@ -33,24 +33,30 @@
 (setq default-frame-alist '((font . "Consolas:pixelsize=13")))
 
 ;; theme
-(use-package circadian
-  :if (display-graphic-p)
+;; (use-package circadian
+;;   :disabled t
+;;   :if (display-graphic-p)
+;;   :ensure t
+;;   :init
+;;   (use-package tao-theme :ensure t :defer t)
+;;   (use-package spacemacs-theme
+;;     :ensure t
+;;     :defer t
+;;     :init
+;;     (setq spacemacs-theme-org-height    nil
+;;           spacemacs-theme-org-highlight nil
+;;           spacemacs-theme-org-bold      nil))
+;;   (setq calendar-latitude   45.41
+;;         calendar-longitude -75.69)
+;;   :config
+;;   (setq circadian-themes '((:sunrise . tao-yang)
+;;                            (:sunset  . spacemacs-dark)))
+;;   (circadian-setup))
+
+(use-package tao-theme
   :ensure t
-  :init
-  (use-package tao-theme :ensure t :defer t)
-  (use-package spacemacs-theme
-    :ensure t
-    :defer t
-    :init
-    (setq spacemacs-theme-org-height    nil
-          spacemacs-theme-org-highlight nil
-          spacemacs-theme-org-bold      nil))
-  (setq calendar-latitude   45.41
-        calendar-longitude -75.69)
   :config
-  (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . spacemacs-dark)))
-  (circadian-setup))
+  (load-theme 'tao-yang t))
 
 (use-package whitespace
   :ensure nil
