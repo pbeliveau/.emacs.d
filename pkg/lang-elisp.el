@@ -1,15 +1,19 @@
-(use-package paredit
+(use-package smartparens
   :ensure t
-  :diminish
-  :hook ((emacs-lisp-mode                  . enable-paredit-mode)
-         (eval-expression-minibuffer-setup . enable-paredit-mode)
-         (ielm-mode                        . enable-paredit-mode)
-         (lisp-mode                        . enable-paredit-mode)
-         (lisp-interaction-mode            . enable-paredit-mode)
-         (scheme-mode                      . enable-paredit-mode)
-         (clojure-mode                     . enable-paredit-mode)
-         (cider-repl-mode                  . enable-paredit-mode)))
-
+  :hook (prog-mode . smartparens-mode)
+  :bind (("C-:"     . sp-comment)
+         ("C-c d K" . sp-kill-whole-line)
+         ("C-c d W" . sp-delete-region)
+         ("C-c d c" . sp-clone-sexp)
+         ("C-c d d" . sp-delete-char)
+         ("C-c d k" . sp-kill-sexp)
+         ("C-c d n" . sp-next-sexp)
+         ("C-c d p" . sp-previous-sexp)
+         ("C-c d u" . sp-unwrap-sexp)
+         ("C-c d w" . sp-delete-word)
+         ("C-j"     . sp-newline))
+  :init
+  (use-package smartparens-config :ensure nil))
 
 (use-package eldoc
   :ensure nil
