@@ -35,6 +35,11 @@
 (use-package use-package-ensure-system-package
   :pin melpa
   :if (not (memq window-system '(w32))))
+(use-package quelpa                            :pin melpa)
+(use-package quelpa-use-package
+  :pin melpa
+  :config
+  (quelpa-use-package-activate-advice))
 
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)

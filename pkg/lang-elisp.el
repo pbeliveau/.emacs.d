@@ -1,14 +1,14 @@
 (use-package paredit
   :ensure t
   :diminish
-  :hook ((emacs-lisp-mode                  . paredit-mode)
-         (eval-expression-minibuffer-setup . paredit-mode)
-         (ielm-mode                        . paredit-mode)
-         (lisp-mode                        . paredit-mode)
-         (lisp-interaction-mode            . paredit-mode)
-         (scheme-mode                      . paredit-mode)
-         (clojure-mode                     . paredit-mode)
-         (cider-repl-mode                  . paredit-mode)))
+  :hook ((emacs-lisp-mode                  . enable-paredit-mode)
+         (eval-expression-minibuffer-setup . enable-paredit-mode)
+         (ielm-mode                        . enable-paredit-mode)
+         (lisp-mode                        . enable-paredit-mode)
+         (lisp-interaction-mode            . enable-paredit-mode)
+         (scheme-mode                      . enable-paredit-mode)
+         (clojure-mode                     . enable-paredit-mode)
+         (cider-repl-mode                  . enable-paredit-mode)))
 
 
 (use-package eldoc

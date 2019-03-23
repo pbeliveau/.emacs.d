@@ -38,6 +38,9 @@
          ("M-g z" . dumb-jump-go-prefer-external-other-window))
   :config (setq dumb-jump-selector 'ivy))
 
+(use-package frog-menu
+  :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
+
 (use-package golden-ratio
   :ensure t
   :diminish
