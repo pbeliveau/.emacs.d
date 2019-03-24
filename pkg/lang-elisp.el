@@ -4,6 +4,7 @@
   :bind (("C-:"     . sp-comment)
          ("C-c d K" . sp-kill-whole-line)
          ("C-c d W" . sp-delete-region)
+         ("C-c d b" . sp-indent-adjust-sexp)
          ("C-c d c" . sp-clone-sexp)
          ("C-c d d" . sp-delete-char)
          ("C-c d k" . sp-kill-sexp)
