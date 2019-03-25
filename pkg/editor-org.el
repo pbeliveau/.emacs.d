@@ -93,9 +93,7 @@
 
 (use-package org-bullets
   :ensure t
-  :hook (org-mode . org-bullets-mode)
-  :config
-  (setq org-bullets-bullet-list '("🌕" "🌔" "🌓" "🌒" "🌑")))
+  :hook (org-mode . org-bullets-mode))
 
 (use-package org-pomodoro
   :ensure t

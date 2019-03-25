@@ -1,4 +1,5 @@
 (use-package exwm
+  :if (not (memq window-system '(w32)))
   :if (string= (getenv "exwm_enable") "yes")
   :pin melpa
   :ensure t

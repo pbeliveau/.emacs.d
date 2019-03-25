@@ -32,12 +32,17 @@
 (use-package queue                             :pin gnu)
 (use-package epl                               :pin melpa)
 (use-package pkg-info                          :pin melpa)
+
+; Package management, unix systems only.
 (use-package use-package-ensure-system-package
   :pin melpa
   :if (not (memq window-system '(w32))))
-(use-package quelpa                            :pin melpa)
+(use-package quelpa
+  :pin melpa
+  :if (not (memq window-system '(w32))))
 (use-package quelpa-use-package
   :pin melpa
+  :if (not (memq window-system '(w32)))
   :config
   (quelpa-use-package-activate-advice))
 

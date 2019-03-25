@@ -39,6 +39,7 @@
   :config (setq dumb-jump-selector 'ivy))
 
 (use-package frog-menu
+  :if (not (memq window-system '(w32)))
   :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
 
 (use-package golden-ratio

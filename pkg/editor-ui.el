@@ -53,6 +53,9 @@
                            (:sunset  . spacemacs-dark)))
   (circadian-setup))
 
+(if (memq window-system '(w32))
+    (load-theme 'tao-yang t))
+
 (use-package whitespace
   :ensure nil
   :diminish
