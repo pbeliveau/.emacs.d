@@ -93,7 +93,16 @@
 
 (use-package org-bullets
   :ensure t
-  :hook (org-mode . org-bullets-mode))
+  :hook (org-mode . org-bullets-mode)
+  :config
+  (setq org-bullets-bullet-list '("🌕" "🌔" "🌓" "🌒" "🌑")))
+
+(use-package org-pomodoro
+  :ensure t
+  :config
+  (setq org-pomodoro-format "🍅%s"
+        org-pomodoro-short-break-format "☕%s"
+        org-pomodoro-long-break-format  "🌴%s"))
 
 (use-package org-gcal
   :if (not (memq window-system '(w32)))
