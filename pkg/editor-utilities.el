@@ -1,6 +1,9 @@
 (use-package chronometer
   :ensure t)
 
+(use-package md4rd
+  :ensure t)
+
 (use-package speed-type
   :ensure t)
 

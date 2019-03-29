@@ -18,6 +18,10 @@
          ("M-l" . fix-word-downcase)
          ("M-c" . fix-word-capitalize)))
 
+(use-package fold-this
+  :ensure t
+  :bind ("C-c C-f" . fold-this))
+
 (use-package origami
   :ensure t
   :diminish

@@ -25,4 +25,4 @@ alias vpn sudo /usr/bin/protonvpn-cli $*
 alias tmute pamixer --sink 0 -t
 alias gmute pamixer --sink 0 --get-mute
 alias gvol pamixer --sink 0 --get-volume
-alias svol pamixer --sink -0 --set-volume $1
+alias svol pamixer --sink 0 --set-volume $1
