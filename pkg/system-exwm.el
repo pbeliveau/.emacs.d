@@ -153,19 +153,19 @@
     (when (y-or-n-p "Really want to suspend?")
       (start-process-shell-command "suspend" nil "suspend")))
 
-  (use-package battery
-    :ensure nil
-    :config
-    (setq battery-update-interval 300
-          battery-mode-line-format " %p%% %L")
-    (display-battery-mode 1))
-
   (use-package time
     :ensure nil
     :config
     (setq display-time-day-and-date t
           display-time-default-load-average nil)
     (display-time))
+
+  (use-package battery
+    :ensure nil
+    :config
+    (setq battery-update-interval 300
+          battery-mode-line-format " %p%% %L")
+    (display-battery-mode 1))
 
   (exwm-enable)
   (call-powersettings))
