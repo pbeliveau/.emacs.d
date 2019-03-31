@@ -133,6 +133,7 @@
                             (remove 'exwm--server-stop)
                             (remove 'server-force-stop)))
     (run-hooks 'pbeliveau-kill-hook))
+
   (defun pbeliveau/poweroff ()
     "Clock out, save all Emacs buffers and shut computer down."
     (interactive)
@@ -140,18 +141,20 @@
       (when (org-clock-is-active)
         (org-clock-out))
       (pbeliveau/emacs-teardown)
-      (start-process-shell-command "poweroff" nil "poweroff")))
+      (start-process-shell-command "systemctl poweroff" nil "systemctl poweroff")))
+
   (defun pbeliveau/reboot ()
     "Save all Emacs buffers and reboot."
     (interactive)
     (when (y-or-n-p "Really want to reboot?")
       (pbeliveau/emacs-teardown)
-      (start-process-shell-command "reboot" nil "reboot")))
+      (start-process-shell-command "systemctl reboot" nil "systemctl reboot")))
+
   (defun pbeliveau/sleep ()
     "Save all Emacs buffers and reboot."
     (interactive)
     (when (y-or-n-p "Really want to suspend?")
-      (start-process-shell-command "suspend" nil "suspend")))
+      (start-process-shell-command "systemctl suspend" nil "systemctl suspend")))
 
   (use-package time
     :ensure nil
