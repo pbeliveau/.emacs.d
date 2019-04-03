@@ -18,16 +18,11 @@
   :ensure t
   :bind ("M-o" . ace-window))
 
-(use-package winum
+(use-package beacon
   :ensure t
-  :diminish winum-mode
-  :bind (("M-1" . winum-select-window-1)
-         ("M-2" . winum-select-window-2)
-         ("M-3" . winum-select-window-3)
-         ("M-4" . winum-select-window-4)
-         ("M-5" . winum-select-window-5))
+  :diminish
   :config
-  (winum-mode))
+  (beacon-mode 1))
 
 (use-package dumb-jump
   :ensure t
@@ -82,5 +77,13 @@
   :config
   (setq uniquify-buffer-name-style 'forward))
 
-(show-paren-mode 1)
-(global-hl-line-mode 1)
+(use-package winum
+  :ensure t
+  :diminish winum-mode
+  :bind (("M-1" . winum-select-window-1)
+         ("M-2" . winum-select-window-2)
+         ("M-3" . winum-select-window-3)
+         ("M-4" . winum-select-window-4)
+         ("M-5" . winum-select-window-5))
+  :config
+  (winum-mode))

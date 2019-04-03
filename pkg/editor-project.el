@@ -1,3 +1,9 @@
+(use-package annotate
+  :ensure t
+  :diminish
+  :config
+  (setq annotate-file (concat user-emacs-directory ".notes")))
+
 (use-package diff-hl
   :ensure t
   :diminish diff-hl-mode

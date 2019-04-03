@@ -56,6 +56,12 @@
 (if (memq window-system '(w32))
     (load-theme 'tao-yang t))
 
+(use-package page-break-lines
+  :ensure t
+  :diminish
+  :init
+  (global-page-break-lines-mode))
+
 (use-package whitespace
   :ensure nil
   :diminish
