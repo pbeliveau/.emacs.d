@@ -26,7 +26,6 @@
   :ensure t
   :diminish
   :commands origami-mode
-  :hook prog-mode
   :bind (("C-c C-o t" . origami-toggle-node)
          ("C-c C-o r" . origami-toggle-all-nodes)
          ("C-c C-o c" . origami-close-node)
@@ -35,9 +34,7 @@
          ("C-c C-o w" . origami-open-all-nodes)
          ("C-c C-o n" . origami-next-fold)
          ("C-c C-o p" . origami-previous-fold)
-         ("C-c C-o f" . origami-forward-fold))
-  :config
-  (global-origami-mode))
+         ("C-c C-o f" . origami-forward-fold)))
 
 (use-package ws-butler
   :ensure t

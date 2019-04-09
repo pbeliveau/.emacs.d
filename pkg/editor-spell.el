@@ -7,22 +7,24 @@
   :bind (("C-c i b"   . flyspell-buffer)
          ("C-c i f"   . flyspell-mode))
   :init
-  (use-package ispell
-    :ensure nil
-    :bind (("C-c i c" . ispell-comments-and-strings)
-           ("C-c i d" . ispell-change-dictionary)
-           ("C-c i k" . ispell-kill-ispell)
-           ("C-c i m" . ispell-message)
-           ("C-c i r" . ispell-region)
-           ("C-c i w" . ispell-word)))
 
   (use-package flycheck-ledger
     :if (not (memq window-system '(w32)))
     :ensure t
     :after ledger-mode)
 
-  (use-package flyspell-correct
+  :config
+  (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point))
+
+(use-package lorem-ipsum
+  :ensure t
+  :bind (("C-c C-l s" . lorem-ipsum-insert-sentences)
+         ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
+         ("C-c C-l l" . lorem-ipsum-insert-list)))
+
+(use-package flyspell-correct
     :ensure t
+    :diminish flyspell-correct-auto-mode
     :bind (("C-c i n" . flyspell-correct-next)
            ("C-c i p" . flyspell-correct-previous))
     :config
@@ -43,13 +45,13 @@
         res))
     (setq flyspell-correct-interface #'frog-menu-flyspell-correct))
 
-  :config
-  (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point))
+(use-package ispell
+    :ensure nil
+    :bind (("C-c i c" . ispell-comments-and-strings)
+           ("C-c i d" . ispell-change-dictionary)
+           ("C-c i k" . ispell-kill-ispell)
+           ("C-c i m" . ispell-message)
+           ("C-c i r" . ispell-region)
+           ("C-c i w" . ispell-word)))
 
 (setq default-input-method "latin-1-prefix")
-
-(use-package lorem-ipsum
-  :ensure t
-  :bind (("C-c C-l s" . lorem-ipsum-insert-sentences)
-         ("C-c C-l p" . lorem-ipsum-insert-paragraphs)
-         ("C-c C-l l" . lorem-ipsum-insert-list)))

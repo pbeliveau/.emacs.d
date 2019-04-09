@@ -5,7 +5,7 @@
     (setq orgdir "~/org")
   (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
 
-(use-package org
+(use-package org-plus-contrib
   :pin org
   :ensure org-plus-contrib
   :bind (:map org-mode-map
@@ -95,12 +95,24 @@
   :ensure t
   :hook (org-mode . org-bullets-mode))
 
+(use-package org-download
+  :if (not (memq window-system '(w32)))
+  :ensure t
+  ;; :bind (:map org-mode-map
+  ;;             ("M-g M-d" . org-download-image)
+  ;;             ("M-g M-y" . org-download-screenshot))
+  :config
+  (setq org-download-image-dir         (concat org-directory "/img/")
+        org-download-method            'directory
+        org-download-screenshot-method "scrot -s %s")
+  (org-download-enable))
+
 (use-package org-pomodoro
   :ensure t
   :config
-  (setq org-pomodoro-format "🍅%s"
+  (setq org-pomodoro-format " %s"
         org-pomodoro-short-break-format "☕%s"
-        org-pomodoro-long-break-format  "🌴%s"))
+        org-pomodoro-long-break-format  " %s"))
 
 (use-package org-gcal
   :if (not (memq window-system '(w32)))
@@ -225,6 +237,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-enable-encryption         t
         org-journal-file-format               "%Y%m%d.org"
         org-journal-time-format               ""))
+
+(use-package org-search-goto :ensure nil :load-path "lisp/")
 
 (use-package ox-word
   :if (not (memq window-system '(w32)))

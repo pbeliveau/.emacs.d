@@ -13,6 +13,13 @@
   :config
   (setq rg-enable-default-bindings nil))
 
+(use-package url-shortener
+  :ensure t
+  :init
+  (load "~/.emacs.d/.bitly")
+  :config
+  (setq bitly-access-token bitly_token))
+
 (use-package wttrin
   :ensure t
   :config

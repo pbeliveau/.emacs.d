@@ -88,6 +88,14 @@
       (progn
         (desktop-environment-mode)))
 
+    (use-package exwm-mff
+      :if (not (memq window-system '(w32)))
+      :quelpa (exwm-mff :fetcher github :repo "ieure/exwm-mff")
+      :defer 30
+      :diminish
+      :config
+      (exwm-mff-mode))
+
     (progn
       ;; Key bindings accessible from everywhere:
       (exwm-input-set-key (kbd "s-r") #'exwm-reset)
