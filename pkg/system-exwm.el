@@ -164,6 +164,9 @@
     (when (y-or-n-p "Really want to suspend?")
       (start-process-shell-command "systemctl suspend" nil "systemctl suspend")))
 
+  (exwm-enable)
+  (call-powersettings))
+
   (use-package time
     :ensure nil
     :config
@@ -177,6 +180,3 @@
     (setq battery-update-interval 300
           battery-mode-line-format " %p%% %L")
     (display-battery-mode 1))
-
-  (exwm-enable)
-  (call-powersettings))

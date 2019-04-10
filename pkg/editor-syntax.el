@@ -49,19 +49,6 @@
 ;; Turn on disabled by default
 (put 'set-goal-column 'disabled nil)
 
-;; Enable narrow region and function to
-;; make use of it with clone.
-(put 'narrow-to-region 'disabled nil)
-(defun narrow-to-region-indirect (start end)
-  "Restrict editing in this buffer to the current region, indirectly."
-  (interactive "r")
-  (deactivate-mark)
-  (let ((buf (clone-indirect-buffer nil nil)))
-    (with-current-buffer buf
-      (narrow-to-region start end))
-      (switch-to-buffer buf)))
-(bind-key "C-x n i" 'narrow-to-region-indirect)
-
 ;; Default parenthesis mode
 (show-paren-mode 1)
 (global-hl-line-mode 1)

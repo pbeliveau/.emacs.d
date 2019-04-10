@@ -7,16 +7,17 @@
 
 (use-package org-plus-contrib
   :pin org
-  :ensure org-plus-contrib
+  :ensure t
   :bind (:map org-mode-map
           ("C-c i" . org-add-ids-to-headlines))
   :bind ("C-C t" . switch-to-org-tasks)
+  :init
+  (setq org-directory orgdir)
   :config
   (use-package org-id :ensure nil)
   (use-package org-checklist :ensure nil)
   (setq fill-column                     80
         org-adapt-indentation           nil
-        org-directory                   orgdir
         org-default-notes-file          (concat org-directory "/journal.org")
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
@@ -206,7 +207,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       my/org-schedule-template)
      ("m" "mail todo" entry
       (file+headline "/tasks.org" "Mail")
-       my/org-mail-template))))
+        my/org-mail-template))))
 
 (use-package org-crypt
  :ensure nil
