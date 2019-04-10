@@ -14,6 +14,7 @@
   (setq rg-enable-default-bindings nil))
 
 (use-package url-shortener
+  :if (not (memq window-system '(w32)))
   :ensure t
   :init
   (load "~/.emacs.d/.bitly")
