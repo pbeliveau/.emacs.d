@@ -250,6 +250,11 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :ensure nil)
   :load-path "lisp/")
 
+(use-package org-contacts
+  :ensure nil
+  :config
+  (setq org-contacts-files "~/org/system/contacts.org"))
+
 (use-package org-index
   :ensure t)
 

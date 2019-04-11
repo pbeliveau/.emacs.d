@@ -9,12 +9,12 @@
         message-send-mail-function     'message-send-mail-with-sendmail
         message-signature-directory    "~/.emacs.d/mail/signatures"
         sendmail-program               "~/.emacs.d/mail/script/msmtp-enqueue.sh"
-        user-full-name                 fullname))
+        user-full-name                 "Philippe"))
 
 (use-package mu4e
   :if (not (memq window-system '(w32)))
-  :if (executable-find "mu")
-  :ensure nil
+  :ensure-system-package mu
+  :requires org-mu4e
   :load-path "site-lisp/mu4e/"
   :bind ("C-c 4" . mu4e)
   :init
@@ -36,6 +36,7 @@
         mu4e-view-show-addresses            t
         mu4e-view-show-images               t
         mu4e-view-image-max-width           800
+        mu4e-org-contacts-file              "~/org/system/contacts.org"
         mu4e-headers-fields
                                      '( (:date          .  25)
                                         (:flags         .   6)
@@ -96,11 +97,3 @@
        ("mime:image/*"                                       "Messages with images"      ?p)
        ("flag:attach"                                        "With attachments"          ?a)
        ("mime:application/pdf"                               "With documents"            ?d))))
-
-(use-package org-mu4e
-  :if (not (memq window-system '(w32)))
-  :ensure nil
-  :after org
-  :init
-  (setq org-mu4e-link-query-in-headers-mode nil)
-  (setq mu4e-org-contacts-file "~/org/system/contacts.org"))
