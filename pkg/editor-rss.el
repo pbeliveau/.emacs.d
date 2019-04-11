@@ -1,5 +1,4 @@
 (use-package elfeed
-  :if (not (memq window-system '(w32)))
   :ensure t
   :commands elfeed
   :bind (("C-c 3" . elfeed)
@@ -51,7 +50,6 @@
   (shr-width 80))
 
 (use-package elfeed-org
-  :if (not (memq window-system '(w32)))
   :ensure t
   :after elfeed
   :config
