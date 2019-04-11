@@ -250,5 +250,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :ensure nil)
   :load-path "lisp/")
 
+(use-package org-index
+  :ensure t)
+
 (use-package zpresent
   :ensure t)

@@ -17,7 +17,7 @@
         wdired-allow-to-change-permissions t))
 
 (use-package treemacs
-  :pin melpa-stable
+  :pin melpa
   :ensure t
   :defer t
   :init
@@ -72,7 +72,7 @@
 
 (use-package treemacs-projectile
   :after treemacs projectile
-  :pin melpa-stable
+  :pin melpa
   :ensure t)
 
 (defun copy-file-path (&optional @dir-path-only-p)

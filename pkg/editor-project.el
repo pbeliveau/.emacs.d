@@ -18,7 +18,7 @@
   :bind (("C-c p" . projectile-command-map)))
 
 (use-package magit
-  :pin melpa-stable
+  :pin melpa
   :ensure t
   :defer t)
 

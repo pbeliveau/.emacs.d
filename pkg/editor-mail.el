@@ -3,30 +3,13 @@
   :ensure nil
   :init
   (load "~/.emacs.d/mail/.mailauth")
-  (progn
-    (defun choose-msmtp-account ()
-      (if (message-mail-p)
-          (save-excursion
-            (let*
-                ((from (save-restriction
-                         (message-narrow-to-headers)
-                         (message-fetch-field "from")))
-                 (account
-                  (cond
-                   ((string-match google from) "gmail")
-                   ((string-match ncf from) "ncf")
-                   ((string-match protonmail from) "protonmail")
-                   ((string-match work from) "montfort")
-                   ((string-match uqtr from) "uqtr"))))
-              (setq message-sendmail-extra-arguments (list '"-a" account)))))))
   :config
   (setq message-kill-buffer-on-exit    t
         message-sendmail-envelope-from 'header
         message-send-mail-function     'message-send-mail-with-sendmail
         message-signature-directory    "~/.emacs.d/mail/signatures"
         sendmail-program               "~/.emacs.d/mail/script/msmtp-enqueue.sh"
-        user-full-name                 fullname)
-  (add-hook 'message-send-mail-hook 'choose-msmtp-account))
+        user-full-name                 fullname))
 
 (use-package mu4e
   :if (not (memq window-system '(w32)))
@@ -61,38 +44,7 @@
         mu4e-user-mail-address-list  (list google
                                            ncf
                                            uqtr
-                                           protonmail)
-        mu4e-account-alist
-	  '(("gmail"
-	     (mu4e-sent-messages-behavior sent)
-	     (mu4e-sent-folder "/gmail/sent")
-	     (mu4e-drafts-folder "/gmail/drafts")
-	     (mu4e-get-mail-command "offlineimap -a gmail")
-	     (user-mail-address google))
-	    ("ncf"
-	     (mu4e-sent-messages-behavior sent)
-	     (mu4e-sent-folder "/ncf/sent")
-	     (mu4e-drafts-folder "/ncf/drafts")
-	     (mu4e-get-mail-command "offlineimap -a ncf")
-	     (user-mail-address ncf))
-	    ("protonmail"
-	     (mu4e-sent-messages-behavior sent)
-	     (mu4e-sent-folder "/protonmail/sent")
-	     (mu4e-drafts-folder "/protonmail/drafts")
-	     (mu4e-get-mail-command "offlineimap -a protonmail")
-	     (user-mail-address protonmail))
-	    ("work"
-	     (mu4e-sent-messages-behavior sent)
-	     (mu4e-sent-folder "/work/sent")
-	     (mu4e-drafts-folder "/work/drafts")
-	     (mu4e-get-mail-command "offlineimap -a work")
-	     (user-mail-address work))
-	    ("uqtr"
-	     (mu4e-send-messages-behavior sent)
-	     (mu4e-sent-folder "/uqtr/sent")
-	     (mu4e-drafts-folder "/uqtr/drafts")
-	     (mu4e-get-mail-command "offlineimap -a uqtr")
-	     (user-mail-address uqtr))))
+                                           protonmail))
 
   (add-hook 'mu4e-compose-pre-hook
     (defun my-set-from-address ()
@@ -126,7 +78,7 @@
     (mu4e-alert-enable-notifications)
     (mu4e-alert-set-default-style 'libnotify))
 
-  (use-package mu4e-vars
+(use-package mu4e-vars
     :if (not (memq window-system '(w32)))
     :ensure nil
     :config
@@ -145,14 +97,10 @@
        ("flag:attach"                                        "With attachments"          ?a)
        ("mime:application/pdf"                               "With documents"            ?d))))
 
-(with-eval-after-load 'org
-  (with-eval-after-load 'mu4e
-    (use-package org-mu4e
-      :ensure nil
-      :init
-      (setq org-mu4e-link-query-in-headers-mode nil)
-      (setq mu4e-org-contacts-file "~/org/system/contacts.org")
-      (add-to-list 'mu4e-headers-actions
-                   '("org-contact-add" . mu4e-action-add-org-contact) t)
-      (add-to-list 'mu4e-view-actions
-                   '("org-contact-add" . mu4e-action-add-org-contact) t))))
+(use-package org-mu4e
+  :if (not (memq window-system '(w32)))
+  :ensure nil
+  :after org
+  :init
+  (setq org-mu4e-link-query-in-headers-mode nil)
+  (setq mu4e-org-contacts-file "~/org/system/contacts.org"))
