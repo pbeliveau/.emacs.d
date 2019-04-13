@@ -39,6 +39,7 @@
   :ensure t
   :init
   (use-package tao-theme :ensure t :defer t)
+  (use-package nova-theme :ensure t :defer t)
   (use-package spacemacs-theme
     :ensure t
     :defer t
@@ -50,7 +51,7 @@
         calendar-longitude -75.69)
   :config
   (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . spacemacs-dark)))
+                           (:sunset  . nova)))
   (circadian-setup))
 
 (if (memq window-system '(w32))

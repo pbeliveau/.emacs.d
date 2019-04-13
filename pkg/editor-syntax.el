@@ -12,6 +12,9 @@
   :config
   (dynamic-spaces-global-mode t))
 
+(use-package format-all
+  :ensure t)
+
 (use-package fix-word
   :ensure t
   :bind (("M-u" . fix-word-upcase)

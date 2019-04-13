@@ -1,5 +1,5 @@
 (use-package buffer-expose
-  :ensure nil
+  :ensure t
   :init
   (buffer-expose-mode 1))
 
