@@ -1,5 +1,6 @@
-(use-package vbasense
-  :ensure t
-    :mode (("\\.bas\\'" . vba-mode)
-           ("\\.vb\\'" . vba-mode)
-           ("\\.vbs\\'" . vba-mode)))
+(use-package visual-basic-mode
+  :ensure nil
+  :load-path "lisp/"
+  :mode ("\\.bas\\'"
+         "\\.vb\\'"
+         "\\.vbs\\'"))
