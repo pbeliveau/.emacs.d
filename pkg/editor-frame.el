@@ -15,6 +15,7 @@
          ("M-g k" . avy-kill-region)))
 
 (use-package ace-window
+  :disabled
   :ensure t
   :bind ("M-o" . ace-window))
 
@@ -76,6 +77,10 @@
   :ensure nil
   :config
   (setq uniquify-buffer-name-style 'forward))
+
+(use-package window
+  :ensure nil
+  :bind ("M-o" . other-window))
 
 (use-package winum
   :ensure t

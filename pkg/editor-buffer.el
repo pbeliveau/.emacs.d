@@ -22,3 +22,8 @@
 (use-package scratch
   :ensure t
   :bind ("C-c b" . scratch))
+
+;; Force warning buffer into smaller frame
+(setq display-buffer-alist
+  '(("[*]Warnings[*]" .
+     (display-buffer-in-side-window . '((side . bottom))))))

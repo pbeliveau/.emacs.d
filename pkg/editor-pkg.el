@@ -19,8 +19,29 @@
                ("v" . system-packages-verify-all-packages)
                ("V" . system-packages-verify-all-dependencies))
   :config
-  (setq system-packages-use-sudo  t
-        system-packages-noconfirm t))
+  (setq system-packages-use-sudo        nil
+        system-packages-noconfirm       t
+        system-packages-package-manager 'yay)
+  (add-to-list 'system-packages-supported-package-managers
+               '(yay .
+                      ((default-sudo . nil)
+                       (install . "yay -S")
+                       (search . "yay -Ss")
+                       (uninstall . "yay -Rs")
+                       (update . "yay -Syu --cleanafter")
+                       (clean-cache . "yay -Sc")
+                       (log . "cat /var/log/pacman.log")
+                       (get-info . "yay -Qi")
+                       (get-info-remote . "yay -Si")
+                       (list-files-provided-by . "yay -Ql")
+                       (verify-all-packages . "yay -Qkk")
+                       (verify-all-dependencies . "yay -Dk")
+                       (remove-orphaned . "yay -Rns $(pacman -Qtdq)")
+                       (list-installed-packages . "yay -Qe")
+                       (list-installed-packages-all . "yay -Q")
+                       (list-dependencies-of . "yay -Qi")
+                       (noconfirm . "--noconfirm"))))
+)
 
 ;; Change package menu
 (use-package paradox

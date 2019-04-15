@@ -1,4 +1,3 @@
-; dired custom settings
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
@@ -15,6 +14,32 @@
       (dired-get-marked-files t current-prefix-arg))))
   (setq wdired-create-parent-directories   t
         wdired-allow-to-change-permissions t))
+
+(use-package dired-rmjunk
+  :ensure t)
+
+(use-package pack
+  :after dired
+  :ensure t
+  :bind (:map dired-mode-map
+        ("P" . pack-dired-dwim)))
+
+(use-package speedbar
+  :ensure nil
+  :config
+  (setq speedbar-use-images         nil
+        speedbar-show-unknown-files t))
+
+(use-package sr-speedbar
+  :ensure t
+  :after speedbar
+  :bind ("M-g b" . sr-speedbar-toggle)
+  :config
+  (setq sr-speedbar-right-side           nil
+        sr-speedbar-max-width            40
+        sr-speedbar-width                30
+        sr-speedbar-default-width        30
+        sr-speedbar-skip-other-window-p  t))
 
 (use-package treemacs
   :pin melpa
@@ -96,12 +121,3 @@
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
-
-(use-package pack
-  :after dired
-  :ensure t
-  :bind (:map dired-mode-map
-        ("P" . pack-dired-dwim)))
-
-(use-package dired-rmjunk
-  :ensure t)
