@@ -34,8 +34,8 @@
         (set-frame-font "Consolas:pixelsize=13")
         (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
   (progn
-        (set-frame-font "Inconsolata:pixelsize=13")
-        (setq default-frame-alist '((font . "Inconsolata:pixelsize=13")))))
+        (set-frame-font "Fira Code:pixelsize=12")
+        (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
 ;; theme
 (use-package circadian
