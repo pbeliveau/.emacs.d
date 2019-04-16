@@ -29,7 +29,7 @@
       mouse-yank-at-point t)
 
 (set-face-attribute 'default nil :height 110)
-(if (eq system-type 'w32)
+(if (eq system-type 'windows-nt)
     (progn
         (set-frame-font "Consolas:pixelsize=13")
         (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
