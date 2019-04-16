@@ -180,3 +180,10 @@
     (setq battery-update-interval 300
           battery-mode-line-format " %p%% %L")
     (display-battery-mode 1))
+
+  (use-package symon
+    :ensure t
+    :diminish
+    :config
+    (setq symon-sparkline-type 'plain)
+    (symon-mode))

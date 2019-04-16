@@ -17,6 +17,7 @@
                ("C" . system-packages-clean-cache)
                ("L" . system-packages-log)
                ("v" . system-packages-verify-all-packages)
+               ("r" . system-packages-uninstall)
                ("V" . system-packages-verify-all-dependencies))
   :config
   (setq system-packages-use-sudo        nil

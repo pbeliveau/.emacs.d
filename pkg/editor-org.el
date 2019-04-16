@@ -258,5 +258,23 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-index
   :ensure t)
 
+(use-package ox-hugo
+  :ensure t
+  :after ox)
+
+(use-package org-brain
+  :ensure t
+  :if (not (memq window-system '(w32)))
+  :init
+  (setq org-brain-path "~/org")
+  :config
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+  (push '("b" "Brain" plain (function org-brain-goto-end)
+          "* %i%?" :empty-lines 1)
+        org-capture-templates)
+  (setq org-brain-visualize-default-choices 'all)
+  (setq org-brain-title-max-length 12))
+
 (use-package zpresent
   :ensure t)

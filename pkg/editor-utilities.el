@@ -7,6 +7,9 @@
 (use-package speed-type
   :ensure t)
 
+(use-package spray
+  :ensure t)
+
 (use-package rg
   :ensure t
   :bind (("C-c r" . rg))

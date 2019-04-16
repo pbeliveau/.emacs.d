@@ -26,7 +26,8 @@
   :ensure nil
   :defer 5
   :config
-  (setq save-place-file (concat user-emacs-directory "places")))
+  (setq save-place-file (concat user-emacs-directory "places")
+        save-place t))
 
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
