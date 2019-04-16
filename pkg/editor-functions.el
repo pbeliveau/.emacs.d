@@ -1,5 +1,4 @@
 (use-package ts
-  :disabled
   :load-path "lisp/"
   :config
   (defun insert-today (&optional arg)
@@ -15,6 +14,18 @@
       (if (use-region-p)
           (delete-region (region-beginning) (region-end)))
       (insert (ts-format "%A, %B %e, %Y" (ts-adjust 'day arg date))))))
+
+(defun insdate-insert-current-date (&optional omit-day-of-week-p)
+  "Insert today's date using the current locale.
+With a prefix argument, the date is inserted without the day of
+the week."
+  (interactive "P*")
+  (insert (calendar-date-string (calendar-current-date) nil
+                                omit-day-of-week-p)))
+
+(defun timestamp ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
 
 (defun kill-other-buffers ()
   "Kill all buffers but current buffer and special buffers.
