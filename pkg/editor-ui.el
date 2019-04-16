@@ -29,8 +29,13 @@
       mouse-yank-at-point t)
 
 (set-face-attribute 'default nil :height 110)
-(set-frame-font "Consolas:pixelsize=13")
-(setq default-frame-alist '((font . "Consolas:pixelsize=13")))
+(if (eq system-type 'w32)
+    (progn
+        (set-frame-font "Consolas:pixelsize=13")
+        (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
+  (progn
+        (set-frame-font "Inconsolata:pixelsize=13")
+        (setq default-frame-alist '((font . "Inconsolata:pixelsize=13")))))
 
 ;; theme
 (use-package circadian
@@ -51,7 +56,7 @@
         calendar-longitude -75.69)
   :config
   (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . nova)))
+                           (:sunset  . spacemacs-dark)))
   (circadian-setup))
 
 (if (memq window-system '(w32))
