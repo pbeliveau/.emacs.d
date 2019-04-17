@@ -20,7 +20,7 @@
   :if (not (memq window-system '(w32)))
   :ensure t
   :init
-  (load "~/.emacs.d/.bitly")
+  (load (concat no-littering-var-directory "bitly/.bitly"))
   :config
   (setq bitly-access-token bitly_token))
 

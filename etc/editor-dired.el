@@ -64,7 +64,6 @@
           treemacs-max-git-entries            5000
           treemacs-no-png-images              nil
           treemacs-project-follow-cleanup     nil
-          treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
           treemacs-recenter-after-file-follow nil
           treemacs-recenter-after-tag-follow  nil
           treemacs-show-cursor                nil

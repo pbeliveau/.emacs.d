@@ -35,4 +35,6 @@
   :defer t
   :diminish palimpsest-mode
   :config
-  (setq palimpsest-trash-file-suffix ".archive"))
+  (setq palimpsest-trash-file-suffix (concat
+                                      no-littering-var-directory
+                                      ".archive")))

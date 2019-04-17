@@ -1,14 +1,17 @@
+;; Directory for mail
+(setq maildir (concat no-littering-var-directory "mail"))
+
 (use-package message
   :if (not (memq window-system '(w32)))
   :ensure nil
   :init
-  (load "~/.emacs.d/mail/.mailauth")
+  (load (concat maildir "/.mailauth"))
   :config
   (setq message-kill-buffer-on-exit    t
         message-sendmail-envelope-from 'header
         message-send-mail-function     'message-send-mail-with-sendmail
-        message-signature-directory    "~/.emacs.d/mail/signatures"
-        sendmail-program               "~/.emacs.d/mail/script/msmtp-enqueue.sh"
+        message-signature-directory    (concat no-littering-var-directory "/signatures")
+        sendmail-program               (concat no-littering-var-directory "/script/msmtp-enqueue.sh")
         user-full-name                 "Philippe"))
 
 (use-package mu4e
@@ -18,17 +21,17 @@
   :load-path "site-lisp/mu4e/"
   :bind ("C-c 4" . mu4e)
   :init
-  (load "~/.emacs.d/mail/.mailauth")
+  (load (concat maildir "/.mailauth"))
   :config
   (require 'smtpmail)
   (setq
-        mu4e-maildir                        (expand-file-name "~/.emacs.d/mail")
+        mu4e-maildir                        'maildir
         mu4e-attachment-dir                 "~/tmp"
         mu4e-drafts-folder                  "/drafts"
         mu4e-change-filenames-when-moving   t
         mu4e-sent-folder                    "/sent"
         mu4e-sent-messages-behavior         'sent
-        mu4e-get-mail-command               "~/.emacs.d/mail/script/mbsync-update.sh"
+        mu4e-get-mail-command               (concat maildir "/script/mbsync-update.sh")
         mu4e-compose-signature-auto-include nil
         mu4e-headers-date-format            "%Y/%m/%d %H:%M"
         mu4e-html2text-command              "iconv -c -t utf-8 | pandoc -f html -t plain"
@@ -36,7 +39,7 @@
         mu4e-view-show-addresses            t
         mu4e-view-show-images               t
         mu4e-view-image-max-width           800
-        mu4e-org-contacts-file              "~/org/system/contacts.org"
+        mu4e-org-contacts-file              (concat maildir "/contacts.org")
         mu4e-headers-fields
                                      '( (:date          .  25)
                                         (:flags         .   6)

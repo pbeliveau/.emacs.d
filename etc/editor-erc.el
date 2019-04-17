@@ -11,7 +11,7 @@
         erc-kill-server-buffer-on-quit t
         erc-save-buffer-on-part t
         erc-query-display 'buffer
-        erc-log-channels-directory "~/.emacs.d/.logs/erc/"
+        erc-log-channels-directory (concat no-littering-var-directory "erc/logs/")
         erc-auto-discard-away t
         erc-prompt-for-nickserv-password nil
         erc-services-mode 1
@@ -24,14 +24,15 @@
     :ensure nil)
   (use-package erc-spelling
     :ensure nil)
-  (load "~/.emacs.d/.erc-auth")
+
+  (load (concat no-littering-var-directory "erc/.erc-auth"))
 
   (defun start-irc ()
      "Connect to IRC."
      (interactive)
-     (erc-tls :server "irc.freenode.net" 
-              :port 6697 
-              :nick freenode-nick 
+     (erc-tls :server "irc.freenode.net"
+              :port 6697
+              :nick freenode-nick
               :password freenode-pass))
 
   (defun filter-server-buffers ()

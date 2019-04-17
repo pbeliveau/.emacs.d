@@ -1,5 +1,5 @@
 (use-package ts
-  :load-path "lisp/"
+  :load-path "var/lisp/"
   :config
   (defun insert-today (&optional arg)
   "Insert today's date.
@@ -93,3 +93,16 @@ the week."
   (mark-whole-buffer)
   (untabify (region-beginning) (region-end))
   (keyboard-quit))
+
+;; Enable narrow region and function to
+;; make use of it with clone.
+(put 'narrow-to-region 'disabled nil)
+(defun narrow-to-region-indirect (start end)
+  "Restrict editing in this buffer to the current region, indirectly."
+  (interactive "r")
+  (deactivate-mark)
+  (let ((buf (clone-indirect-buffer nil nil)))
+    (with-current-buffer buf
+      (narrow-to-region start end))
+      (switch-to-buffer buf)))
+(bind-key "C-x n i" 'narrow-to-region-indirect)

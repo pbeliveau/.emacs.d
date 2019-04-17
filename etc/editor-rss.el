@@ -54,4 +54,5 @@
   :after elfeed
   :config
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
+  (setq rmh-elfeed-org-files (list (concat no-littering-var-directory
+                                           "var/elfeed/elfeed.org"))))

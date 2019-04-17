@@ -44,7 +44,6 @@
   :ensure t
   :init
   (use-package tao-theme :ensure t :defer t)
-  (use-package nova-theme :ensure t :defer t)
   (use-package spacemacs-theme
     :ensure t
     :defer t

@@ -34,6 +34,9 @@
          ("M-g z" . dumb-jump-go-prefer-external-other-window))
   :config (setq dumb-jump-selector 'ivy))
 
+(use-package focus
+  :ensure t)
+
 (use-package frog-menu
   :if (not (memq window-system '(w32)))
   :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
@@ -92,16 +95,3 @@
          ("M-5" . winum-select-window-5))
   :config
   (winum-mode))
-
-;; Enable narrow region and function to
-;; make use of it with clone.
-(put 'narrow-to-region 'disabled nil)
-(defun narrow-to-region-indirect (start end)
-  "Restrict editing in this buffer to the current region, indirectly."
-  (interactive "r")
-  (deactivate-mark)
-  (let ((buf (clone-indirect-buffer nil nil)))
-    (with-current-buffer buf
-      (narrow-to-region start end))
-      (switch-to-buffer buf)))
-(bind-key "C-x n i" 'narrow-to-region-indirect)

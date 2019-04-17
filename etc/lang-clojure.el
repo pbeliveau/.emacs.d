@@ -32,9 +32,10 @@
   (setq cider-repl-pop-to-buffer-on-connect t
         cider-show-error-buffer             t
         cider-auto-select-error-buffer      t
-        cider-repl-history-file             "~/.emacs.d/cider-history"
+        cider-repl-history-file             (concat
+                                             no-littering-var-directory
+                                             "/cider/cider-history")
         cider-repl-wrap-history             t)
-
   (defun cider-start-http-server ()
     (interactive)
     (cider-load-current-buffer)

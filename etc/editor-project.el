@@ -2,7 +2,7 @@
   :ensure t
   :diminish
   :config
-  (setq annotate-file (concat user-emacs-directory ".notes")))
+  (setq annotate-file (concat no-littering-var-directory "var/.notes")))
 
 (use-package diff-hl
   :ensure t
@@ -26,8 +26,4 @@
   :ensure nil
   :defer 5
   :config
-  (setq save-place-file (concat user-emacs-directory "places")
-        save-place t))
-
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                               "backups"))))
+  (setq save-place t))

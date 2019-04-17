@@ -30,7 +30,8 @@
   (use-package dmenu
     :ensure t
     :config
-    (setq dmenu-prompt-string "dmenu: ")
+    (setq dmenu-prompt-string "dmenu: "
+          dmenu-save-file     (concat no-littering-var-directory "dmenu/list"))
     (exwm-input-set-key (kbd "M-g d") 'dmenu))
 
   (use-package exwm-randr
@@ -57,8 +58,10 @@
     (use-package exwm-surf
       :ensure t
       :config
-      (setq exwm-surf-history-file "/home/me/.surf/history")
-      (setq exwm-surf-bookmark-file "/home/me/.surf/bookmarks")
+      (setq exwm-surf-history-file (concat no-littering-var-directory
+                                           "surf/history"))
+      (setq exwm-surf-bookmark-file (concat no-littering-var-directory
+                                            "surf/boomark"))
       (add-hook 'exwm-manage-finish-hook 'exwm-surf-init))
 
     (use-package buffer-move

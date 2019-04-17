@@ -7,7 +7,7 @@
   :init
   (defun my-ledger-start-entry (&optional arg)
     (interactive "p")
-    (find-file-other-window (concat user-emacs-directory "/ledger/me.ledger"))
+    (find-file-other-window (concat no-littering-var-directory "/ledger/me.ledger"))
     (goto-char (point-max))
     (skip-syntax-backward " ")
     (if (looking-at "\n\n")

@@ -47,7 +47,6 @@
   :ensure nil
   :defer 10
   :init
-  (setq recentf-save-file (concat user-emacs-directory ".recentf"))
   (recentf-mode 1)
   :config
   (setq recentf-max-menu-items 100))
@@ -56,9 +55,7 @@
   :ensure t
   :defer 10
   :commands smex
-  :bind ("M-x" . smex)
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items")))
+  :bind ("M-x" . smex))
 
 (use-package prescient
   :ensure t

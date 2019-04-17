@@ -65,5 +65,4 @@
   (setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))
   (setenv "SSH_AGENT_PID" (shell-command-to-string ""))
   (setenv "GPG_TTY" (shell-command-to-string "echo $TTY"))
-  (setenv "SSH_KEY_PATH" (shell-command-to-string "~/.ssh/rsa_id"))
-  (setenv "SWAYSOCK" (shell-command-to-string "ls /run/user/*/sway-ipc.*.sock | head -n 1")))
+  (setenv "SSH_KEY_PATH" (shell-command-to-string "~/.ssh/rsa_id")))

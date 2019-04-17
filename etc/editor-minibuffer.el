@@ -1,5 +1,3 @@
-;; jwiegley config of ivy,
-;; will change later.
 (use-package ivy
   :diminish
   :demand t

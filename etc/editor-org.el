@@ -2,7 +2,7 @@
     (setq tasksfile "/tasks.org")
   (setq tasksfile "/tasks-work.org"))
 (if (not (memq window-system '(w32)))
-    (setq orgdir "~/org")
+    (setq orgdir "~/.emacs.d/var/org")
   (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
 
 (use-package org-plus-contrib
@@ -119,7 +119,7 @@
   :if (not (memq window-system '(w32)))
   :ensure t
   :init
-  (load "~/.emacs.d/.calauth")
+  (load (concat no-littering-var-directory "org/gcal/.calauth"))
   :config
   (setq org-gcal-client-id     clientid
         org-gcal-client-secret clientsecret

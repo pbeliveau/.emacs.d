@@ -46,15 +46,19 @@
   :config
   (quelpa-use-package-activate-advice))
 
+;; make use of standard directories
+(use-package no-littering
+  :ensure t)
+
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)
 (defvar ido-default-item nil)
 (defvar ido-cur-list nil)
 
-;; packages
+;; packages in etc
 (async-bytecomp-package-mode 1)
 (let ((loaded (mapcar #'file-name-sans-extension (delq nil (mapcar #'car load-history)))))
-  (dolist (file (directory-files "~/.emacs.d/pkg" t ".+\\.elc?$"))
+  (dolist (file (directory-files "~/.emacs.d/etc" t ".+\\.elc?$"))
     (let ((library (file-name-sans-extension file)))
       (unless (member library loaded)
         (load library nil t)
