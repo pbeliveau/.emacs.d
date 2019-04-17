@@ -55,4 +55,4 @@
   :config
   (elfeed-org)
   (setq rmh-elfeed-org-files (list (concat no-littering-var-directory
-                                           "var/elfeed/elfeed.org"))))
+                                           "/elfeed/elfeed.org"))))
