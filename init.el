@@ -37,12 +37,12 @@
 (use-package use-package-ensure-system-package
   :pin melpa
   :if (not (memq window-system '(w32))))
+
 (use-package quelpa
-  :pin melpa
-  :if (not (memq window-system '(w32))))
+  :pin melpa)
+
 (use-package quelpa-use-package
   :pin melpa
-  :if (not (memq window-system '(w32)))
   :config
   (quelpa-use-package-activate-advice))
 

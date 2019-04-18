@@ -88,10 +88,8 @@
 (use-package smart-mode-line
   :ensure t
   :config
-  (setq
-        sml/name-width            40
+  (setq sml/name-width            25
         sml/no-confirm-load-theme t
         sml/shorten-directory     nil
-        sml/shorten-modes         nil
-        sml/)
+        sml/shorten-modes         nil)
   (smart-mode-line-enable))

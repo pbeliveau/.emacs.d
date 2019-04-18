@@ -38,12 +38,10 @@
   :ensure t)
 
 (use-package frog-jump-buffer
-  :if (not (memq window-system '(w32)))
   :quelpa (frog-jump-buffer :fetcher github :repo "waymondo/frog-jump-buffer")
   :bind ("M-g f" . frog-jump-buffer))
 
 (use-package frog-menu
-  :if (not (memq window-system '(w32)))
   :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
 
 (use-package golden-ratio
