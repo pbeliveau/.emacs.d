@@ -239,7 +239,9 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-file-format               "%Y%m%d.org"
         org-journal-time-format               ""))
 
-(use-package org-search-goto :ensure nil :load-path "lisp/")
+(use-package org-search-goto
+  :ensure nil
+  :load-path "var/lisp/")
 
 (use-package ox-word
   :if (not (memq window-system '(w32)))
@@ -248,12 +250,12 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :init
   (use-package ox
     :ensure nil)
-  :load-path "lisp/")
+  :load-path "var/lisp/")
 
 (use-package org-contacts
   :ensure nil
   :config
-  (setq org-contacts-files "~/org/system/contacts.org"))
+  (setq org-contacts-files (concat orgdir "/system/contacts.org")))
 
 (use-package org-index
   :ensure t)
@@ -266,10 +268,10 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :ensure t
   :if (not (memq window-system '(w32)))
   :init
-  (setq org-brain-path "~/org")
+  (setq org-brain-path (concat orgdir "/brain"))
   :config
   (setq org-id-track-globally t)
-  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+  (setq org-id-locations-file (concat orgdir "/.org-id-locations"))
   (push '("b" "Brain" plain (function org-brain-goto-end)
           "* %i%?" :empty-lines 1)
         org-capture-templates)
