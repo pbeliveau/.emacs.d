@@ -91,5 +91,5 @@
   (setq sml/name-width            25
         sml/no-confirm-load-theme t
         sml/shorten-directory     nil
-        sml/shorten-modes         nil)
+        sml/shorten-modes         t)
   (smart-mode-line-enable))

@@ -195,5 +195,6 @@
     :ensure t
     :diminish
     :config
-    (setq symon-sparkline-type 'plain)
+    (setq symon-sparkline-type 'plain
+          symon-sparkline-width 75)
     (symon-mode))
