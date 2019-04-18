@@ -91,6 +91,12 @@
       (progn
         (desktop-environment-mode)))
 
+    (use-package pulseaudio-control
+      :ensure t
+      :ensure-system-package "pulseaudio"
+      :config
+      (pulseaudio-control-default-keybindings))
+
     (use-package exwm-mff
       :if (not (memq window-system '(w32)))
       :quelpa (exwm-mff :fetcher github :repo "ieure/exwm-mff")

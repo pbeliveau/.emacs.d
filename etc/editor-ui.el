@@ -84,3 +84,14 @@
 (use-package darkroom
   :pin gnu
   :ensure t)
+
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (setq
+        sml/name-width            40
+        sml/no-confirm-load-theme t
+        sml/shorten-directory     nil
+        sml/shorten-modes         nil
+        sml/)
+  (smart-mode-line-enable))
