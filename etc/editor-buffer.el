@@ -1,3 +1,8 @@
+(use-package bird-mode
+  :ensure nil
+  :load-path "var/lisp/"
+  :bind ("M-g v" . bird-mode))
+
 (use-package buffer-expose
   :ensure t
   :init
