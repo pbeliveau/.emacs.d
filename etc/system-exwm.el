@@ -29,6 +29,12 @@
           :config
           (exwm-systemtray-enable))
 
+        (use-package daemons
+          :ensure t
+          :bind ("<f11>" . daemons)
+          :config
+          (setq daemons-always-sudo t))
+
         (use-package dmenu
           :ensure t
           :config
@@ -95,7 +101,6 @@
 
           (use-package pulseaudio-control
             :ensure t
-            :ensure-system-package "pulseaudio"
             :config
             (pulseaudio-control-default-keybindings))
 

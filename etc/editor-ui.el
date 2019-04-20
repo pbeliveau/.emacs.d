@@ -44,6 +44,7 @@
   :ensure t
   :init
   (use-package tao-theme :ensure t :defer t)
+  (use-package monochrome-theme :ensure t :defer t)
   (use-package spacemacs-theme
     :ensure t
     :defer t
@@ -54,8 +55,8 @@
   (setq calendar-latitude   45.41
         calendar-longitude -75.69)
   :config
-  (setq circadian-themes '((:sunrise . tao-yang)
-                           (:sunset  . spacemacs-dark)))
+  (setq circadian-themes '((:sunrise . monochrome-bright)
+                           (:sunset  . monochrome)))
   (circadian-setup))
 
 (if (memq window-system '(w32))
