@@ -86,10 +86,15 @@
 
 (use-package window
   :ensure nil
-  :bind ("M-o" . other-window))
+  :bind ("M-o" . other-window)
+  :config
+  (setq pop-up-windows t)
+  (add-to-list 'same-window-regexps "*Help*")
+  (add-to-list 'same-window-buffer-names "*Proced*"))
 
 (use-package winum
   :ensure t
+  :defer t
   :diminish winum-mode
   :bind (("M-1" . winum-select-window-1)
          ("M-2" . winum-select-window-2)

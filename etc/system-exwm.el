@@ -29,12 +29,6 @@
           :config
           (exwm-systemtray-enable))
 
-        (use-package daemons
-          :ensure t
-          :bind ("<f11>" . daemons)
-          :config
-          (setq daemons-always-sudo t))
-
         (use-package dmenu
           :ensure t
           :config
@@ -98,11 +92,6 @@
             (setq desktop-environment-screenshot-directory "~/media/screenshot")
             (progn
               (desktop-environment-mode)))
-
-          (use-package pulseaudio-control
-            :ensure t
-            :config
-            (pulseaudio-control-default-keybindings))
 
           (use-package exwm-mff
             :quelpa (exwm-mff :fetcher github :repo "ieure/exwm-mff")
@@ -181,25 +170,3 @@
 
         (exwm-enable)
         (call-powersettings))))
-
-  (use-package time
-    :ensure nil
-    :config
-    (setq display-time-day-and-date t
-          display-time-default-load-average nil)
-    (display-time))
-
-  (use-package battery
-    :ensure nil
-    :config
-    (setq battery-update-interval 300
-          battery-mode-line-format " %p%% %L")
-    (display-battery-mode 1))
-
-  (use-package symon
-    :ensure t
-    :diminish
-    :config
-    (setq symon-sparkline-type 'plain
-          symon-sparkline-width 75)
-    (symon-mode))
