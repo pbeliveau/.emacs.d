@@ -34,7 +34,7 @@
     (interactive)
     (bookmark-maybe-load-default-file)
     (bookmark-jump "elfeed-tech"))
-  (defun pb/elfeed-show-politics ()
+  (defun pb/elfeed-show-pol ()
     (interactive)
     (bookmark-maybe-load-default-file)
     (bookmark-jump "elfeed-politics"))

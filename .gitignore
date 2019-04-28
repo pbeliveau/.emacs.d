@@ -12,3 +12,4 @@
 !var/lisp/*
 !var/elfeed/
 !var/elfeed/elfeed.org
+!var/bookmark-default.el
