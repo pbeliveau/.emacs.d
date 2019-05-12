@@ -51,18 +51,10 @@
     :config
     (pinentry-start))
 
-  (defun kludge-gpg-agent ()
-    (if (display-graphic-p)
-        (setenv "DISPLAY" (terminal-name))
-      (setenv "GPG_TTY" (terminal-name))
-      (setenv "DISPLAY")))
-  (add-hook 'window-configuration-change-hook 'kludge-gpg-agent)
-
   (use-package exec-path-from-shell
     :ensure t)
 
-  (setenv "GPG_AGENT_INFO" nil)
-  (setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))
-  (setenv "SSH_AGENT_PID" (shell-command-to-string ""))
-  (setenv "GPG_TTY" (shell-command-to-string "echo $TTY"))
-  (setenv "SSH_KEY_PATH" (shell-command-to-string "~/.ssh/rsa_id")))
+  (use-package keychain-environment
+    :ensure t
+    :config
+    (keychain-refresh-environment)))

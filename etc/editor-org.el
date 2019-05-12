@@ -24,6 +24,8 @@
         org-list-description-max-indent 4
         org-startup-folded              (quote overview)
         org-startup-indented            t
+        org-cycle-separator-lines       0
+        org-catch-invisible-edits       'show-and-error
         org-tag-alist                   '(
                                           ("crypt" . ?C))
         org-refile-targets

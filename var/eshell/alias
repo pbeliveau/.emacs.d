@@ -26,3 +26,4 @@ alias tmute pamixer --sink 0 -t
 alias gmute pamixer --sink 0 --get-mute
 alias gvol pamixer --sink 0 --get-volume
 alias svol pamixer --sink 0 --set-volume $1
+alias sysd sudo systemctl $*

@@ -63,7 +63,6 @@
         browse-url-generic-program "brave"))
 
 (use-package minimap
-  :if (display-graphic-p)
   :ensure t
   :diminish
   :bind ("C-c m" . minimap-mode)

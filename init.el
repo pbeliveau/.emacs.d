@@ -22,6 +22,11 @@
 
 (setq use-package-always-ensure t)
 
+(use-package benchmark-init
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 ;; dependencies
 (use-package diminish                          :pin melpa)
 (use-package async                             :pin melpa)

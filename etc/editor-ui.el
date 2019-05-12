@@ -39,7 +39,6 @@
 
 ;; theme
 (use-package circadian
-  :if (display-graphic-p)
   :if (not (memq window-system '(w32)))
   :ensure t
   :init
