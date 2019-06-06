@@ -3,7 +3,6 @@
 *** https://feeds.feedburner.com/arstechnica/index
 *** https://www.cbc.ca/cmlink/rss-canada-ottawa
 *** https://thewirecutter.com/feed/
-*** http://www.reddit.com/r/ottawa/.rss
 ** emacs                                                        :emacs:
 *** http://www.reddit.com/r/emacs/.rss
 *** http://sachachua.com/blog/feed/
@@ -14,10 +13,8 @@
 *** https://www.notebookcheck.net/RSS-Feed-Notebook-Reviews.8156.0.html
 *** https://www.phoronix.com/rss.php
 ** politics                                                     :politics:
-*** https://fivethirtyeight.com/features/feed/
 *** http://feeds.propublica.org/propublica/main
 ** languages                                                    :lang:
-*** http://www.reddit.com/r/ruby/.rss
 *** http://www.reddit.com/r/rlanguage/.rss
 *** http://www.reddit.com/r/python/.rss
 *** http://www.reddit.com/r/c_programming/.rss

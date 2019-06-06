@@ -1,14 +1,26 @@
 (use-package chronometer
-  :ensure t)
+  :ensure t
+  :defer t)
+
+(use-package key-quiz
+  :ensure t
+  :defer t)
 
 (use-package md4rd
-  :ensure t)
+  :ensure t
+  :defer t)
+
+(use-package mount-mode
+  :quelpa (mount :fetcher github :repo "zellerin/mount-mode")
+  :defer t)
 
 (use-package speed-type
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package spray
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package rg
   :ensure t

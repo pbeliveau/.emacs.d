@@ -5,7 +5,7 @@
     (setq orgdir "~/.emacs.d/var/org")
   (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
 
-(use-package org-plus-contrib
+(use-package org
   :pin org
   :ensure t
   :bind (:map org-mode-map

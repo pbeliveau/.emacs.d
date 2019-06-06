@@ -43,11 +43,12 @@
   :ensure t
   :init
   (use-package minimal-theme :ensure t :defer t)
+  (use-package almost-mono-themes :ensure t :defer t)
   (setq calendar-latitude   45.41
         calendar-longitude -75.69)
   :config
-  (setq circadian-themes '((:sunrise . minimal-light)
-                           (:sunset  . minimal-black)))
+  (setq circadian-themes '((:sunrise . almost-mono-white)
+                           (:sunset  . almost-mono-black)))
   (circadian-setup))
 
 (if (memq window-system '(w32))

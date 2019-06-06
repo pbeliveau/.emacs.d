@@ -29,7 +29,7 @@
                        (install                         . "yay -S")
                        (search                          . "yay -Ss")
                        (uninstall                       . "yay -Rs")
-                       (update                          . "yay -Syu --cleanafter")
+                       (update                          . "yay -Syu --devel --cleanafter")
                        (clean-cache                     . "yay -Sc")
                        (log                             . "cat /var/log/pacman.log")
                        (get-info                        . "yay -Qi")

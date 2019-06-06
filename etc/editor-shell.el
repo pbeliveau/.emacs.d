@@ -9,7 +9,12 @@
     (interactive)
     (let ((inhibit-read-only t))
       (erase-buffer)
-      (eshell-send-input))))
+      (eshell-send-input)))
+  (defun eshell/sudo-find-file (path)
+  (let ((qualified-path (if (string-match "^/" path)
+                            path
+                          (concat (expand-file-name (eshell/pwd)) "/" path))))
+    (find-file (concat "/sudo::" qualified-path)))))
 
 (use-package better-shell
     :ensure t
