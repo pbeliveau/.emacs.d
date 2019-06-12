@@ -16,6 +16,10 @@
                           (concat (expand-file-name (eshell/pwd)) "/" path))))
     (find-file (concat "/sudo::" qualified-path)))))
 
+(use-package eshell-toggle
+  :ensure t
+  :bind ("C-'" . eshell-toggle))
+
 (use-package better-shell
     :ensure t
     :bind (("C-c ;" . better-shell-shell)

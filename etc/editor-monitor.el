@@ -31,6 +31,7 @@
   (display-time))
 
 (use-package symon
+  :if (not (memq window-system '(w32)))
   :ensure t
   :diminish
   :config
