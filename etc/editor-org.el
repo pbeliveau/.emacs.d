@@ -9,7 +9,8 @@
   :pin org
   :ensure t
   :bind (:map org-mode-map
-          ("C-c i" . org-add-ids-to-headlines))
+          ("C-c i" . org-add-ids-to-headlines)
+          ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
   :init
   (setq org-directory orgdir)
@@ -64,13 +65,24 @@
           (org-entry-put pom "CUSTOM_ID" id)
           (org-id-add-location id (buffer-file-name (buffer-base-buffer)))
           id)))))
+
   (defun org-add-ids-to-headlines ()
     (interactive)
     (org-map-entries (lambda () (org-custom-id-get (point) 'create))))
+
   (defun switch-to-org-tasks ()
     (interactive)
     (find-file (concat org-directory "/tasks.org"))
-    (switch-to-buffer "tasks.org")))
+    (switch-to-buffer "tasks.org"))
+
+  (defun org-table-mark-field ()
+    "Mark the current table field."
+    (interactive)
+    ;; Do not try to jump to the beginning of field if the point is already there
+    (when (not (looking-back "|[[:blank:]]?"))
+      (org-table-beginning-of-field 1))
+    (set-mark-command nil)
+    (org-table-end-of-field 1)))
 
 (use-package org-contacts
   :if (not (memq window-system '(w32)))
