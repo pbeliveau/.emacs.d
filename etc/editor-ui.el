@@ -51,6 +51,10 @@
                            (:sunset  . almost-mono-black)))
   (circadian-setup))
 
+(use-package naysayer-theme
+  :quelpa (naysayer-theme :fetcher github :repo "nickav/naysayer-theme.el")
+  :defer t)
+
 (if (memq window-system '(w32))
     (load-theme 'almost-mono-white t))
 
