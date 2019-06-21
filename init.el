@@ -28,15 +28,15 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 ;; dependencies
-(use-package diminish                          :pin melpa)
-(use-package async                             :pin melpa)
-(use-package dash                              :pin melpa)
-(use-package ht                                :pin melpa)
-(use-package s                                 :pin melpa)
-(use-package f                                 :pin melpa)
-(use-package queue                             :pin gnu)
-(use-package epl                               :pin melpa)
-(use-package pkg-info                          :pin melpa)
+(use-package diminish   :pin melpa)
+(use-package async      :pin melpa)
+(use-package dash       :pin melpa)
+(use-package ht         :pin melpa)
+(use-package s          :pin melpa)
+(use-package f          :pin melpa)
+(use-package queue      :pin gnu)
+(use-package epl        :pin melpa)
+(use-package pkg-info   :pin melpa)
 
 ; Package management, unix systems only.
 (use-package use-package-ensure-system-package
@@ -44,10 +44,12 @@
   :if (not (memq window-system '(w32))))
 
 (use-package quelpa
-  :pin melpa)
+  :pin melpa
+  :ensure t)
 
 (use-package quelpa-use-package
   :pin melpa
+  :ensure t
   :config
   (quelpa-use-package-activate-advice))
 

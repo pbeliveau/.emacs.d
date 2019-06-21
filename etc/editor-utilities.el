@@ -10,9 +10,15 @@
   :ensure t
   :defer t)
 
-(use-package mount-mode
-  :quelpa (mount :fetcher github :repo "zellerin/mount-mode")
-  :defer t)
+(use-package mount
+  :commands mount-mode
+  :quelpa (mount :fetcher github :repo "zellerin/mount-mode"))
+
+(use-package mw-thesaurus
+  :quelpa (mw-thesaurus :fetcher github :repo "agzam/mw-thesaurus.el"))
+
+(use-package frog-menu
+  :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
 
 (use-package speed-type
   :ensure t
@@ -22,11 +28,9 @@
   :ensure t
   :defer t)
 
-(use-package rg
+(use-package deadgrep
   :ensure t
-  :bind (("C-c r" . rg))
-  :config
-  (setq rg-enable-default-bindings nil))
+  :bind (("C-c r" . deadgrep)))
 
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
