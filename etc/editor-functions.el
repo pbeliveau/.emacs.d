@@ -1,4 +1,5 @@
 (use-package ts
+  :disabled
   :load-path "var/lisp/"
   :config
   (defun insert-today (&optional arg)

@@ -16,7 +16,8 @@
         wdired-allow-to-change-permissions t))
 
 (use-package dired-rmjunk
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package pack
   :after dired

@@ -52,7 +52,7 @@
   (circadian-setup))
 
 (use-package naysayer-theme
-  :quelpa (naysayer-theme :fetcher github :repo "nickav/naysayer-theme.el")
+  :load-path "var/lisp/"
   :defer t)
 
 (if (memq window-system '(w32))
