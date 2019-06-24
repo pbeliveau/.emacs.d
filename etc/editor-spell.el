@@ -54,4 +54,12 @@
            ("C-c i r" . ispell-region)
            ("C-c i w" . ispell-word)))
 
+(use-package mw-thesaurus
+  :quelpa (mw-thesaurus :fetcher github :repo "agzam/mw-thesaurus.el"))
+
+(use-package typopunct
+  :ensure nil
+  :load-path "var/lisp/"
+  :bind ("M-g t" . typopunct-mode))
+
 (setq default-input-method "latin-1-prefix")

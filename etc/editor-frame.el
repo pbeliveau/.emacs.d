@@ -60,7 +60,7 @@
   ("C-c C-c d" . link-open-multiple-links)
   :config
   (setq browse-url-browser-function 'browse-url-generic
-        browse-url-generic-program "brave"))
+        browse-url-generic-program "firefox"))
 
 (use-package minimap
   :ensure t
@@ -86,10 +86,11 @@
 (use-package window
   :ensure nil
   :bind ("M-o" . other-window)
-  :config
+  :init
   (setq pop-up-windows t)
   (add-to-list 'same-window-regexps "*Help*")
-  (add-to-list 'same-window-buffer-names "*Proced*"))
+  (add-to-list 'same-window-buffer-names "*Proced*")
+  (add-to-list 'same-window-buffer-names "*Password-Store*"))
 
 (use-package winum
   :ensure t

@@ -1,6 +1,6 @@
 (use-package visual-basic-mode
   :ensure nil
-  :load-path "lisp/"
+  :load-path "var/lisp/"
   :mode ("\\.bas\\'"
          "\\.vb\\'"
          "\\.vbs\\'"))

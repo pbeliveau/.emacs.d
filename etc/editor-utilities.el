@@ -14,9 +14,6 @@
   :commands mount-mode
   :quelpa (mount :fetcher github :repo "zellerin/mount-mode"))
 
-(use-package mw-thesaurus
-  :quelpa (mw-thesaurus :fetcher github :repo "agzam/mw-thesaurus.el"))
-
 (use-package frog-menu
   :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
 
