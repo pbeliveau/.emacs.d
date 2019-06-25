@@ -90,7 +90,9 @@
   (setq pop-up-windows t)
   (add-to-list 'same-window-regexps "*Help*")
   (add-to-list 'same-window-buffer-names "*Proced*")
-  (add-to-list 'same-window-buffer-names "*Password-Store*"))
+  (add-to-list 'same-window-buffer-names "*Password-Store*")
+  (add-to-list 'same-window-buffer-names "*system-packages")
+  (add-to-list 'same-window-buffer-names "*Packages*"))
 
 (use-package winum
   :ensure t

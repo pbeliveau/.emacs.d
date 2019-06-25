@@ -4,6 +4,8 @@
   (setq require-final-newline t
         version-control       t
         backup-by-copying     t
+        make-backup-files     t
+        delete-old-versions   t
         kept-new-versions     64
         kept-old-versions     0
         delete-old-versions   nil
