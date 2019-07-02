@@ -38,25 +38,22 @@
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
 ;; theme
+(use-package naysayer-theme :ensure t :defer t)
+(use-package danneskjold-theme :ensure t :defer t)
+
 (use-package circadian
   :if (not (memq window-system '(w32)))
   :ensure t
   :init
-  (use-package minimal-theme :ensure t :defer t)
-  (use-package almost-mono-themes :ensure t :defer t)
   (setq calendar-latitude   45.41
         calendar-longitude -75.69)
   :config
-  (setq circadian-themes '((:sunrise . almost-mono-white)
-                           (:sunset  . almost-mono-black)))
+  (setq circadian-themes '((:sunrise . naysayer)
+                           (:sunset  . danneskjold)))
   (circadian-setup))
 
-(use-package naysayer-theme
-  :load-path "var/lisp/"
-  :defer t)
-
 (if (memq window-system '(w32))
-    (load-theme 'almost-mono-white t))
+    (load-theme 'naysayer t))
 
 (use-package page-break-lines
   :ensure t

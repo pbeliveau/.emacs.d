@@ -38,7 +38,7 @@
   :ensure t)
 
 (use-package frog-jump-buffer
-  :quelpa (frog-jump-buffer :fetcher github :repo "waymondo/frog-jump-buffer")
+  :ensure t
   :bind ("M-g f" . frog-jump-buffer))
 
 (use-package frog-menu

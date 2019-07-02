@@ -19,6 +19,9 @@
   :ensure t
   :defer t)
 
+(use-package date2name
+  :ensure t)
+
 (use-package pack
   :after dired
   :ensure t

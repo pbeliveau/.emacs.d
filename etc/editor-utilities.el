@@ -14,9 +14,6 @@
   :commands mount-mode
   :quelpa (mount :fetcher github :repo "zellerin/mount-mode"))
 
-(use-package frog-menu
-  :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
-
 (use-package speed-type
   :ensure t
   :defer t)
@@ -57,3 +54,10 @@
           (lambda (url)
             (message "Copied URL to clipboard: %S" url)
             (simpleclip-set-contents url))))
+
+(use-package web-search
+  :ensure t
+  :defer t
+  :bind ("C-x w" . web-search)
+  :config
+  (setq web-search-default-provider "DuckDuckGo"))

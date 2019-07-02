@@ -1,3 +1,8 @@
+(use-package alt-codes
+  :ensure t
+  :defer t
+  :bind ("C-x c" . alt-codes-insert))
+
 (use-package flycheck
   :pin melpa
   :ensure t
@@ -55,7 +60,7 @@
            ("C-c i w" . ispell-word)))
 
 (use-package mw-thesaurus
-  :quelpa (mw-thesaurus :fetcher github :repo "agzam/mw-thesaurus.el"))
+  :ensure t)
 
 (use-package typopunct
   :ensure nil

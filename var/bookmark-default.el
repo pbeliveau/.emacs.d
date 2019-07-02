@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("elfeed-unix"
+(("org-capture-last-stored"
+ (filename . "~/.emacs.d/var/org/notes.org")
+ (front-context-string . "**  [[https://ge")
+ (rear-context-string)
+ (position . 9))
+("elfeed-unix"
  (location . "@1-week-ago +unread +unix")
  (tags "unix" "unread")
  (handler . elfeed-search-bookmark-handler))
