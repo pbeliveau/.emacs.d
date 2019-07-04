@@ -53,7 +53,7 @@
   (circadian-setup))
 
 (if (memq window-system '(w32))
-    (load-theme 'naysayer t))
+    (load-theme 'almost-mono-white t))
 
 (use-package page-break-lines
   :ensure t
