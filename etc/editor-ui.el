@@ -38,7 +38,9 @@
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
 ;; theme
-(use-package naysayer-theme :ensure t :defer t)
+(use-package naysayer-theme
+  :load-path "var/lisp/")
+
 (use-package danneskjold-theme :ensure t :defer t)
 
 (use-package circadian
