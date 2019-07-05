@@ -1,5 +1,4 @@
 (use-package pdf-tools
-  :if (not (memq window-system '(w32)))
   :pin melpa
   :ensure t
   :config
