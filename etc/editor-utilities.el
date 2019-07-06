@@ -28,10 +28,12 @@
 
 (use-package memento-mori
   :ensure t
+  :diminish
   :init
   (load (concat no-littering-var-directory "memento/.memento"))
   :config
-  (setq memento-mori-birth-date age_string))
+  (setq memento-mori-birth-date age_string)
+  (memento-mori-mode))
 
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
