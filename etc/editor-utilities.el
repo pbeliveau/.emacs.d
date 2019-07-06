@@ -26,6 +26,13 @@
   :ensure t
   :bind (("C-c r" . deadgrep)))
 
+(use-package memento-mori
+  :ensure t
+  :init
+  (load (concat no-littering-var-directory "memento/.memento"))
+  :config
+  (setq memento-mori-birth-date age_string))
+
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
   :ensure t
@@ -36,8 +43,10 @@
 
 (use-package wttrin
   :ensure t
+  :init
+  (load (concat no-littering-var-directory "wttrin/.wttrin"))
   :config
-  (setq wttrin-default-cities          '("Ottawa")
+  (setq wttrin-default-cities           '("Ottawa")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
 (use-package webpaste

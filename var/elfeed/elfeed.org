@@ -23,3 +23,5 @@
 ** unix                                                         :unix:
 *** http://www.reddit.com/r/linux/.rss
 *** http://www.reddit.com/r/archlinux/.rss
+** blog                                                               :blog:
+*** https://vxlabs.com/index.xml

@@ -3,15 +3,16 @@
   :commands elfeed
   :bind (("C-c 3" . elfeed)
          :map elfeed-search-mode-map
-         ("R" . elfeed-mark-all-as-read)
-         ("U" . elfeed-update)
          ("A" . pb/elfeed-show-all)
+         ("B" . pb/elfeed-show-blog)
          ("D" . pb/elfeed-show-daily)
          ("E" . pb/elfeed-show-emacs)
-         ("T" . pb/elfeed-show-tech)
-         ("P" . pb/elfeed-show-pol)
          ("L" . pb/elfeed-show-lang)
-         ("O" . pb/elfeed-show-unix))
+         ("O" . pb/elfeed-show-unix)
+         ("P" . pb/elfeed-show-pol)
+         ("R" . elfeed-mark-all-as-read)
+         ("T" . pb/elfeed-show-tech)
+         ("U" . elfeed-update))
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (defun elfeed-mark-all-as-read ()
@@ -46,6 +47,10 @@
     (interactive)
     (bookmark-maybe-load-default-file)
     (bookmark-jump "elfeed-unix"))
+  (defun pb/elfeed-show-blog ()
+    (interactive)
+    (bookmark-maybe-load-default-file)
+    (bookmark-jump "elfeed-blog"))
   :custom
   (shr-width 80))
 
