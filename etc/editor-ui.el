@@ -39,12 +39,16 @@
 
 ;; theme
 (use-package naysayer-theme :ensure t :defer t)
-(use-package doom-themes :ensure t :defer t)
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-spacegrey t))
+
 (use-package doom-modeline
   :ensure t
-  :after circadian
+  :after doom-themes
   :init
-  (setq doom-modeline-bar-width                        3
+  (setq doom-modeline-bar-width                 3
         doom-modeline-buffer-encoding           t
         doom-modeline-enable-word-count         nil
         doom-modeline-height                    25
@@ -55,21 +59,11 @@
         doom-modeline-major-mode-icon           t
         doom-modeline-minor-modes               nil)
   :config
+  (if (memq window-system '(w32))
+      (setq doom-modeline-icon                  nil
+            doom-modeline-major-mode-icon       nil
+            doom-modeline-major-mode-color-icon nil))
   (doom-modeline-mode))
-
-(use-package circadian
-  :if (not (memq window-system '(w32)))
-  :ensure t
-  :init
-  (setq calendar-latitude   45.41
-        calendar-longitude -75.69)
-  :config
-  (setq circadian-themes '((:sunrise . doom-spacegrey)
-                           (:sunset  . naysayer)))
-  (circadian-setup))
-
-(if (memq window-system '(w32))
-    (load-theme 'almost-mono-white t))
 
 (use-package solaire-mode
   :hook

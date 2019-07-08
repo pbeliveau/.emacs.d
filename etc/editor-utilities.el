@@ -45,8 +45,6 @@
 
 (use-package wttrin
   :ensure t
-  :init
-  (load (concat no-littering-var-directory "wttrin/.wttrin"))
   :config
   (setq wttrin-default-cities           '("Ottawa")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
