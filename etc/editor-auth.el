@@ -38,6 +38,7 @@
 
   (use-package pass
     :ensure t
+    :bind ("<f9>" . pass)
     :config
     (setq password-store-password-length 20))
 
@@ -54,10 +55,7 @@
     (defun gr/gpg-update-tty (&rest _args)
       (shell-command
        "gpg-connect-agent updatestartuptty /bye"
-       " *gpg-update-tty*"))
-    (with-eval-after-load 'magit
-      (advice-add 'magit-start-git :before 'gr/gpg-update-tty)
-      (advice-add 'magit-call-git :before 'gr/gpg-update-tty)))
+       " *gpg-update-tty*")))
 
   (use-package tramp
     :ensure t
