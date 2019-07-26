@@ -1,32 +1,31 @@
 alias bridge ~/dotfiles/scripts/bridge $*
 alias connect ~/dotfiles/scripts/network $*
 alias d dired $1
-alias davsync rsync -avrc --size-only --no-whole-file $*
 alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
 alias ff find-file $1
+alias ffalias find-file ~/.emacs.d/var/eshell/alias
+alias gmute pamixer --sink 0 --get-mute
+alias gvol pamixer --sink 0 --get-volume
 alias install sudo pacman -S $*
 alias ipify ~/dotfiles/scripts/ipify
-alias layout ~/dotfiles/scripts/active-layout
-alias ll ls -lat $1
-alias la ls -la $1
 alias l1 ls -1a $1
 alias l1l ls -1at $1
+alias la ls -la $1
+alias layout ~/dotfiles/scripts/active-layout
+alias ll ls -lat $1
 alias modprobe sudo modprobe $*
+alias nuke killall -9 $*
 alias pastebin ~/dotfiles/scripts/pastebin $*
 alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
-alias pmake git pull && makepkg -si --needed
+alias pmake git pull && makepkg -sim --needed --noconfirm
 alias remove sudo pacman -Rs $*
 alias scan ~/documents/software/bash/scan2pdf/scan2pdf.sh $*
 alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
 alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
-alias tasks-work-dl sh ~/documents/software/bash/onedrive-business/download-task.sh
-alias tasks-work-up sh ~/documents/software/bash/onedrive-business/upload-org.sh
+alias svol pamixer --sink 0 --set-volume $1
+alias sysd sudo systemctl $*
+alias tmute pamixer --sink 0 -t
 alias tping ping -c 3 archlinux.org
 alias undervolt sudo undervolt $*
 alias update ~/dotfiles/scripts/update $*
 alias vpn sudo /usr/bin/protonvpn-cli $*
-alias tmute pamixer --sink 0 -t
-alias gmute pamixer --sink 0 --get-mute
-alias gvol pamixer --sink 0 --get-volume
-alias svol pamixer --sink 0 --set-volume $1
-alias sysd sudo systemctl $*

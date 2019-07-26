@@ -84,6 +84,7 @@
 
 (use-package mu4e-vars
     :if (not (memq window-system '(w32)))
+    :disabled
     :ensure nil
     :config
     (setq

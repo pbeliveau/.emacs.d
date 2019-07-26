@@ -1,8 +1,8 @@
-; generic settings
+;; generic settings
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq create-lockfiles nil)
-
-; remove menubar, toolbar, scrollbar
+;
+;; remove menubar, toolbar, scrollbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (when (fboundp 'scroll-bar-mode)
@@ -15,10 +15,10 @@
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 (setq-default frame-title-format "%b (%f)")
 
-;; + line numbers
-;; - blinking cursor
-;; - no bell sound
-;; + clipboard system
+;;; + line numbers
+;;; - blinking cursor
+;;; - no bell sound
+;;; + clipboard system
 (global-linum-mode)
 (blink-cursor-mode 0)
 (setq ring-bell-function 'ignore
@@ -37,7 +37,7 @@
         (set-frame-font "Fira Code:pixelsize=12")
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
-;; theme
+;;; theme
 (use-package naysayer-theme :ensure t :defer t)
 (use-package doom-themes
   :ensure t
@@ -97,11 +97,11 @@
   :pin gnu
   :ensure t)
 
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (setq sml/name-width            25
-        sml/no-confirm-load-theme t
-        sml/shorten-directory     nil
-        sml/shorten-modes         t)
-  (smart-mode-line-enable))
+;(use-package smart-mode-line
+;  :ensure t
+;  :config
+;  (setq sml/name-width            25
+;        sml/no-confirm-load-theme t
+;        sml/shorten-directory     nil
+;        sml/shorten-modes         t)
+;  (smart-mode-line-enable))
