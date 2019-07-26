@@ -1,4 +1,5 @@
 (use-package pdf-tools
+  :if (not (eq system-type 'windows-nt))
   :pin melpa
   :ensure t
   :config

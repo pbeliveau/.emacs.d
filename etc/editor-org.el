@@ -1,19 +1,16 @@
 (if (not (memq window-system '(w32)))
     (setq tasksfile "/tasks.org")
   (setq tasksfile "/tasks-work.org"))
-(if (not (memq window-system '(w32)))
-    (setq orgdir "~/.emacs.d/var/org")
-  (setq orgdir "~/OneDrive - Hôpital Montfort/org"))
 
 (use-package org
   :pin org
-  :ensure t
+  :ensure org-plus-contrib
   :bind (:map org-mode-map
           ("C-c i" . org-add-ids-to-headlines)
           ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
   :init
-  (setq org-directory orgdir)
+  (setq org-directory "~/.emacs.d/var/org")
   :config
   (use-package org-id :ensure nil)
   (use-package org-checklist :ensure nil)
@@ -30,7 +27,7 @@
         org-tag-alist                   '(
                                           ("crypt" . ?C))
         org-refile-targets
-          '((((concat orgdir tasksfile) :maxlevel . 2)))
+          '((((concat org-directory tasksfile) :maxlevel . 2)))
         org-todo-keywords
         '((sequence "TODO" "STARTED" "RECUR" "PAUSED" "|" "DONE")
           (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
@@ -269,7 +266,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-contacts
   :ensure nil
   :config
-  (setq org-contacts-files (concat orgdir "/system/contacts.org")))
+  (setq org-contacts-files (concat org-directory "/system/contacts.org")))
 
 (use-package org-index
   :ensure t)
@@ -282,10 +279,10 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :ensure t
   :if (not (memq window-system '(w32)))
   :init
-  (setq org-brain-path (concat orgdir "/brain"))
+  (setq org-brain-path (concat org-directory "/brain"))
   :config
   (setq org-id-track-globally t)
-  (setq org-id-locations-file (concat orgdir "/.org-id-locations"))
+  (setq org-id-locations-file (concat org-directory "/.org-id-locations"))
   (push '("b" "Brain" plain (function org-brain-goto-end)
           "* %i%?" :empty-lines 1)
         org-capture-templates)
