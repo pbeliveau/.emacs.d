@@ -1,6 +1,5 @@
 (use-package ts
-  :disabled
-  :load-path "var/lisp/"
+  :quelpa (ts :fetcher github :repo "alphapapa/ts.el")
   :config
   (defun insert-today (&optional arg)
   "Insert today's date.

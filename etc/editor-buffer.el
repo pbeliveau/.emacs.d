@@ -28,6 +28,12 @@
   :ensure t
   :bind ("C-c b" . scratch))
 
+(use-package so-long
+  :ensure nil
+  :if (version<= "27" emacs-version)
+  :config
+  (global-so-long-mode))
+
 ;; Force warning buffer into smaller frame
 (setq display-buffer-alist
   '(("[*]Warnings[*]" .

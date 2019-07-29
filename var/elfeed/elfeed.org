@@ -25,3 +25,5 @@
 *** http://www.reddit.com/r/archlinux/.rss
 ** blog                                                               :blog:
 *** https://vxlabs.com/index.xml
+*** https://irreal.org/blog/?feed=rss2
+*** https://etienne.depar.is/a-ecrit/

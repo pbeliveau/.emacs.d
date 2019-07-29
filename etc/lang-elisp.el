@@ -25,3 +25,6 @@
           (lisp-interaction-mode . turn-on-eldoc-mode)
           (ielm-mode             . turn-on-eldoc-mode)
           (cider-mode            . turn-on-eldoc-mode)))
+
+(use-package with-emacs
+  :ensure t)

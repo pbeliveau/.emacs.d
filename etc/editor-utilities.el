@@ -35,6 +35,9 @@
   (setq memento-mori-birth-date age_string)
   (memento-mori-mode))
 
+(use-package memory-usage
+  :ensure t)
+
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
   :ensure t

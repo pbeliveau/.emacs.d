@@ -30,6 +30,7 @@
                        (search                          . "yay -Ss")
                        (uninstall                       . "yay -Rs")
                        (update                          . "yay -Syu --devel --cleanafter")
+                       (update-lg                       . "pacman -Qmq | grep -Ee '-(cvs|svn|git|hg|bzr|darcs)$' | yay -S --needed -")
                        (clean-cache                     . "yay -Sc")
                        (log                             . "cat /var/log/pacman.log")
                        (get-info                        . "yay -Qi")
@@ -61,7 +62,11 @@
                ("i" . package-install)
                ("d" . package-delete)
                ("r" . package-refresh-contents)
-               ("q" . paradox-quit-and-close)))
+               ("q" . paradox-quit-and-close))
+  :config
+  ;; Fixes bad request error for GNU Emacs 26.2
+  ;; Fixed with GNU Emacs 26.3 +
+  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 ;; View and manager disk-usage
 (use-package disk-usage
