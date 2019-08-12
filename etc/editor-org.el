@@ -250,9 +250,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-file-format               "%Y%m%d.org"
         org-journal-time-format               ""))
 
-(use-package org-search-goto
-  :ensure nil
-  :load-path "var/lisp/")
+(use-package helm-org-rifle
+  :ensure t)
 
 (use-package ox-word
   :if (not (memq window-system '(w32)))

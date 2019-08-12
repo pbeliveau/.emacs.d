@@ -24,6 +24,12 @@
         ("M-o" . nil)
         ("M-g" . nil)))
 
+(use-package fast-scroll
+  :quelpa (fast-scroll :fetcher github :repo "ahungry/fast-scroll")
+  :config
+  (fast-scroll-config)
+  (fast-scroll-advice-scroll-functions))
+
 (use-package scratch
   :ensure t
   :bind ("C-c b" . scratch))
