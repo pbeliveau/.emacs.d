@@ -272,7 +272,13 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package ox-hugo
   :ensure t
-  :after ox)
+  :init
+  (use-package ox
+    :ensure nil)
+  :after ox
+  :config
+  (setq org-hugo-default-section-directory "posts"
+        org-hugo-export-with-toc           nil))
 
 (use-package org-brain
   :ensure t

@@ -1,7 +1,7 @@
 ;; generic settings
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq create-lockfiles nil)
-;
+
 ;; remove menubar, toolbar, scrollbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -31,18 +31,59 @@
 (set-face-attribute 'default nil :height 110)
 (if (eq system-type 'windows-nt)
     (progn
-        (set-frame-font "Consolas:pixelsize=13")
-        (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
+        (if (member "Cascadia Code" (font-family-list))
+            (progn
+              (set-frame-font "Cascadia Code:pixelsize=12")
+              (setq default-frame-alist '((font . "Cascadia Code:pixelsize=12"))))
+          (progn
+            (set-frame-font "Consolas:pixelsize=13")
+            (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
+            ))
   (progn
         (set-frame-font "Fira Code:pixelsize=12")
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
+;; Ligature fix
+(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+               (36 . ".\\(?:>\\)")
+               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+               (48 . ".\\(?:x[a-zA-Z]\\)")
+               (58 . ".\\(?:::\\|[:=]\\)")
+               (59 . ".\\(?:;;\\|;\\)")
+               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+               (91 . ".\\(?:]\\)")
+               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+               (94 . ".\\(?:=\\)")
+               (119 . ".\\(?:ww\\)")
+               (123 . ".\\(?:-\\)")
+               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+               )
+             ))
+ (dolist (char-regexp alist)
+   (set-char-table-range composition-function-table (car char-regexp)
+                         `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
 ;;; theme
 (use-package naysayer-theme :ensure t :defer t)
+;; (use-package zaiste-theme
+;;   :load-path "var/lisp"
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-spacegrey t))
+  (if (>= (ts-hour (ts-now)) 20)
+      (load-theme 'doom-spacegrey t)
+    (load-theme 'doom-one-light t)))
 
 (use-package doom-modeline
   :ensure t
