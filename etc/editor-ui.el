@@ -74,6 +74,20 @@
    (set-char-table-range composition-function-table (car char-regexp)
                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
+;; disable ligature where it freezes emacs
+(add-hook 'helm-major-mode-hook
+          (lambda ()
+              (setq-local auto-composition-mode nil)))
+(add-hook 'mu4e-headers-mode-hook
+            (lambda ()
+              (setq-local auto-composition-mode nil)))
+(add-hook 'mu4e-headers-mode-hook
+            (lambda ()
+              (setq-local auto-composition-mode nil)))
+(add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local auto-composition-mode nil)))
+
 ;;; theme
 (use-package naysayer-theme :ensure t :defer t)
 ;; (use-package zaiste-theme
@@ -136,6 +150,9 @@
 
 (use-package darkroom
   :pin gnu
+  :ensure t)
+
+(use-package writeroom-mode
   :ensure t)
 
 ;(use-package smart-mode-line
