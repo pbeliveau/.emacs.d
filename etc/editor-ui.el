@@ -31,10 +31,10 @@
 (set-face-attribute 'default nil :height 110)
 (if (eq system-type 'windows-nt)
     (progn
-        (if (member "Cascadia Code" (font-family-list))
+        (if (member "Fira Code" (font-family-list))
             (progn
-              (set-frame-font "Cascadia Code:pixelsize=12")
-              (setq default-frame-alist '((font . "Cascadia Code:pixelsize=12"))))
+              (set-frame-font "Fira Code:pixelsize=12")
+              (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))
           (progn
             (set-frame-font "Consolas:pixelsize=13")
             (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
@@ -42,51 +42,6 @@
   (progn
         (set-frame-font "Fira Code:pixelsize=12")
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
-
-;; Ligature fix
-(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-               (36 . ".\\(?:>\\)")
-               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-               (48 . ".\\(?:x[a-zA-Z]\\)")
-               (58 . ".\\(?:::\\|[:=]\\)")
-               (59 . ".\\(?:;;\\|;\\)")
-               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-               (91 . ".\\(?:]\\)")
-               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-               (94 . ".\\(?:=\\)")
-               (119 . ".\\(?:ww\\)")
-               (123 . ".\\(?:-\\)")
-               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-               )
-             ))
- (dolist (char-regexp alist)
-   (set-char-table-range composition-function-table (car char-regexp)
-                         `([,(cdr char-regexp) 0 font-shape-gstring]))))
-
-;; disable ligature where it freezes emacs
-(add-hook 'helm-major-mode-hook
-          (lambda ()
-              (setq-local auto-composition-mode nil)))
-(add-hook 'mu4e-headers-mode-hook
-            (lambda ()
-              (setq-local auto-composition-mode nil)))
-(add-hook 'mu4e-headers-mode-hook
-            (lambda ()
-              (setq-local auto-composition-mode nil)))
-(add-hook 'org-mode-hook
-            (lambda ()
-              (setq-local auto-composition-mode nil)))
 
 ;;; theme
 (use-package naysayer-theme :ensure t :defer t)
@@ -153,13 +108,9 @@
   :ensure t)
 
 (use-package writeroom-mode
-  :ensure t)
-
-;(use-package smart-mode-line
-;  :ensure t
-;  :config
-;  (setq sml/name-width            25
-;        sml/no-confirm-load-theme t
-;        sml/shorten-directory     nil
-;        sml/shorten-modes         t)
-;  (smart-mode-line-enable))
+  :ensure t
+  :defer t
+  :config
+  (setq writeroom-width                 140
+        writeroom-mode-line             nil
+        writeroom-maximize-window       nil))
