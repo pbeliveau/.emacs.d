@@ -25,10 +25,11 @@
         ("M-g" . nil)))
 
 (use-package fast-scroll
-  :quelpa (fast-scroll :fetcher github :repo "ahungry/fast-scroll")
+  :ensure t
   :config
   (fast-scroll-config)
-  (fast-scroll-advice-scroll-functions))
+  (fast-scroll-advice-scroll-functions)
+  (fast-scroll-mode 1))
 
 (use-package scratch
   :ensure t
