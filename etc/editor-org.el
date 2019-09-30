@@ -34,6 +34,7 @@
           (sequence "TODELEGATE" "DELEGATED" "|" "DONE")
           (sequence "TOBLOG" "WRITING" "|" "PUBLISHED")
           (sequence "TOMAIL" "DRAFT" "|" "SENT")
+          (sequence "MEETING" "SETMEETING" "CANCELEDMEETING" "|" "DONE")
           (sequence "|" "CANCELED" "WAITING" "SOMEDAY"))
         org-todo-keyword-faces
         (quote
