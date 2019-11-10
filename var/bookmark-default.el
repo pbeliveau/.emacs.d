@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/.emacs.d/var/org/notes.org")
- (front-context-string . "**  [[https://ge")
+ (front-context-string . "**  [[https://le")
  (rear-context-string)
  (position . 9))
 ("elfeed-unix"
@@ -30,6 +30,10 @@
 ("elfeed-daily"
  (location . "@1-week-ago +unread +daily")
  (tags "daily" "unread")
+ (handler . elfeed-search-bookmark-handler))
+("elfeed-blog"
+ (location . "@1-week-ago +unread +blog")
+ (tags "blog" "unread")
  (handler . elfeed-search-bookmark-handler))
 ("elfeed-all"
  (location . "@1-week-ago +unread")

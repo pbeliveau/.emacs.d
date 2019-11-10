@@ -50,7 +50,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (if (>= (ts-hour (ts-now)) 20)
+   (if (>= (ts-hour (ts-now)) 22)
       (load-theme 'doom-spacegrey t)
     (load-theme 'doom-one-light t)))
 

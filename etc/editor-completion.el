@@ -49,7 +49,8 @@
   :init
   (recentf-mode 1)
   :config
-  (setq recentf-max-menu-items 100))
+  (setq recentf-max-menu-items 100
+        ))
 
 (use-package smex
   :ensure t

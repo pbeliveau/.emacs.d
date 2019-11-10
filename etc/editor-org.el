@@ -11,6 +11,9 @@
   :bind ("C-C t" . switch-to-org-tasks)
   :init
   (setq org-directory "~/.emacs.d/var/org")
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((ledger . t)))
   :config
   (use-package org-id :ensure nil)
   (use-package org-checklist :ensure nil)

@@ -15,6 +15,11 @@
   (setq wdired-create-parent-directories   t
         wdired-allow-to-change-permissions t))
 
+(use-package dired-narrow
+  :ensure t
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow)))
+
 (use-package dired-rmjunk
   :ensure t
   :defer t)
