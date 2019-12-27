@@ -1,7 +1,3 @@
-(if (not (memq window-system '(w32)))
-    (setq tasksfile "/tasks.org")
-  (setq tasksfile "/tasks-work.org"))
-
 (use-package org-plus-contrib
   :bind (:map org-mode-map
           ("C-c i" . org-add-ids-to-headlines)
@@ -19,7 +15,6 @@
     :straight (org-checklist :local-repo nil))
   (setq fill-column                     80
         org-adapt-indentation           nil
-        org-default-notes-file          (concat org-directory "/journal.org")
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
         org-list-description-max-indent 4
@@ -29,8 +24,6 @@
         org-catch-invisible-edits       'show-and-error
         org-tag-alist                   '(
                                           ("crypt" . ?C))
-        org-refile-targets
-          '((((concat org-directory tasksfile) :maxlevel . 2)))
         org-todo-keywords
         '((sequence "TODO" "STARTED" "RECUR" "PAUSED" "|" "DONE")
           (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
@@ -52,6 +45,8 @@
           ("WRITING" :foreground "sea green" :weight bold)
           ("TOMAIL" :foreground "steelblue3" :weight bold)
           ("DRAFT" :foreground "steelblue" :weight bold))))
+  (if (not (memq window-system '(w32)))
+    (setq org-default-notes-file     (concat org-directory "/journal.org")))
 
   ;; Functions to add custom id to headers
   (defun org-custom-id-get (&optional pom create prefix)
@@ -93,6 +88,7 @@
                                "/system/contacts.org")))
 
 (use-package org-agenda
+  :if (not (memq window-system '(w32)))
   :straight (org-agenda :local-repo nil)
   :bind (("C-c a" . org-agenda))
   :after org
@@ -142,6 +138,7 @@
                                   "~/org/system/schedule.org"))))
 
 (use-package org-capture
+  :if (not (memq window-system '(w32)))
   :straight (org-capture :local-repo nil)
   :bind (("C-c c" . org-capture))
   :after org
