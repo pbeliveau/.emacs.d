@@ -12,3 +12,8 @@
   :diminish
   :config
   (simpleclip-mode 1))
+
+(use-package undo-fu
+  :ensure t
+  :bind (("C-z"   . undo-fu-only-undo)
+         ("C-S-z" . undo-fu-only-redo)))

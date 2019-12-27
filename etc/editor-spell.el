@@ -4,7 +4,6 @@
   :bind ("C-x c" . alt-codes-insert))
 
 (use-package flycheck
-  :pin melpa
   :ensure t
   :commands (flycheck-mode
              flycheck-next-error
@@ -51,7 +50,7 @@
     (setq flyspell-correct-interface #'frog-menu-flyspell-correct))
 
 (use-package ispell
-    :ensure nil
+    :straight (ispell :type built-in)
     :bind (("C-c i c" . ispell-comments-and-strings)
            ("C-c i d" . ispell-change-dictionary)
            ("C-c i k" . ispell-kill-ispell)
@@ -63,7 +62,7 @@
   :ensure t)
 
 (use-package typopunct
-  :ensure nil
+  :straight (typopunct :local-repo "typopunct")
   :load-path "var/lisp/"
   :bind ("M-g t" . typopunct-mode))
 

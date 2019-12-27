@@ -1,5 +1,5 @@
 (use-package ruby-mode
-  :ensure nil
+  :straight (ruby-mode :type built-in)
   :hook my-ruby-mode-hook
   :mode (("\\.rb$" . ruby-mode)
          ("Gemfile" . ruby-mode)

@@ -1,5 +1,5 @@
 (use-package eww
-  :ensure nil
+  :straight (eww :type built-in)
   :after shr
   :bind (:map eww-mode-map
               ("I" . my/eww-toggle-images))
@@ -12,7 +12,7 @@
              (if shr-inhibit-images "off" "on"))))
 
 (use-package shr
-  :ensure nil
+  :straight (shr :type built-in)
   :init
   (setq-default shr-inhibit-images t
                 shr-use-fonts      nil))

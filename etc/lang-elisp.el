@@ -1,5 +1,4 @@
 (use-package smartparens
-  :ensure t
   :hook (prog-mode . smartparens-mode)
   :bind (("C-:"     . sp-comment)
          ("C-c d K" . sp-kill-whole-line)
@@ -14,12 +13,10 @@
          ("C-c d p" . sp-previous-sexp)
          ("C-c d u" . sp-unwrap-sexp)
          ("C-c d w" . sp-delete-word)
-         ("C-j"     . sp-newline))
-  :init
-  (use-package smartparens-config :ensure nil))
+         ("C-j"     . sp-newline)))
 
 (use-package eldoc
-  :ensure nil
+  :straight (eldoc :type built-in)
   :diminish
   :hook ((emacs-lisp-mode        . turn-on-eldoc-mode)
           (lisp-interaction-mode . turn-on-eldoc-mode)

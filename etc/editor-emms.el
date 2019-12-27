@@ -24,9 +24,10 @@
         emms-track-description-function 'emms-track-simple-description)
   :config
   (emms-standard)
-  (use-package emms-browser :ensure nil)
+  (use-package emms-browser
+    :straight (emms-browser :local-repo nil))
   (use-package emms-player-mpv
-    :ensure nil
+    :straight (emms-browser-mpv :local-repo nil)
     :init
     (progn
       (require 'emms-player-mpv)

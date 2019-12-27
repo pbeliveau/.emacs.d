@@ -18,12 +18,11 @@
   :bind (("C-c p" . projectile-command-map)))
 
 (use-package magit
-  :pin melpa
   :ensure t
   :defer t)
 
 (use-package saveplace
-  :ensure nil
+  :straight (saveplace :type built-in)
   :defer 5
   :config
   (setq save-place t))

@@ -37,12 +37,11 @@
 (use-package focus
   :ensure t)
 
-(use-package frog-jump-buffer
-  :ensure t
-  :bind ("M-g f" . frog-jump-buffer))
-
 (use-package frog-menu
-  :quelpa (frog-menu :fetcher github :repo "clemera/frog-menu"))
+  :straight (frog-menu :type git :host github :repo "clemera/frog-menu"))
+
+(use-package frog-jump-buffer
+  :bind ("M-g f" . frog-jump-buffer))
 
 (use-package golden-ratio
   :ensure t
@@ -79,12 +78,12 @@
          ("M-p" . move-text-up)))
 
 (use-package uniquify
-  :ensure nil
+  :straight (uniquify :type built-in)
   :config
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package window
-  :ensure nil
+  :straight (window :type built-in)
   :bind ("M-o" . other-window)
   :init
   (setq pop-up-windows t)

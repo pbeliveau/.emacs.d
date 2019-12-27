@@ -1,19 +1,14 @@
 (use-package bird-mode
-  :ensure nil
-  :load-path "var/lisp/"
+  :straight (bird-mode :type git :host github :repo "rakete/bird-mode")
   :bind ("M-g v" . bird-mode))
 
 (use-package buffer-expose
-  :ensure t
   :init
   (buffer-expose-mode 1))
 
 (use-package buffer-flip
-  :ensure t
-  :bind  (("M-<tab>" . buffer-flip)
-          :map buffer-flip-map
-          ("M-<tab>" .   buffer-flip-forward)
-          ("M-ESC" .     buffer-flip-abort))
+  :bind  (("M-<tab>" . buffer-flip-forward)
+          ("M-<iso-lefttab>" . buffer-flip-backward))
   :config
   (setq buffer-flip-skip-patterns
         '("^\\*helm\\b"
@@ -25,18 +20,15 @@
         ("M-g" . nil)))
 
 (use-package fast-scroll
-  :ensure t
   :config
   (fast-scroll-config)
   (fast-scroll-advice-scroll-functions)
   (fast-scroll-mode 1))
 
 (use-package scratch
-  :ensure t
   :bind ("C-c b" . scratch))
 
 (use-package so-long
-  :ensure nil
   :if (version<= "27" emacs-version)
   :config
   (global-so-long-mode))

@@ -28,4 +28,4 @@ alias tmute pamixer --sink 0 -t
 alias tping ping -c 3 archlinux.org
 alias undervolt sudo undervolt $*
 alias update ~/.config/scripts/update $*
-alias vpn sudo /usr/bin/protonvpn-cli $*
+alias vpn sudo /usr/bin/protonvpn $*

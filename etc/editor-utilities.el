@@ -12,7 +12,7 @@
 
 (use-package mount
   :commands mount-mode
-  :quelpa (mount :fetcher github :repo "zellerin/mount-mode"))
+  :straight (mount :type git :host github :repo "zellerin/mount-mode"))
 
 (use-package speed-type
   :ensure t
@@ -38,6 +38,8 @@
 (use-package memory-usage
   :ensure t)
 
+(use-package noccur)
+
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
   :ensure t
@@ -49,7 +51,7 @@
 (use-package wttrin
   :ensure t
   :config
-  (setq wttrin-default-cities           '("Ottawa")
+  (setq wttrin-default-cities          '("Ottawa")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
 (use-package webpaste

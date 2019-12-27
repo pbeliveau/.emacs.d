@@ -1,5 +1,5 @@
 (use-package files
-  :ensure nil
+  :straight (files :type built-in)
   :config
   (setq require-final-newline t
         version-control       t
@@ -12,11 +12,10 @@
         auto-save-default     nil))
 
 (use-package misc
-  :ensure nil
+  :straight (misc :type built-in)
   :bind ("M-z" . zap-up-to-char))
 
 (use-package multiple-cursors
-  :ensure t
   :bind (("C->"           . mc/mark-next-like-this)
          ("C-<"           . mc/mark-previous-like-this)
          ("C-c C-<"       . mc/mark-all-like-this)

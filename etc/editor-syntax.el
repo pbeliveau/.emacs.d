@@ -1,5 +1,5 @@
 (use-package auto-fill-mode
-  :ensure nil
+  :straight (saveplace :type built-in)
   :diminish
   :init
   (setq-default fill-column 80)

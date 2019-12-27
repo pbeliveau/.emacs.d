@@ -1,8 +1,7 @@
 (use-package eshell
-  :ensure nil
+  :straight (eshell :type built-in)
   :bind (([f2] . eshell))
   :config
-  (use-package em-smart :ensure nil)
   (setq eshell-smart-space-goes-to-end t)
   (defun eshell/clear ()
     "Clear the eshell buffer."

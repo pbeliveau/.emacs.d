@@ -1,5 +1,5 @@
 (use-package js
-  :defer t)
+  :straight (eldoc :type built-in))
 
 (use-package js2-mode
   :ensure t

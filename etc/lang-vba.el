@@ -1,6 +1,5 @@
 (use-package visual-basic-mode
-  :ensure nil
-  :load-path "var/lisp/"
+  :straight (visual-basic-mode :local-repo "visual-basic-mode")
   :mode ("\\.bas\\'"
          "\\.vb\\'"
          "\\.vbs\\'"))

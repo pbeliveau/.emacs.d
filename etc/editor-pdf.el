@@ -1,7 +1,5 @@
 (use-package pdf-tools
   :if (not (eq system-type 'windows-nt))
-  :pin melpa
-  :ensure t
   :config
   (pdf-tools-install)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))

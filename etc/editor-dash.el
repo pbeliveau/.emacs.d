@@ -11,7 +11,6 @@
   (insert "\n    "))
 
 (use-package dashboard
-  :ensure t
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
         dashboard-items '((recents  . 10)

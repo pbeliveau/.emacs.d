@@ -1,5 +1,5 @@
 (use-package battery
-  :ensure nil
+  :straight (battery :type built-in)
   :config
   (setq battery-update-interval 300
         battery-mode-line-format " %p%% %L")
@@ -12,7 +12,7 @@
   (setq daemons-always-sudo t))
 
 (use-package proced
-  :ensure nil
+  :straight (proced :type built-in)
   :bind ("C-x p" . proced)
   :config
   (add-to-list 'proced-format-alist
@@ -24,7 +24,7 @@
   (pulseaudio-control-default-keybindings))
 
 (use-package time
-  :ensure nil
+  :straight (time :type built-in)
   :config
   (setq display-time-day-and-date t
         display-time-default-load-average nil)

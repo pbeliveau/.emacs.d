@@ -61,6 +61,13 @@
   (ivy-mode 1)
   (ivy-set-occur 'ivy-switch-buffer 'ivy-switch-buffer-occur))
 
+(use-package ivy-prescient
+  :ensure t
+  :after ivy
+  :config
+  (progn
+    (ivy-prescient-mode t)))
+
 (use-package swiper
   :ensure t
   :after ivy
@@ -85,3 +92,11 @@
          ("C-c e q" . counsel-set-variable)
          ("C-c e u" . counsel-unicode-char)
          ("C-x r b" . counsel-bookmark)))
+
+(use-package counsel-web
+  :straight (counsel-web :type git 
+			 :host github 
+			 :repo "mnewt/counsel-web")
+  :config
+  (setq counsel-web-search-action #'browse-url))
+

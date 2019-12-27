@@ -1,10 +1,10 @@
 (use-package dired
-  :ensure nil
+  :straight (dired :type built-in)
   :bind (:map dired-mode-map
         ("M-RET" . dired-do-xdg-open))
   :init
   (use-package dired-x
-    :ensure nil)
+    :straight (dired :type built-in))
   :config
   (defun dired-do-xdg-open (&optional arg file-list)
   (interactive)
@@ -16,31 +16,23 @@
         wdired-allow-to-change-permissions t))
 
 (use-package dired-narrow
-  :ensure t
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 
-(use-package dired-rmjunk
-  :ensure t
-  :defer t)
-
-(use-package date2name
-  :ensure t)
+(use-package dired-rmjunk)
+(use-package date2name)
 
 (use-package pack
   :after dired
-  :ensure t
   :bind (:map dired-mode-map
         ("P" . pack-dired-dwim)))
 
 (use-package speedbar
-  :ensure nil
   :config
   (setq speedbar-use-images         nil
         speedbar-show-unknown-files t))
 
 (use-package sr-speedbar
-  :ensure t
   :after speedbar
   :bind ("M-g b" . sr-speedbar-toggle)
   :config
@@ -51,8 +43,6 @@
         sr-speedbar-skip-other-window-p  t))
 
 (use-package treemacs
-  :pin melpa
-  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
@@ -104,9 +94,7 @@
         ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-projectile
-  :after treemacs projectile
-  :pin melpa
-  :ensure t)
+  :after treemacs projectile)
 
 (defun copy-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'."

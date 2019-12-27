@@ -45,8 +45,6 @@
 
 ;;; theme
 (use-package naysayer-theme :ensure t :defer t)
-;; (use-package zaiste-theme
-;;   :load-path "var/lisp"
 (use-package doom-themes
   :ensure t
   :config
@@ -90,7 +88,7 @@
   (global-page-break-lines-mode))
 
 (use-package whitespace
-  :ensure nil
+  :straight (whitespace :type built-in)
   :diminish
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)

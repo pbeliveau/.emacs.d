@@ -1,7 +1,5 @@
 (use-package system-packages
   :if (not (memq window-system '(w32)))
-  :pin gnu
-  :ensure t
   :bind
   (:prefix-map my/system-packages-map
                :prefix "<f12>"
@@ -53,18 +51,5 @@
         paradox-execute-asynchronously t)
   (paradox-enable))
 
-(use-package package
-  :ensure nil
-  :bind
-  (:prefix-map my/packages-map
-               :prefix "<f10>"
-               ("l" . list-packages)
-               ("i" . package-install)
-               ("d" . package-delete)
-               ("r" . package-refresh-contents)
-               ("q" . paradox-quit-and-close))
-  )
-
 ;; View and manager disk-usage
-(use-package disk-usage
-  :ensure t)
+(use-package disk-usage)

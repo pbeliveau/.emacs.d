@@ -1,6 +1,6 @@
 (use-package erc
   :if (not (memq window-system '(w32)))
-  :ensure nil
+  :straight (erc :type built-in)
   :bind (("C-c s" . start-irc)
          ("C-c q" . stop-irc))
   :init
@@ -20,10 +20,8 @@
         erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                                   "324" "329" "332" "333" "353" "477"))
   :config
-  (use-package erc-log
-    :ensure nil)
-  (use-package erc-spelling
-    :ensure nil)
+  (use-package erc-log)
+  (use-package erc-spelling)
 
   (load (concat no-littering-var-directory "erc/.erc-auth"))
 

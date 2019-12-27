@@ -2,21 +2,21 @@
     (setq tasksfile "/tasks.org")
   (setq tasksfile "/tasks-work.org"))
 
-(use-package org
-  :pin org
-  :ensure org-plus-contrib
+(use-package org-plus-contrib
   :bind (:map org-mode-map
           ("C-c i" . org-add-ids-to-headlines)
           ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
   :init
-  (setq org-directory "~/.emacs.d/var/org")
+  (setq org-directory (concat no-littering-var-directory "org"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((ledger . t)))
   :config
-  (use-package org-id :ensure nil)
-  (use-package org-checklist :ensure nil)
+  (use-package org-id
+    :straight (org-id :local-repo nil))
+  (use-package org-checklist
+    :straight (org-checklist :local-repo nil))
   (setq fill-column                     80
         org-adapt-indentation           nil
         org-default-notes-file          (concat org-directory "/journal.org")
@@ -87,13 +87,13 @@
 
 (use-package org-contacts
   :if (not (memq window-system '(w32)))
-  :ensure nil
+  :straight (org-contacts :local-repo nil)
   :custom
   (org-contacts-files '(concat org-directory
                                "/system/contacts.org")))
 
 (use-package org-agenda
-  :ensure nil
+  :straight (org-agenda :local-repo nil)
   :bind (("C-c a" . org-agenda))
   :after org
   :config
@@ -142,7 +142,7 @@
                                   "~/org/system/schedule.org"))))
 
 (use-package org-capture
-  :ensure nil
+  :straight (org-capture :local-repo nil)
   :bind (("C-c c" . org-capture))
   :after org
   :init
@@ -225,7 +225,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         my/org-mail-template))))
 
 (use-package org-crypt
- :ensure nil
+ :straight (org-crypt :local-repo nil)
  :after org
  :config
  (setq org-crypt-key "8BED3C59AE2C7F3632720D33F40268B8FFE4102A"
@@ -258,31 +258,22 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :ensure t)
 
 (use-package ox-word
-  :if (not (memq window-system '(w32)))
-  :ensure nil
-  :after org
-  :init
-  (use-package ox
-    :ensure nil)
-  :load-path "var/lisp/")
-
-(use-package org-contacts
-  :ensure nil
-  :config
-  (setq org-contacts-files (concat org-directory "/system/contacts.org")))
-
-(use-package org-index
-  :ensure t)
+  :after (:all org-ref ox)
+  :demand t
+  :straight (ox-word :type git
+                     :host github
+                     :repo "jkitchin/scimax"
+                     :files ("ox-word.el")))
 
 (use-package ox-hugo
   :ensure t
-  :init
-  (use-package ox
-    :ensure nil)
   :after ox
   :config
   (setq org-hugo-default-section-directory "posts"
         org-hugo-export-with-toc           nil))
+
+(use-package org-index
+  :ensure t)
 
 (use-package org-brain
   :ensure t

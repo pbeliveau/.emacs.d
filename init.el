@@ -1,61 +1,55 @@
-;; package repositories
-(require 'package)
-(setq package-enable-at-startup nil
-      package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/"))
-      package-pinned-packages
-            '((bind-key    . "melpa")
-              (diminish    . "melpa")
-              (use-package . "melpa")))
-(package-initialize)
+;; straight.el + use-package
 
-;; use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(setq load-prefer-newer t
+      straight-base-dir (concat user-emacs-directory "var/")
+      straight-repository-branch "develop"
+      straight-check-for-modifications '(find-when-checking)
+      straight-use-package-by-default t
+      straight-cache-autoloads t
+      straight-treat-as-init t
+      ;; use-package-always-defer t
+      use-package-expand-minimally t
+      use-package-verbose nil)
 
-(eval-when-compile
-  (require 'use-package)
-  (setq use-package-expand-minimally byte-compile-current-file))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" (concat user-emacs-directory "var/")))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(setq use-package-always-ensure t)
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 (use-package benchmark-init
-  :ensure t
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 ;; dependencies
-(use-package diminish   :pin melpa)
-(use-package async      :pin melpa)
-(use-package dash       :pin melpa)
-(use-package ht         :pin melpa)
-(use-package s          :pin melpa)
-(use-package f          :pin melpa)
-(use-package queue      :pin gnu)
-(use-package epl        :pin melpa)
-(use-package pkg-info   :pin melpa)
-
-; Package management, unix systems only.
-(use-package use-package-ensure-system-package
-  :pin melpa
-  :if (not (memq window-system '(w32))))
-
-(use-package quelpa
-  :pin melpa
-  :ensure t)
-
-(use-package quelpa-use-package
-  :pin melpa
-  :ensure t
-  :config
-  (quelpa-use-package-activate-advice))
+(use-package diminish   :demand t)
+(use-package async      :demand t)
+(use-package dash       :demand t)
+(use-package ht         :demand t)
+(use-package s          :demand t)
+(use-package f          :demand t)
+(use-package queue      :demand t)
+(use-package epl        :demand t)
+(use-package pkg-info   :demand t)
 
 ;; make use of standard directories
 (use-package no-littering
-  :ensure t)
+  :demand t)
+
+; Package management, unix systems only.
+(use-package use-package-ensure-system-package
+  :if (not (memq window-system '(w32)))
+  :demand t)
 
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)
@@ -65,7 +59,7 @@
 ;; packages in etc
 (async-bytecomp-package-mode 1)
 (let ((loaded (mapcar #'file-name-sans-extension (delq nil (mapcar #'car load-history)))))
-  (dolist (file (directory-files "~/.emacs.d/etc" t ".+\\.elc?$"))
+  (dolist (file (directory-files (concat user-emacs-directory "etc") t ".+\\.elc?$"))
     (let ((library (file-name-sans-extension file)))
       (unless (member library loaded)
         (load library nil t)

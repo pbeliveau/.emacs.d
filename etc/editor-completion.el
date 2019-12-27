@@ -25,7 +25,7 @@
   :after (company python-mode anaconda-mode))
 
 (use-package hippie-exp
-  :ensure nil
+  :straight (hippie-exp :type built-in)
   :bind ("M-/" . hippie-expand)
   :config
   (setq hippie-expand-try-functions-list
@@ -44,7 +44,7 @@
   (which-key-mode))
 
 (use-package recentf
-  :ensure nil
+  :straight (recentf :type built-in)
   :defer 10
   :init
   (recentf-mode 1)
@@ -70,10 +70,3 @@
   :config
   (progn
     (company-prescient-mode t)))
-
-(use-package ivy-prescient
-  :ensure t
-  :after ivy
-  :config
-  (progn
-    (ivy-prescient-mode t)))

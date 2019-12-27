@@ -1,5 +1,5 @@
 (use-package subword-mode
-  :ensure nil
+  :straight (subword-mode :type built-in)
   :hook clojure-mode)
 
 (use-package clojure-mode
@@ -20,7 +20,7 @@
                 (1 font-lock-keyword-face))))
             (define-clojure-indent (fact 1))
             (define-clojure-indent (facts 1))))
-  (use-package clojure-mode-extra-font-locking :ensure nil))
+  (use-package clojure-mode-extra-font-locking))
 
 (use-package cider
   :ensure t

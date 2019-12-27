@@ -1,5 +1,5 @@
 (use-package server
-  :ensure nil
+  :straight (saveplace :type built-in)
   :if window-system
   :bind ("C-x C-c" . my-done)
   :defer 5

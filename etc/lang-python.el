@@ -2,5 +2,5 @@
   :ensure t)
 
 (use-package python-mode
-  :ensure nil
+  :straight (python-mode :type built-in)
   :hook anaconda-mode)
