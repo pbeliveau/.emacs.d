@@ -9,8 +9,6 @@
 (use-package message
   :if (not (memq window-system '(w32)))
   :straight (message :type built-in)
-  :init
-  (load (concat maildir "/.mailauth"))
   :config
   (setq message-kill-buffer-on-exit    t
         message-sendmail-envelope-from 'header

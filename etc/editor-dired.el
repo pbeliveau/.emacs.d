@@ -1,19 +1,97 @@
 (use-package dired
   :straight (dired :type built-in)
-  :bind (:map dired-mode-map
-        ("M-RET" . dired-do-xdg-open))
   :init
   (use-package dired-x
     :straight (dired :type built-in))
   :config
-  (defun dired-do-xdg-open (&optional arg file-list)
-  (interactive)
-    (save-window-excursion
-      (dired-do-async-shell-command
-      "xdg-open" current-prefix-arg
-      (dired-get-marked-files t current-prefix-arg))))
   (setq wdired-create-parent-directories   t
         wdired-allow-to-change-permissions t))
+
+(use-package dired-avfs
+  :straight (dired-avfs :type git
+                        :host github
+                        :repo "Fuco1/dired-hacks"
+                        :files ("dired-avfs.el")))
+
+(use-package dired-collapse
+  :hook (dired-mode . dired-collapse-mode)
+  :straight (dired-collapse :type git
+                            :host github
+                            :repo "Fuco1/dired-hacks"
+                            :files ("dired-collapse.el")))
+
+
+
+(use-package dired-open
+  :straight (dired-open :type git
+                        :host github
+                        :repo "Fuco1/dired-hacks"
+                        :files ("dired-open.el"))
+  :bind (:map dired-mode-map
+        ("M-RET" . dired-open-xdg))
+  :init
+  (if (memq window-system '(w32))
+      (setq open-extensions
+            '(("webm"  . "mpv")
+              ("avi"   . "mpv")
+              ("mp4"   . "mpv")
+              ("mkv"   . "mpv")
+              ("ogv"   . "mpv")
+              ("mp3"   . "mpv")
+              ("png"   . "nomacs")
+              ("jpeg"  . "nomacs")
+              ("jpg"   . "nomacs")
+              ("pdf"   . "sumatrapdf")
+              ("xlsx"  . "Microsoft Excel")
+              ("xlsm"  . "Microsoft Excel")
+              ("xlsb"  . "Microsoft Excel")
+              ("xls"   . "Microsoft Excel")
+              ("docx"  . "Microsoft Word")
+              ("doc"   . "Microsoft Word"))))
+  (if (memq window-system '(x))
+      (setq open-extensions
+            '(("webm" . "mpv")
+              ("avi"  . "mpv")
+              ("mp4"  . "mpv")
+              ("mkv"  . "mpv")
+              ("ogv"  . "mpv")
+              ("mp3"  . "mpv")
+              ("docx" . "libreoffice")
+              ("doc"  . "libreoffice")
+              ("xlsx" . "libreoffice")
+              ("xls"  . "libreoffice"))))
+  :config
+  (setq dired-open-extensions open-extensions))
+
+(use-package dired-hacks-utils
+  :straight (dired-hacks-utils  :type git
+                                :host github
+                                :repo "Fuco1/dired-hacks"
+                                :files ("dired-hacks-utils.el")))
+
+(use-package dired-filter
+  :straight (dired-filter :type git
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-filter.el")))
+
+(use-package dired-narrow
+  :straight (dired-narrow :type git
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-narrow.el")))
+
+(use-package dired-ranger
+  :straight (dired-ranger :type git
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-ranger.el")))
+
+(use-package dired-subtree
+  :straight (dired-subtree :type git
+                           :host github
+                           :repo "Fuco1/dired-hacks"
+                           :files ("dired-subtree.el")))
 
 (use-package dired-narrow
   :bind (:map dired-mode-map

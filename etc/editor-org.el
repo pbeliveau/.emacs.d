@@ -126,17 +126,6 @@
         org-pomodoro-short-break-format "☕%s"
         org-pomodoro-long-break-format  " %s"))
 
-(use-package org-gcal
-  :if (not (memq window-system '(w32)))
-  :ensure t
-  :init
-  (load (concat no-littering-var-directory "org/gcal/.calauth"))
-  :config
-  (setq org-gcal-client-id     clientid
-        org-gcal-client-secret clientsecret
-        org-gcal-file-alist    '(("beliveau.philippe@gmail.com" .
-                                  "~/org/system/schedule.org"))))
-
 (use-package org-capture
   :if (not (memq window-system '(w32)))
   :straight (org-capture :local-repo nil)
