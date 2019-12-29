@@ -5,6 +5,10 @@
   :bind (("C-c s" . start-irc)
          ("C-c q" . stop-irc))
   :init
+  (if (eq (file-exists-p (concat no-littering-var-directory "erc/.erc-auth")) nil)
+      (progn
+        (make-directory (concat no-littering-var-directory "erc"))
+        (make-empty-file (concat no-littering-var-directory "erc/.erc-auth"))))
   (setq erc-server-coding-system '(utf-8 . utf-8)
         erc-interpret-mirc-color t
         erc-kill-buffer-on-part t

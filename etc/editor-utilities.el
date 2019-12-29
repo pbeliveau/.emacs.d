@@ -30,6 +30,10 @@
   :ensure t
   :diminish
   :init
+  (if (eq (file-exists-p (concat no-littering-var-directory "memento/.memento")) nil)
+      (progn
+        (make-directory (concat no-littering-var-directory "memento"))
+        (make-empty-file (concat no-littering-var-directory "memento/.memento"))))
   (load (concat no-littering-var-directory "memento/.memento"))
   :config
   (setq memento-mori-birth-date age_string)
@@ -44,6 +48,10 @@
   :if (not (memq window-system '(w32)))
   :ensure t
   :init
+  (if (eq (file-exists-p (concat no-littering-var-directory "bitly/.bitly")) nil)
+      (progn
+        (make-directory (concat no-littering-var-directory "bitly"))
+        (make-empty-file (concat no-littering-var-directory "bitly/.bitly"))))
   (load (concat no-littering-var-directory "bitly/.bitly"))
   :config
   (setq bitly-access-token bitly_token))
