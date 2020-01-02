@@ -2,6 +2,7 @@
 (setq maildir (concat no-littering-var-directory "mail"))
 
 (use-package notmuch
+  :if (not (memq window-system '(w32)))
   :straight (notmuch :local-repo nil)
   :init
   (autoload 'notmuch "notmuch" t))
