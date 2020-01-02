@@ -27,6 +27,7 @@
   :bind (("C-c r" . deadgrep)))
 
 (use-package memento-mori
+  :if (not (memq window-system '(w32)))
   :ensure t
   :diminish
   :init
