@@ -1,5 +1,5 @@
 (use-package todoist
-  :ensure t
+  :if (not (memq window-system '(w32)))
   :init
   (if (eq (file-exists-p (concat no-littering-var-directory "todoist/.todoist")) nil)
       (progn
