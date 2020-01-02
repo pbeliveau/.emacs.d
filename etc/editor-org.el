@@ -120,7 +120,7 @@
   (org-download-enable))
 
 (use-package org-pomodoro
-  :ensure t
+  :if (not (memq window-system '(w32)))
   :config
   (setq org-pomodoro-format " %s"
         org-pomodoro-short-break-format "☕%s"
