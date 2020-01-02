@@ -16,12 +16,9 @@
 *** http://feeds.propublica.org/propublica/main
 ** languages                                                    :lang:
 *** http://www.reddit.com/r/rlanguage/.rss
-*** http://www.reddit.com/r/python/.rss
-*** http://www.reddit.com/r/c_programming/.rss
-*** http://www.reddit.com/r/clojure/.rss
-*** http://www.reddit.com/r/latex/.rss
+*** https://feeds.feedburner.com/RBloggers
+*** https://blog.rstudio.com/index.xml
 ** unix                                                         :unix:
-*** http://www.reddit.com/r/linux/.rss
 *** http://www.reddit.com/r/archlinux/.rss
 ** blog                                                               :blog:
 *** https://vxlabs.com/index.xml

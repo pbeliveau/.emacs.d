@@ -1,8 +1,23 @@
 (use-package ess
   :ensure t
   :init
-  :commands R
-  :mode ("\\.R\\'" . R-mode))
+  :mode ("\\.R\\'" . R-mode)
+  :config
+  (setq ess-style 'Rstudio
+        ess-eval-visibly nil
+        ess-tab-complete-in-script t
+        ess-ask-for-ess-directory nil))
+
+(use-package ess-R-data-view
+  :after  (:any ess-r-mode inferior-ess-r-mode ess-r-transcript-mode))
+
+(use-package ess-view
+  :after  (:any ess-r-mode inferior-ess-r-mode ess-r-transcript-mode))
+
+(use-package ess-smart-equals
+  :init   (setq ess-smart-equals-extra-ops '(brace paren percent))
+  :after  (:any ess-r-mode inferior-ess-r-mode ess-r-transcript-mode)
+  :config (ess-smart-equals-activate))
 
 (use-package ess-smart-underscore
-  :ensure t)
+  :after  (:any ess-r-mode inferior-ess-r-mode ess-r-transcript-mode))

@@ -4,6 +4,8 @@
   :bind (("C-c C-e" . elmacro-mode)
          ("C-x C-)" . elmacro-show-last-macro)))
 
-(use-package emacs-piper
-  :straight (emacs-piper :type git :host gitlab :repo "howardabrams/emacs-piper")
+(use-package piper
+  :straight (emacs-piper :type git
+                         :host gitlab
+                         :repo "howardabrams/emacs-piper")
   :bind ("C-c C-|" . piper))

@@ -20,8 +20,6 @@
                             :repo "Fuco1/dired-hacks"
                             :files ("dired-collapse.el")))
 
-
-
 (use-package dired-open
   :straight (dired-open :type git
                         :host github
@@ -47,9 +45,8 @@
               ("xlsb"  . "Microsoft Excel")
               ("xls"   . "Microsoft Excel")
               ("docx"  . "Microsoft Word")
-              ("doc"   . "Microsoft Word"))))
-  (if (memq window-system '(x))
-      (setq open-extensions
+              ("doc"   . "Microsoft Word")))
+    (setq open-extensions
             '(("webm" . "mpv")
               ("avi"  . "mpv")
               ("mp4"  . "mpv")
