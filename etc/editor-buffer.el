@@ -30,6 +30,7 @@
 
 (use-package so-long
   :if (version<= "27" emacs-version)
+  :straight (so-long :type built-in)
   :config
   (global-so-long-mode))
 
