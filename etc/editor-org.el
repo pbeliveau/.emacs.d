@@ -261,6 +261,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-index
   :ensure t)
 
+(use-package org-ql)
 (use-package org-brain
   :ensure t
   :if (not (memq window-system '(w32)))

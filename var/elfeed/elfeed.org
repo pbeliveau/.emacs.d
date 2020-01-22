@@ -14,6 +14,7 @@
 *** https://www.phoronix.com/rss.php
 ** politics                                                     :politics:
 *** http://feeds.propublica.org/propublica/main
+*** https://www.commondreams.org/rss.xml
 ** languages                                                    :lang:
 *** http://www.reddit.com/r/rlanguage/.rss
 *** https://feeds.feedburner.com/RBloggers
