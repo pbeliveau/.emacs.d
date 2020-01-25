@@ -110,12 +110,9 @@
 (use-package org-download
   :if (not (memq window-system '(w32)))
   :ensure t
-  ;; :bind (:map org-mode-map
-  ;;             ("M-g M-d" . org-download-image)
-  ;;             ("M-g M-y" . org-download-screenshot))
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
-        org-download-method            'directory
+        org-download-method            'attach
         org-download-screenshot-method "scrot -s %s")
   (org-download-enable))
 
