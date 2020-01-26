@@ -29,4 +29,4 @@ same directory as the org-buffer and insert a link to this file."
         (shell-command (concat "grim -g " region " " filename))))
 
   (insert (concat "[[file:" filename "]]"))
-    (org-display-inline-images))
+  (org-display-inline-images))

@@ -69,3 +69,6 @@
 (setq custom-file (make-temp-file "emacs-custom"))
 (if (file-exists-p custom-file)
     (load (file-name-sans-extension custom-file)))
+
+;; Started
+(shell-command "notify-send 'Emacs Loaded'")
