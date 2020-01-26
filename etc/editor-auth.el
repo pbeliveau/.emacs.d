@@ -54,4 +54,24 @@
   (use-package tramp
     :straight (tramp :type built-in)
     :config
-    (setq tramp-default-method "ssh")))
+    (setq tramp-default-method "ssh"))
+
+  (use-package prf-tramp
+    :straight (prf-tramp :type git :host github :repo "p3r7/prf-tramp")
+    :after tramp)
+
+  (use-package prf-tramp-method
+    :straight (prf-tramp-method :type git :host github :repo "p3r7/prf-tramp")
+    :after tramp)
+
+  (use-package prf-tramp-friendly-parsing
+    :straight (prf-tramp-friendly-parsing :type git :host github :repo "p3r7/prf-tramp")
+    :after tramp)
+
+  (let ((cert-path "~/.ssh/id_dsa")
+        (ssh-methods '("ssh" "sshx")))
+    (setq tramp-methods
+          (-map-when
+           (lambda (e) (member (car e) ssh-methods))
+           (lambda (e) (prf/tramp/method/def/with-cert-in-args e "-i" cert-path))
+           tramp-methods))))
