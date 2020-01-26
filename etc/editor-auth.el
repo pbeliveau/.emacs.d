@@ -1,8 +1,10 @@
-(unless (memq window-system '(w32))
+(unless (eq system-type 'windows-nt)
   (use-package auth-source-pass
+    :straight (auth-source-pass :type built-in)
     :config (auth-source-pass-enable))
 
   (use-package auth-source
+    :straight (auth-source :type built-in)
     :preface
     (eval-when-compile
       (defvar auth-sources))
@@ -18,6 +20,7 @@
        " *gpg-update-tty*")))
 
   (use-package epa
+    :straight (epa :type built-in)
     :after pinentry
     :preface
     (eval-when-compile
@@ -26,6 +29,7 @@
     (setq epa-pinentry-mode 'loopback))
 
   (use-package epg
+    :straight (epg :type built-in)
     :after epa
     :init
     (declare-function pinentry-start nil)
@@ -48,6 +52,6 @@
   (use-package password-store-otp)
 
   (use-package tramp
-    :defer t
+    :straight (tramp :type built-in)
     :config
     (setq tramp-default-method "ssh")))
