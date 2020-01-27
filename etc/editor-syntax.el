@@ -55,3 +55,17 @@
 ;; Default parenthesis mode
 (show-paren-mode 1)
 (global-hl-line-mode 1)
+
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+(global-set-key (kbd "C-;") 'toggle-comment-on-line)
+
+;; use 2 spaces for tabs
+(defun die-tabs ()
+  (interactive)
+  (set-variable 'tab-width 2)
+  (mark-whole-buffer)
+  (untabify (region-beginning) (region-end))
+  (keyboard-quit))

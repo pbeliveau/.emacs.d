@@ -248,6 +248,11 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                      :repo "jkitchin/scimax"
                      :files ("ox-word.el")))
 
+(use-package org-graph-view
+  :straight (org-graph-view :type git
+                            :host github
+                            :repo "alphapapa/org-graph-view"))
+
 (use-package ox-hugo
   :ensure t
   :after ox

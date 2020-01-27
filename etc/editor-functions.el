@@ -71,29 +71,6 @@ the week."
 
      (global-set-key (kbd "M-g s") 'sudo-reopen-file)))
 
-(defcustom desktop-powersettings "sh ~/.config/scripts/powersaving"
-  "Scripts with custom settings regarding screen and others."
-  :type 'string)
-
-(defun call-powersettings ()
-  (interactive)
-  (shell-command-to-string desktop-powersettings)
-  (message "Called powersaving settings."))
-
-(defun toggle-comment-on-line ()
-  "comment or uncomment current line"
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(global-set-key (kbd "C-;") 'toggle-comment-on-line)
-
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
-
 ;; Enable narrow region and function to
 ;; make use of it with clone.
 (put 'narrow-to-region 'disabled nil)
