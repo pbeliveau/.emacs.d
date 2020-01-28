@@ -8,20 +8,11 @@ same directory as the org-buffer and insert a link to this file."
           (concat (buffer-file-name)
                   "_"
                   (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+
   (if (eq system-type 'windows-nt)
       (progn
         (shell-command "snippingtool /clip")
-        (shell-command (concat
-                        "powershell -command \"Add-Type
-                        -AssemblyName
-                        System.Windows.Forms;if ($([System.Windows.Forms.Clipboard]::ContainsImage()))
-                        {$image =
-                        [System.Windows.Forms.Clipboard]::GetImage();[System.Drawing.Bitmap]$image.Save('"
-                        filename "',[System.Drawing.Imaging.ImageFormat]::Png);
-                        Write-Output 'clipboard content saved
-                        as file'} else {Write-Output
-                        'clipboard does not contain image
-                        data'}\""))))
+           (shell-command (concat "powershell -command \"Add-Type -AssemblyName System.Windows.Forms;if ($([System.Windows.Forms.Clipboard]::ContainsImage())) {$image = [System.Windows.Forms.Clipboard]::GetImage();[System.Drawing.Bitmap]$image.Save('" filename "',[System.Drawing.Imaging.ImageFormat]::Png); Write-Output 'clipboard content saved as file'} else {Write-Output 'clipboard does not contain image data'}\""))))
 
   (if (eq system-type 'gnu/linux)
       (progn
