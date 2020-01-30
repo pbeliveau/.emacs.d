@@ -59,27 +59,27 @@
 
 (use-package dired-filter
   :straight (dired-filter :type git
-                         :host github
-                         :repo "Fuco1/dired-hacks"
-                         :files ("dired-filter.el")))
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-filter.el")))
 
 (use-package dired-narrow
   :straight (dired-narrow :type git
-                         :host github
-                         :repo "Fuco1/dired-hacks"
-                         :files ("dired-narrow.el")))
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-narrow.el")))
 
 (use-package dired-ranger
   :straight (dired-ranger :type git
-                         :host github
-                         :repo "Fuco1/dired-hacks"
-                         :files ("dired-ranger.el")))
+                          :host github
+                          :repo "Fuco1/dired-hacks"
+                          :files ("dired-ranger.el")))
 
 (use-package dired-subtree
   :straight (dired-subtree :type git
-                         :host github
-                         :repo "Fuco1/dired-hacks"
-                         :files ("dired-subtree.el")))
+                           :host github
+                           :repo "Fuco1/dired-hacks"
+                           :files ("dired-subtree.el")))
 
 (use-package dired-narrow
   :bind (:map dired-mode-map
