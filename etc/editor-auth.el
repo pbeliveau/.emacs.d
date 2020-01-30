@@ -52,7 +52,7 @@
   (use-package password-store-otp)
 
   (use-package tramp
-    :straight (tramp :type built-in)
+    :straight nil
     :config
     (setq tramp-default-method "ssh"))
 
