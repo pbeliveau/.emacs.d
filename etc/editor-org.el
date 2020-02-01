@@ -278,5 +278,11 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (setq org-brain-visualize-default-choices 'all)
   (setq org-brain-title-max-length 12))
 
+(use-package portable-org-screenshot
+    :straight (portable-org-screenshot :type git
+                                       :host github
+                                       :repo "pbeliveau/portable-org-screenshot")
+    :bind ("<f6>"))
+
 (use-package zpresent
   :ensure t)
