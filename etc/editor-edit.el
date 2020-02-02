@@ -8,7 +8,7 @@
         delete-old-versions   t
         kept-new-versions     64
         kept-old-versions     0
-        delete-old-versions   nil
+        delete-old-versions   t
         auto-save-default     nil))
 
 (use-package misc

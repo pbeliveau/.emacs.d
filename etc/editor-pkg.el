@@ -42,14 +42,5 @@
                        (list-dependencies-of            . "yay -Qi")
                        (noconfirm                       . "--noconfirm")))))
 
-;; Change package menu
-(use-package paradox
-  :ensure t
-  :defer 1
-  :config
-  (setq paradox-display-download-count t
-        paradox-execute-asynchronously t)
-  (paradox-enable))
-
 ;; View and manager disk-usage
 (use-package disk-usage)
