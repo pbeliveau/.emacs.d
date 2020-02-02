@@ -21,5 +21,6 @@
 (use-package undo-fu-session
   :ensure t
   :config
-  (setq undo-fu-session-directory (concat no-littering-var-directory "undo-fu"))
+  (setq undo-fu-session-directory (concat no-littering-var-directory "undo-fu")
+        undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")
   (global-undo-fu-session-mode))
