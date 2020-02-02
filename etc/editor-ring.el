@@ -17,3 +17,9 @@
   :ensure t
   :bind (("C-z"   . undo-fu-only-undo)
          ("C-S-z" . undo-fu-only-redo)))
+
+(use-package undo-fu-session
+  :ensure t
+  :config
+  (setq undo-fu-session-directory (concat no-littering-var-directory "undo-fu"))
+  (global-undo-fu-session-mode))
