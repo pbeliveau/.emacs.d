@@ -94,9 +94,8 @@
          ("C-x r b" . counsel-bookmark)))
 
 (use-package counsel-web
-  :straight (counsel-web :type git 
-			 :host github 
-			 :repo "mnewt/counsel-web")
+  :straight (counsel-web :type git
+                         :host github
+                         :repo "mnewt/counsel-web")
   :config
   (setq counsel-web-search-action #'browse-url))
-

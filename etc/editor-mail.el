@@ -1,4 +1,4 @@
-;; Directory for mail
+;; Conf for mail
 (setq maildir (concat no-littering-var-directory "mail"))
 
 (use-package notmuch
@@ -6,6 +6,15 @@
   :straight (notmuch :local-repo nil)
   :init
   (autoload 'notmuch "notmuch" t))
+
+(use-package notmuch-unread
+  :straight (notmuch-unread :type git
+                            :host github
+                            :repo "tmearnest/notmuch-unread")
+  :config
+  (setq notmuch-unread-icon " \xe0be ")
+  (notmuch-unread-mode))
+
 
 (use-package message
   :if (not (memq window-system '(w32)))

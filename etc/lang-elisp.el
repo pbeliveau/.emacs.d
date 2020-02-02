@@ -23,5 +23,7 @@
           (ielm-mode             . turn-on-eldoc-mode)
           (cider-mode            . turn-on-eldoc-mode)))
 
+(use-package esup)
+
 (use-package with-emacs
   :ensure t)
