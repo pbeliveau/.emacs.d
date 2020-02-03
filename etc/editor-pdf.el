@@ -3,14 +3,15 @@
               ("h"   . pdf-annot-add-highlight-markup-annotation)
               ("t"   . pdf-annot-add-text-annotation)
               ("D"   . pdf-annot-delete)
-              ("C-s" . isearch-forward))
+              ("C-s" . isearch-forward)
+              ("s"   . save-some-buffers))
   :config
   (pdf-tools-install)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (add-hook 'pdf-view-mode-hook (lambda() (cua-mode 0)))
   (setq pdf-view-resize-factor 1.1
         pdf-view-display-size  1.0
-        pdf-annot-activate-created-annotations )
+        pdf-annot-activate-created-annotations t)
 
   ;; add function to rotate 90 degrees files
   (defun pdf-view--rotate (&optional counterclockwise-p page-p)
