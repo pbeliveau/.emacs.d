@@ -1,7 +1,9 @@
-(use-package org-plus-contrib
+(use-package org
+  :demand t
+  :straight org-plus-contrib
   :bind (:map org-mode-map
-          ("C-c i" . org-add-ids-to-headlines)
-          ("C-c s" . org-table-mark-field))
+              ("C-c i" . org-add-ids-to-headlines)
+              ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
   :init
   (setq org-directory (concat no-littering-var-directory "org"))
@@ -278,6 +280,27 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-capture-templates)
   (setq org-brain-visualize-default-choices 'all)
   (setq org-brain-title-max-length 12))
+
+(use-package deft
+  :after org
+  :bind
+  ("C-c n d" . deft)
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory org-directory)
+  (deft-use-filename-as-title t))
+
+(use-package org-roam
+  :after deft org
+  :straight (org-roam :type git
+                      :host github
+                      :repo "jethrokuan/org-roam")
+  :bind
+  ("C-c n l" . org-roam)
+  ("C-c n t" . org-roam-today)
+  ("C-c n i" . org-roam-insert))
 
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git

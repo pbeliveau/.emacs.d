@@ -28,9 +28,10 @@
 (use-package scratch
   :bind ("C-c b" . scratch))
 
+;; Prior to 27.1, not included.
 (use-package so-long
-  :if (version<= "27" emacs-version)
-  :straight (so-long :type built-in)
+  :straight (so-long :type git
+                     :repo "git://git.savannah.gnu.org/so-long.git")
   :config
   (global-so-long-mode))
 
