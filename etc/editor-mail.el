@@ -2,12 +2,13 @@
 (setq maildir (concat no-littering-var-directory "mail"))
 
 (use-package notmuch
-  :if (not (memq window-system '(w32)))
+  :if (not (string-equal system-type "windows-nt"))
   :straight (notmuch :local-repo nil)
   :init
   (autoload 'notmuch "notmuch" t))
 
 (use-package notmuch-unread
+  :if (not (string-equal system-type "windows-nt"))
   :straight (notmuch-unread :type git
                             :host github
                             :repo "tmearnest/notmuch-unread")
@@ -17,7 +18,7 @@
 
 
 (use-package message
-  :if (not (memq window-system '(w32)))
+  :if (not (string-equal system-type "windows-nt"))
   :straight (message :type built-in)
   :config
   (setq message-kill-buffer-on-exit    t

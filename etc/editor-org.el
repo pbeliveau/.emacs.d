@@ -21,7 +21,7 @@
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
         org-list-description-max-indent 4
         org-startup-folded              (quote overview)
-        org-startup-indented            t
+        org-startup-indented            nil
         org-src-tab-acts-natively       t
         org-cycle-separator-lines       0
         org-catch-invisible-edits       'show-and-error
