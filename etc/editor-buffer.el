@@ -31,7 +31,7 @@
 ;; Prior to 27.1, not included.
 (use-package so-long
   :straight (so-long :type git
-                     :repo "git://git.savannah.gnu.org/so-long.git")
+                     :repo "https://git.savannah.gnu.org/git/so-long.git")
   :config
   (global-so-long-mode))
 
