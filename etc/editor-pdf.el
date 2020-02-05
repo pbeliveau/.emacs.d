@@ -1,4 +1,5 @@
 (use-package pdf-tools
+  :magic ("%PDF" . pdf-view-mode)
   :bind (:map pdf-view-mode-map
               ("h"   . pdf-annot-add-highlight-markup-annotation)
               ("t"   . pdf-annot-add-text-annotation)
