@@ -4,7 +4,7 @@
   :init
   (setq-default fill-column 80)
   :hook
-  ((markdown-mode text-mode org-mode tex-mode)))
+  ((markdown-mode text-mode org-mode tex-mode pdf-annot-minor-mode)))
 
 (use-package dynamic-spaces
   :ensure t

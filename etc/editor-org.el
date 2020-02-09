@@ -5,11 +5,14 @@
               ("C-c i" . org-add-ids-to-headlines)
               ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
+  :hook activate-default-input-method
   :init
   (setq org-directory (concat no-littering-var-directory "org"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((ledger . t)))
+  (add-to-list
+   'org-src-lang-modes '("plantuml" . plantuml))
   :config
   (use-package org-id
     :straight (org-id :local-repo nil))
@@ -299,7 +302,9 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :bind
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
-  ("C-c n i" . org-roam-insert))
+  ("C-c n i" . org-roam-insert)
+  :init
+  (setq org-roam-directory org-directory))
 
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git
