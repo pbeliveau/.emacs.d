@@ -223,24 +223,26 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-journal
   :ensure t
   :after org
-  :bind (("C-c Y" . journal-file-yesterday))
+  :bind
+  ("C-c n j" . org-journal-new-entry)
+  ("C-c n y" . org-journal-file-yesterday)
   :init
   (defun get-journal-file-yesterday ()
     "Gets filename for yesterday's journal entry."
     (let* ((yesterday (time-subtract (current-time) (days-to-time 1)))
-           (daily-name (format-time-string "%Y%m%d.org" yesterday)))
+           (daily-name (format-time-string "%Y-%m-%d.org" yesterday)))
       (expand-file-name (concat org-journal-dir daily-name))))
 
-  (defun journal-file-yesterday ()
+  (defun org-journal-file-yesterday ()
     "Creates and load a file based on yesterday's date."
     (interactive)
     (find-file (get-journal-file-yesterday)))
   :config
-  (setq org-journal-date-format               "%e %b %Y (%A)"
-        org-journal-dir (concat org-directory "/authorship/")
+  (setq org-journal-date-format               "%A, %d %B %Y"
+        org-journal-dir                       org-directory
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
-        org-journal-file-format               "%Y%m%d.org"
+        org-journal-file-format               "%Y-%m-%d.org"
         org-journal-time-format               ""))
 
 (use-package helm-org-rifle
@@ -295,14 +297,16 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (deft-use-filename-as-title t))
 
 (use-package org-roam
-  :after deft org
+  :after org
   :straight (org-roam :type git
                       :host github
                       :repo "jethrokuan/org-roam")
   :bind
+  ("C-c n f" . org-roam-find-file)
+  ("C-c n g" . org-roam-show-graph)
+  ("C-c n i" . org-roam-insert)
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
-  ("C-c n i" . org-roam-insert)
   :init
   (setq org-roam-directory org-directory))
 
