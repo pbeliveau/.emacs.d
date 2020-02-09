@@ -85,7 +85,7 @@
 
 (use-package org-contacts
   :if (not (memq window-system '(w32)))
-  :straight (org-contacts :local-repo nil)
+  :straight nil
   :custom
   (org-contacts-files '(concat org-directory
                                "/system/contacts.org")))
@@ -252,6 +252,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                      :files ("ox-word.el")))
 
 (use-package org-graph-view
+  :disabled
   :straight (org-graph-view :type git
                             :host github
                             :repo "alphapapa/org-graph-view"))
@@ -263,9 +264,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (setq org-hugo-default-section-directory "posts"
         org-hugo-export-with-toc           nil))
 
-(use-package org-index
-  :ensure t)
-
+(use-package org-index)
 (use-package org-ql)
 (use-package org-brain
   :ensure t

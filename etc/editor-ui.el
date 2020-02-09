@@ -44,13 +44,21 @@
         (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
 
 ;;; theme
-(use-package naysayer-theme :ensure t :defer t)
+(use-package naysayer-theme :defer t)
 (use-package doom-themes
   :ensure t
   :config
    (if (>= (ts-hour (ts-now)) 22)
       (load-theme 'doom-spacegrey t)
-    (load-theme 'doom-one-light t)))
+    (load-theme 'doom-one-light t))
+
+   (defun set-light-theme ()
+     (interactive)
+     (load-theme 'doom-one-light t))
+
+   (defun set-dark-theme ()
+     (interactive)
+     (load-theme 'doom-spacegray t)))
 
 (use-package doom-modeline
   :ensure t

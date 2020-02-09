@@ -71,4 +71,5 @@
     (load (file-name-sans-extension custom-file)))
 
 ;; Started
-(shell-command "notify-send 'Emacs Loaded'")
+(if (string-equal system-type "gnu/linux")
+    (shell-command "notify-send 'Emacs Loaded'"))
