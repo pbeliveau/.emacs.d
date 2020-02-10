@@ -7,7 +7,9 @@
               ("C-s" . isearch-forward)
               ("s"   . save-some-buffers))
   :config
+  :init
   (pdf-tools-install)
+  (add-hook 'activate-default-input-method #'pdf-annot-minor-mode)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (add-hook 'pdf-view-mode-hook (lambda() (cua-mode 0)))
   (setq pdf-view-resize-factor 1.1

@@ -1,5 +1,6 @@
 (use-package battery
-  :straight (battery :type built-in)
+  :disabled
+  :straight nil
   :config
   (setq battery-update-interval 300
         battery-mode-line-format " %p%% %L")
@@ -10,6 +11,9 @@
   :bind ("<f11>" . daemons)
   :config
   (setq daemons-always-sudo t))
+
+(use-package esup
+  :commands (esup))
 
 (use-package proced
   :straight (proced :type built-in)

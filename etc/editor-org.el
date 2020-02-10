@@ -5,11 +5,14 @@
               ("C-c i" . org-add-ids-to-headlines)
               ("C-c s" . org-table-mark-field))
   :bind ("C-C t" . switch-to-org-tasks)
+  :hook activate-default-input-method
   :init
   (setq org-directory (concat no-littering-var-directory "org"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((ledger . t)))
+  (add-to-list
+   'org-src-lang-modes '("plantuml" . plantuml))
   :config
   (use-package org-id
     :straight (org-id :local-repo nil))
@@ -85,7 +88,7 @@
 
 (use-package org-contacts
   :if (not (memq window-system '(w32)))
-  :straight (org-contacts :local-repo nil)
+  :straight nil
   :custom
   (org-contacts-files '(concat org-directory
                                "/system/contacts.org")))
@@ -220,24 +223,26 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-journal
   :ensure t
   :after org
-  :bind (("C-c Y" . journal-file-yesterday))
+  :bind
+  ("C-c n j" . org-journal-new-entry)
+  ("C-c n y" . org-journal-file-yesterday)
   :init
   (defun get-journal-file-yesterday ()
     "Gets filename for yesterday's journal entry."
     (let* ((yesterday (time-subtract (current-time) (days-to-time 1)))
-           (daily-name (format-time-string "%Y%m%d.org" yesterday)))
+           (daily-name (format-time-string "%Y-%m-%d.org" yesterday)))
       (expand-file-name (concat org-journal-dir daily-name))))
 
-  (defun journal-file-yesterday ()
+  (defun org-journal-file-yesterday ()
     "Creates and load a file based on yesterday's date."
     (interactive)
     (find-file (get-journal-file-yesterday)))
   :config
-  (setq org-journal-date-format               "%e %b %Y (%A)"
-        org-journal-dir (concat org-directory "/authorship/")
+  (setq org-journal-date-format               "%A, %d %B %Y"
+        org-journal-dir                       org-directory
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
-        org-journal-file-format               "%Y%m%d.org"
+        org-journal-file-format               "%Y-%m-%d.org"
         org-journal-time-format               ""))
 
 (use-package helm-org-rifle
@@ -252,6 +257,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                      :files ("ox-word.el")))
 
 (use-package org-graph-view
+  :disabled
   :straight (org-graph-view :type git
                             :host github
                             :repo "alphapapa/org-graph-view"))
@@ -263,9 +269,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (setq org-hugo-default-section-directory "posts"
         org-hugo-export-with-toc           nil))
 
-(use-package org-index
-  :ensure t)
-
+(use-package org-index)
 (use-package org-ql)
 (use-package org-brain
   :ensure t
@@ -293,14 +297,18 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (deft-use-filename-as-title t))
 
 (use-package org-roam
-  :after deft org
+  :after org
   :straight (org-roam :type git
                       :host github
                       :repo "jethrokuan/org-roam")
   :bind
+  ("C-c n f" . org-roam-find-file)
+  ("C-c n g" . org-roam-show-graph)
+  ("C-c n i" . org-roam-insert)
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
-  ("C-c n i" . org-roam-insert))
+  :init
+  (setq org-roam-directory org-directory))
 
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git

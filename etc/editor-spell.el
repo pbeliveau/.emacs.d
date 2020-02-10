@@ -18,13 +18,11 @@
     :after ledger-mode)
 
   :config
-  (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point))
+  (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
 
-(use-package lorem-ipsum
-  :ensure t
-  :bind (("M-g C-l s" . lorem-ipsum-insert-sentences)
-         ("M-g C-l p" . lorem-ipsum-insert-paragraphs)
-         ("M-g C-l l" . lorem-ipsum-insert-list)))
+  (use-package flycheck-plantuml
+    :config
+    (flycheck-plantuml-setup)))
 
 (use-package flyspell-correct
     :ensure t
@@ -49,6 +47,12 @@
         res))
     (setq flyspell-correct-interface #'frog-menu-flyspell-correct))
 
+(use-package lorem-ipsum
+  :ensure t
+  :bind (("M-g C-l s" . lorem-ipsum-insert-sentences)
+         ("M-g C-l p" . lorem-ipsum-insert-paragraphs)
+         ("M-g C-l l" . lorem-ipsum-insert-list)))
+
 (use-package ispell
     :straight (ispell :type built-in)
     :bind (("C-c i c" . ispell-comments-and-strings)
@@ -58,12 +62,20 @@
            ("C-c i r" . ispell-region)
            ("C-c i w" . ispell-word)))
 
-(use-package mw-thesaurus
-  :ensure t)
+(use-package mw-thesaurus)
 
 (use-package typopunct
-  :straight (typopunct :local-repo "typopunct")
-  :load-path "var/lisp/"
+  :straight (typopunct :type git
+                       :host github
+                       :repo "emacsmirror/typopunct")
   :bind ("M-g t" . typopunct-mode))
 
+;; mule-cmds.el settings
 (setq default-input-method "latin-1-prefix")
+(defvar use-default-input-method t)
+(make-variable-buffer-local 'use-default-input-method)
+(defun activate-default-input-method ()
+  (interactive)
+  (if use-default-input-method
+      (activate-input-method default-input-method)
+    (inactivate-input-method)))
