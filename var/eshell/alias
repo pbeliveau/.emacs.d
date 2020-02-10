@@ -31,3 +31,4 @@ alias update ~/.config/scripts/update $*
 alias vpn sudo /usr/bin/protonvpn $*
 alias winconvert magick.exe convert $*
 alias wintiff2pdf C:/Users/philippebeliveau/scoop/apps/msys2/20190524/mingw64/bin/tiff2pdf.exe $*
+alias winconvertpreset winconvert -density 300 -strip -alpha off $*
