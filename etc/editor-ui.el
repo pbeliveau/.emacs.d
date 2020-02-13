@@ -49,7 +49,7 @@
   :ensure t
   :config
    (if (>= (ts-hour (ts-now)) 22)
-      (load-theme 'doom-spacegrey t)
+      (load-theme 'doom-nord t)
     (load-theme 'doom-one-light t))
 
    (defun set-light-theme ()
@@ -58,7 +58,25 @@
 
    (defun set-dark-theme ()
      (interactive)
-     (load-theme 'doom-spacegray t)))
+     (load-theme 'doom-spacegray t))
+
+   (defun ap/load-doom-theme (theme)
+     "Disable active themes and load a Doom theme."
+     (interactive (list (intern (completing-read "Theme: "
+                                                 (->> (custom-available-themes)
+                                                      (-map #'symbol-name)
+                                                      (--select (string-prefix-p "doom-" it)))))))
+  (ap/switch-theme theme)
+  (set-face-foreground 'org-indent (face-background 'default)))
+
+   (defun ap/switch-theme (theme)
+     "Disable active themes and load THEME."
+     (interactive (list (intern (completing-read "Theme: "
+                                                 (->> (custom-available-themes)
+                                                      (-map #'symbol-name))))))
+     (mapc #'disable-theme custom-enabled-themes)
+     (load-theme theme 'no-confirm)))
+
 
 (use-package doom-modeline
   :ensure t
