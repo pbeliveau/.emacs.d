@@ -18,7 +18,9 @@
   :straight (dired-collapse :type git
                             :host github
                             :repo "Fuco1/dired-hacks"
-                            :files ("dired-collapse.el")))
+                            :files ("dired-collapse.el"))
+  :bind (:map dired-mode-map
+              ("," . dired-collapse-mode)))
 
 (use-package dired-open
   :straight (dired-open :type git
@@ -61,7 +63,11 @@
   :straight (dired-filter :type git
                           :host github
                           :repo "Fuco1/dired-hacks"
-                          :files ("dired-filter.el")))
+                          :files ("dired-filter.el"))
+  :bind (:map dired-mode-map
+              ("f" . dired-filter-mode))
+  :config
+  (add-hook 'dired-mode-hook 'dired-filter-mode))
 
 (use-package dired-narrow
   :straight (dired-narrow :type git
@@ -73,20 +79,37 @@
   :straight (dired-ranger :type git
                           :host github
                           :repo "Fuco1/dired-hacks"
-                          :files ("dired-ranger.el")))
+                          :files ("dired-ranger.el"))
+  :bind (:map dired-mode-map
+              ("W" . dired-ranger-copy)
+              ("X" . dired-ranger-move)
+              ("Y" . dired-ranger-paste)))
 
 (use-package dired-subtree
   :straight (dired-subtree :type git
                            :host github
                            :repo "Fuco1/dired-hacks"
-                           :files ("dired-subtree.el")))
+                           :files ("dired-subtree.el"))
+  :bind (:map dired-mode-map
+              ("TAB" . dired-subtree-cycle)
+              ("i" . dired-subtree-insert)
+              ("C-x n n" . dired-subtree-narrow)))
 
 (use-package dired-narrow
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 
 (use-package dired-rmjunk)
-(use-package date2name)
+(use-package date2name
+  :bind (:map dired-mode-map
+              ("z" . date2name-dired-add-date-to-name)
+              ("b" . date2name-dired-add-datetime-to-name)))
+
+
+(use-package fd-dired)
+(use-package helm-fd
+  :bind (:map helm-command-map
+              ("/" . helm-fd)))
 
 (use-package pack
   :after dired

@@ -3,7 +3,7 @@ alias connect ~/.config/scripts/network $*
 alias d dired $1
 alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
 alias ff find-file $1
-alias ffalias find-file ~/.emacs.d/var/eshell/alias
+alias ffalias find-file ~/.config/emacs/var/eshell/alias
 alias gmute pamixer --sink 0 --get-mute
 alias gvol pamixer --sink 0 --get-volume
 alias install sudo pacman -S $*
@@ -24,12 +24,13 @@ alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
 alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
 alias svol pamixer --sink 0 --set-volume $1
 alias sysd sudo systemctl $*
+alias sysdu systemctl --user $*
 alias tmute pamixer --sink 0 -t
 alias tping ping -c 3 archlinux.org
 alias undervolt sudo undervolt $*
 alias update ~/.config/scripts/update $*
 alias vpn sudo /usr/bin/protonvpn $*
 alias winconvert magick.exe convert $*
-alias wintiff2pdf C:/Users/philippebeliveau/scoop/apps/msys2/20190524/mingw64/bin/tiff2pdf.exe $*
 alias winconvertpreset winconvert -density 300 -strip -alpha off $*
+alias wintiff2pdf C:/Users/philippebeliveau/scoop/apps/msys2/20190524/mingw64/bin/tiff2pdf.exe $*
 alias youtube-dl-audio youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 $*
