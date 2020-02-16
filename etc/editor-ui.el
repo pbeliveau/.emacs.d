@@ -28,54 +28,48 @@
       apropos-do-all t
       mouse-yank-at-point t)
 
-(set-face-attribute 'default nil :height 110)
-(if (eq system-type 'windows-nt)
-    (progn
-        (if (member "Fira Code" (font-family-list))
+(defun set-font-emacs ()
+    (interactive)
+    (set-face-attribute 'default nil :height 110)
+    (if (eq system-type 'windows-nt)
+        (progn
+          (if (member "Fira Code" (font-family-list))
+              (progn
+                (set-frame-font "Fira Code:pixelsize=12")
+                (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))
             (progn
-              (set-frame-font "Fira Code:pixelsize=12")
-              (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))
-          (progn
-            (set-frame-font "Consolas:pixelsize=13")
-            (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
+              (set-frame-font "Consolas:pixelsize=13")
+              (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
             ))
-  (progn
+      (progn
         (set-frame-font "Fira Code:pixelsize=12")
-        (setq default-frame-alist '((font . "Fira Code:pixelsize=12")))))
+        (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))))
 
 ;;; theme
 (use-package naysayer-theme :defer t)
 (use-package doom-themes
   :ensure t
   :config
-   (if (>= (ts-hour (ts-now)) 22)
-      (load-theme 'doom-nord t)
-    (load-theme 'doom-one-light t))
-
    (defun set-light-theme ()
      (interactive)
-     (load-theme 'doom-one-light t))
+     (pb/switch-theme 'doom-one-light))
 
    (defun set-dark-theme ()
      (interactive)
-     (load-theme 'doom-spacegray t))
+     (pb/switch-theme 'doom-nord))
 
-   (defun ap/load-doom-theme (theme)
-     "Disable active themes and load a Doom theme."
-     (interactive (list (intern (completing-read "Theme: "
-                                                 (->> (custom-available-themes)
-                                                      (-map #'symbol-name)
-                                                      (--select (string-prefix-p "doom-" it)))))))
-  (ap/switch-theme theme)
-  (set-face-foreground 'org-indent (face-background 'default)))
-
-   (defun ap/switch-theme (theme)
+   (defun pb/switch-theme (theme)
      "Disable active themes and load THEME."
      (interactive (list (intern (completing-read "Theme: "
                                                  (->> (custom-available-themes)
                                                       (-map #'symbol-name))))))
      (mapc #'disable-theme custom-enabled-themes)
-     (load-theme theme 'no-confirm)))
+     (load-theme theme 'no-confirm)
+     (set-font-emacs))
+
+   (if (>= (ts-hour (ts-now)) 22)
+       (pb/switch-theme 'doom-nord)
+    (pb/switch-theme 'doom-one-light)))
 
 
 (use-package doom-modeline

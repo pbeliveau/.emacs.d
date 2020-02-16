@@ -13,6 +13,7 @@
   (dynamic-spaces-global-mode t))
 
 (use-package format-all
+  :disabled
   :ensure t)
 
 (use-package fix-word

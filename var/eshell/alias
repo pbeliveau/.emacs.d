@@ -20,6 +20,7 @@ alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
 alias pmake git pull && makepkg -sim --needed --noconfirm
 alias remove sudo pacman -Rs $*
 alias scan ~/documents/software/bash/scan2pdf/scan2pdf.sh $*
+alias scan-ocr ~/documents/software/bash/scan2pdf/scan2pdf-ocr.sh $*
 alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
 alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
 alias svol pamixer --sink 0 --set-volume $1
