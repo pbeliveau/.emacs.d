@@ -13,3 +13,4 @@
 !var/elfeed/
 !var/elfeed/elfeed.org
 !var/bookmark-default.el
+!var/mc-list.el
