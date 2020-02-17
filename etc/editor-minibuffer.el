@@ -1,3 +1,25 @@
+(use-package counsel
+  :diminish
+  :ensure t
+  :demand t
+  :bind (("C-*"     . counsel-org-agenda-headlines)
+         ("C-x C-f" . counsel-find-file)
+         ("M-x"     . counsel-M-x)
+         ("C-c e d" . counsel-describe-function)
+         ("C-c e f" . counsel-file-jump)
+         ("C-c e j" . counsel-dired-jump)
+         ("C-c e l" . counsel-find-library)
+         ("C-c e q" . counsel-set-variable)
+         ("C-c e u" . counsel-unicode-char)
+         ("C-x r b" . counsel-bookmark)))
+
+(use-package counsel-web
+  :straight (counsel-web :type git
+                         :host github
+                         :repo "mnewt/counsel-web")
+  :config
+  (setq counsel-web-search-action #'browse-url))
+
 (use-package ivy
   :diminish
   :demand t
@@ -61,12 +83,31 @@
   (ivy-mode 1)
   (ivy-set-occur 'ivy-switch-buffer 'ivy-switch-buffer-occur))
 
-(use-package ivy-prescient
-  :ensure t
-  :after ivy
+(use-package ivy-rich
   :config
-  (progn
-    (ivy-prescient-mode t)))
+  (ivy-rich-mode 1)
+  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
+
+(use-package all-the-icons-ivy-rich
+  :straight (all-the-icons-ivy-rich :type git
+                                    :host github
+                                    :repo "seagle0128/all-the-icons-ivy-rich")
+  :ensure t
+  :init (all-the-icons-ivy-rich-mode 1))
+
+(use-package all-the-icons-ibuffer
+  :straight (all-the-icons-ibuffer :type git
+                                   :host github
+                                   :repo "seagle0128/all-the-icons-ibuffer")
+  :ensure t
+  :init (all-the-icons-ibuffer-mode 1))
+
+  (use-package ivy-prescient
+    :ensure t
+    :after ivy
+    :config
+    (progn
+      (ivy-prescient-mode t)))
 
 (use-package swiper
   :ensure t
@@ -76,26 +117,3 @@
               ("M-y" . yank)
               ("M-%" . swiper-query-replace)
               ("C-." . swiper-avy)))
-
-(use-package counsel
-  :diminish
-  :ensure t
-  :after ivy
-  :demand t
-  :bind (("C-*"     . counsel-org-agenda-headlines)
-         ("C-x C-f" . counsel-find-file)
-         ("M-x"     . counsel-M-x)
-         ("C-c e d" . counsel-describe-function)
-         ("C-c e f" . counsel-file-jump)
-         ("C-c e j" . counsel-dired-jump)
-         ("C-c e l" . counsel-find-library)
-         ("C-c e q" . counsel-set-variable)
-         ("C-c e u" . counsel-unicode-char)
-         ("C-x r b" . counsel-bookmark)))
-
-(use-package counsel-web
-  :straight (counsel-web :type git
-                         :host github
-                         :repo "mnewt/counsel-web")
-  :config
-  (setq counsel-web-search-action #'browse-url))

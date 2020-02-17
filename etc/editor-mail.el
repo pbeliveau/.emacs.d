@@ -3,7 +3,9 @@
 
 (use-package notmuch
   :if (not (string-equal system-type "windows-nt"))
+  :demand t
   :straight (notmuch :local-repo nil)
+  :bind ("C-c 1" . notmuch)
   :init
   (autoload 'notmuch "notmuch" t))
 

@@ -44,7 +44,13 @@
 
 ;; make use of standard directories
 (use-package no-littering
-  :demand t)
+  :demand t
+  :config
+  (require 'recentf)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
+  (setq auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
 ; Package management, unix systems only.
 (use-package use-package-ensure-system-package

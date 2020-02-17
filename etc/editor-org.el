@@ -298,9 +298,12 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package org-roam
   :after org
-  :straight (org-roam :type git
-                      :host github
-                      :repo "jethrokuan/org-roam")
+  :hook ((org-mode   . org-roam-mode)
+         (after-init . org-roam--build-cache-async))
+  :straight (:type git
+                   :host github
+                   :repo "jethrokuan/org-roam"
+                   :branch "develop")
   :bind
   ("C-c n f" . org-roam-find-file)
   ("C-c n g" . org-roam-show-graph)
