@@ -24,7 +24,7 @@
 ** blog                                                               :blog:
 *** https://vxlabs.com/index.xml
 *** https://irreal.org/blog/?feed=rss2
-*** https://etienne.depar.is/a-ecrit/
 *** https://www.baty.net/index.xml
 *** https://bzg.fr/index.xml
-*** https://drewdevault.com/
+*** https://drewdevault.com/feed.xml
+*** http://xenodium.com/rss.xml
