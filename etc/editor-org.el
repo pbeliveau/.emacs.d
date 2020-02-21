@@ -52,7 +52,7 @@
           ("TOMAIL" :foreground "steelblue3" :weight bold)
           ("DRAFT" :foreground "steelblue" :weight bold))))
   (if (not (memq window-system '(w32)))
-    (setq org-default-notes-file     (concat org-directory "/journal.org")))
+    (setq org-default-notes-file     (concat org-directory "/system/journal.org")))
 
   ;; Functions to add custom id to headers
   (defun org-custom-id-get (&optional pom create prefix)
@@ -74,7 +74,7 @@
 
   (defun switch-to-org-tasks ()
     (interactive)
-    (find-file (concat org-directory "/tasks.org"))
+    (find-file (concat org-directory "/system/tasks.org"))
     (switch-to-buffer "tasks.org"))
 
   (defun org-table-mark-field ()
@@ -103,11 +103,9 @@
         org-agenda-files                (list (concat org-directory
                                             "/system/schedule.org")
                                               (concat org-directory
-                                                      "/tasks.org")
+                                               "/system/tasks.org")
                                               (concat org-directory
-                                                 "/tasks-work.org")
-                                              (concat org-directory
-                                                 "/journal.org"))))
+                                          "/system/journal.org"))))
 
 (use-package org-bullets
   :ensure t
@@ -190,7 +188,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       my/org-contacts-template
       :empty-lines 1)
      ("t" "todo" entry
-      (file+headline "/tasks.org" "tasks"),
+      (file+headline "/system/tasks.org" "tasks"),
       my/org-task-template
       :empty-lines 1
       :immediate-finish t)
@@ -198,19 +196,19 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       (function org-journal-find-location),
       my/org-journal-template)
      ("l" "link" entry
-      (file+headline "notes.org" "links")
+      (file+headline "/system/notes.org" "links")
            "* %? %^L %^g \n%T"
            :prepend t
            :immediate-finish t)
      ("b" "blog" entry
-      (file+headline "/tasks.org" "tasks")
+      (file+headline "/system/tasks.org" "tasks")
            "* TOBLOG %?"
            :prepend t)
      ("s" "schedule" entry
       (file "system/schedule.org"),
       my/org-schedule-template)
      ("m" "mail todo" entry
-      (file+headline "/tasks.org" "Mail")
+      (file+headline "/system/tasks.org" "Mail")
         my/org-mail-template))))
 
 (use-package org-crypt
@@ -239,7 +237,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     (find-file (get-journal-file-yesterday)))
   :config
   (setq org-journal-date-format               "%A, %d %B %Y"
-        org-journal-dir                       org-directory
+        org-journal-dir                       (concat org-directory "/system")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
         org-journal-file-format               "%Y-%m-%d.org"
@@ -275,7 +273,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :ensure t
   :if (not (memq window-system '(w32)))
   :init
-  (setq org-brain-path (concat org-directory "/brain"))
+  (setq org-brain-path (concat org-directory "/authorship"))
   :config
   (setq org-id-track-globally t)
   (setq org-id-locations-file (concat org-directory "/.org-id-locations"))
