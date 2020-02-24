@@ -1,5 +1,6 @@
 (use-package ess
   :ensure t
+  :bind ("C-c 2" . run-ess-r)
   :init
   :mode ("\\.R\\'" . R-mode)
   :config

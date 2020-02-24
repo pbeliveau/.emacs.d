@@ -18,8 +18,8 @@
   :bind (("C-c p" . projectile-command-map)))
 
 (use-package magit
-  :ensure t
-  :defer t)
+  :defer t
+  :bind ("C-c 4" . magit))
 
 (use-package saveplace
   :straight (saveplace :type built-in)

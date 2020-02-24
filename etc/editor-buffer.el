@@ -28,6 +28,12 @@
 (use-package scratch
   :bind ("C-c b" . scratch))
 
+(use-package simple
+  :straight (simple :type built-in)
+  :bind ("C-." . kill-current-buffer)
+  :config
+  (setq column-number-mode t))
+
 ;; Prior to 27.1, not included.
 (use-package so-long
   :straight (so-long :type git

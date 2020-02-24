@@ -3,8 +3,8 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/.config/emacs/var/org/notes.org")
- (front-context-string . "**  [[https://ww")
+ (filename . "~/.config/emacs/var/org/system/notes.org")
+ (front-context-string . "**  [[https://ge")
  (rear-context-string)
  (position . 9))
 ("elfeed-unix"

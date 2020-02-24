@@ -84,7 +84,8 @@
 
 (use-package window
   :straight (window :type built-in)
-  :bind ("M-o" . other-window)
+  :bind (("M-o" . other-window)
+         ("C-," . delete-window))
   :init
   (setq pop-up-windows t)
   (add-to-list 'same-window-regexps "*Help*")

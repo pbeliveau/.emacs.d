@@ -5,7 +5,10 @@
     :straight (dired :type built-in))
   :config
   (setq wdired-create-parent-directories   t
-        wdired-allow-to-change-permissions t))
+        wdired-allow-to-change-permissions t)
+  (add-hook 'dired-mode-hook
+            (lambda ()
+                   (setq truncate-lines nil))))
 
 (use-package dired-avfs
   :straight (dired-avfs :type git
@@ -66,7 +69,7 @@
                           :files ("dired-filter.el"))
   :bind (:map dired-mode-map
               ("f" . dired-filter-mode))
-  :config
+  :init
   (add-hook 'dired-mode-hook 'dired-filter-mode))
 
 (use-package dired-narrow

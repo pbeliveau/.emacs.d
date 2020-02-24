@@ -188,7 +188,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       my/org-contacts-template
       :empty-lines 1)
      ("t" "todo" entry
-      (file+headline "/system/tasks.org" "tasks"),
+      (file+headline "system/tasks.org" "tasks"),
       my/org-task-template
       :empty-lines 1
       :immediate-finish t)
@@ -196,19 +196,19 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
       (function org-journal-find-location),
       my/org-journal-template)
      ("l" "link" entry
-      (file+headline "/system/notes.org" "links")
+      (file+headline "system/notes.org" "links")
            "* %? %^L %^g \n%T"
            :prepend t
            :immediate-finish t)
      ("b" "blog" entry
-      (file+headline "/system/tasks.org" "tasks")
+      (file+headline "system/tasks.org" "tasks")
            "* TOBLOG %?"
            :prepend t)
      ("s" "schedule" entry
       (file "system/schedule.org"),
       my/org-schedule-template)
      ("m" "mail todo" entry
-      (file+headline "/system/tasks.org" "Mail")
+      (file+headline "system/tasks.org" "Mail")
         my/org-mail-template))))
 
 (use-package org-crypt
@@ -309,7 +309,9 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
   :init
-  (setq org-roam-directory org-directory))
+  (setq org-roam-directory org-directory
+        org-roam-mute-cache-build t
+        org-roam-graph-viewer (executable-find "imv")))
 
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git
