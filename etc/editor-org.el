@@ -317,7 +317,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :straight (portable-org-screenshot :type git
                                        :host github
                                        :repo "pbeliveau/portable-org-screenshot")
-    :bind ("<f6>"))
+    :bind ("C-c 6" . portable-org-screenshot))
 
 (use-package zpresent
   :ensure t)
