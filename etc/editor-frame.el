@@ -53,10 +53,10 @@
 (use-package link-hint
   :ensure t
   :bind
-  ("C-c C-c o" . link-hint-open-link)
-  ("C-c C-c c" . link-hint-copy-link)
-  ("C-c C-c y" . link-hint-copy-link-at-point)
-  ("C-c C-c d" . link-open-multiple-links)
+  ("C-c p o" . link-hint-open-link)
+  ("C-c p c" . link-hint-copy-link)
+  ("C-c p y" . link-hint-copy-link-at-point)
+  ("C-c p d" . link-open-multiple-links)
   :config
   (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program "firefox"))
