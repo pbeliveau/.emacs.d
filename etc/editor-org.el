@@ -237,7 +237,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     (find-file (get-journal-file-yesterday)))
   :config
   (setq org-journal-date-format               "%A, %d %B %Y"
-        org-journal-dir                       (concat org-directory "/system")
+        org-journal-dir                       (concat org-directory "/records")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
         org-journal-file-format               "%Y-%m-%d.org"
@@ -273,7 +273,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :ensure t
   :if (not (memq window-system '(w32)))
   :init
-  (setq org-brain-path (concat org-directory "/authorship"))
+  (setq org-brain-path (concat org-directory "/records"))
   :config
   (setq org-id-track-globally t)
   (setq org-id-locations-file (concat org-directory "/.org-id-locations"))
