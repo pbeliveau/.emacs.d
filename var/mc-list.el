@@ -3,15 +3,19 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        org-beginning-of-line
         org-delete-char
+        org-end-of-line
+        org-force-self-insert
         org-self-insert-command
+        org-yank
         tab-to-tab-stop
         zap-up-to-char
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        wdired-finish-edit
         counsel-M-x
         swiper-mc
+        wdired-finish-edit
         ))

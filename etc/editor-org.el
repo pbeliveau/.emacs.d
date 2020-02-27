@@ -229,7 +229,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     "Gets filename for yesterday's journal entry."
     (let* ((yesterday (time-subtract (current-time) (days-to-time 1)))
            (daily-name (format-time-string "%Y-%m-%d.org" yesterday)))
-      (expand-file-name (concat org-journal-dir daily-name))))
+      (expand-file-name (concat org-journal-dir "/"daily-name))))
 
   (defun org-journal-file-yesterday ()
     "Creates and load a file based on yesterday's date."
