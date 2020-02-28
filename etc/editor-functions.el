@@ -1,5 +1,6 @@
 (use-package ts
   :straight (ts :type git :host github :repo "alphapapa/ts.el")
+  :bind ("C-c 7" . insert-timestamp)
   :config
   (defun insert-today (&optional arg)
   "Insert today's date.
@@ -13,19 +14,11 @@
           (arg (or arg 0)))
       (if (use-region-p)
           (delete-region (region-beginning) (region-end)))
-      (insert (ts-format "%A, %B %e, %Y" (ts-adjust 'day arg date))))))
+      (insert (ts-format "%A, %B %e, %Y" (ts-adjust 'day arg date)))))
 
-(defun insdate-insert-current-date (&optional omit-day-of-week-p)
-  "Insert today's date using the current locale.
-With a prefix argument, the date is inserted without the day of
-the week."
-  (interactive "P*")
-  (insert (calendar-date-string (calendar-current-date) nil
-                                omit-day-of-week-p)))
-
-(defun timestamp ()
-  (interactive)
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+  (defun insert-timestamp ()
+    (interactive)
+    (insert (ts-format (ts-now)))))
 
 (defun kill-other-buffers ()
   "Kill all buffers but current buffer and special buffers.
