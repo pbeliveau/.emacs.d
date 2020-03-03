@@ -30,7 +30,8 @@
 
 (use-package simple
   :straight (simple :type built-in)
-  :bind ("C-." . kill-current-buffer)
+  :bind (("C-."   . kill-current-buffer)
+         ("C-c 0" . toggle-truncate-lines))
   :config
   (setq column-number-mode t))
 
