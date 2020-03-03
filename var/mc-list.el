@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        browse-kill-ring
         org-beginning-of-line
         org-delete-char
         org-end-of-line

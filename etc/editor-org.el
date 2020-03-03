@@ -3,7 +3,8 @@
   :straight org-plus-contrib
   :bind (:map org-mode-map
               ("C-c i" . org-add-ids-to-headlines)
-              ("C-c s" . org-table-mark-field))
+              ("C-c s" . org-table-mark-field)
+              ("C-c 9" . org-table-yank-cell))
   :bind ("C-C t" . switch-to-org-tasks)
   :hook activate-default-input-method
   :init
@@ -84,7 +85,12 @@
     (when (not (looking-back "|[[:blank:]]?"))
       (org-table-beginning-of-field 1))
     (set-mark-command nil)
-    (org-table-end-of-field 1)))
+    (org-table-end-of-field 1))
+
+  (defun org-table-yank-cell ()
+    (interactive)
+    (org-table-mark-field)
+    (easy-kill 1)))
 
 (use-package org-contacts
   :if (not (memq window-system '(w32)))
