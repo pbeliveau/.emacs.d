@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/.config/emacs/var/org/system/notes.org")
- (front-context-string . "**  [[https://ge")
+ (front-context-string . "**  [[https://ww")
  (rear-context-string)
  (position . 9))
 ("elfeed-unix"

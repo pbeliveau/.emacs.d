@@ -3,6 +3,7 @@
   :init
   (use-package dired-x
     :straight (dired :type built-in))
+  (use-package all-the-icons-dired)
   :config
   (setq wdired-create-parent-directories   t
         wdired-allow-to-change-permissions t)

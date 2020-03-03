@@ -14,6 +14,7 @@ alias la ls -la $1
 alias layout ~/.config/scripts/active-layout
 alias ll ls -lat $1
 alias modprobe sudo modprobe $*
+alias mount sudo mount $*
 alias nuke killall -9 $*
 alias pastebin ~/.config/scripts/pastebin $*
 alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
@@ -26,8 +27,10 @@ alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
 alias svol pamixer --sink 0 --set-volume $1
 alias sysd sudo systemctl $*
 alias sysdu systemctl --user $*
+alias sysuser systemctl --user $*
 alias tmute pamixer --sink 0 -t
 alias tping ping -c 3 archlinux.org
+alias umount sudo umount $*
 alias undervolt sudo undervolt $*
 alias update ~/.config/scripts/update $*
 alias vpn sudo /usr/bin/protonvpn $*

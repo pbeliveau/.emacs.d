@@ -101,6 +101,15 @@
   (solaire-global-mode +1)
   (solaire-mode-swap-bg))
 
+(use-package dimmer
+  :ensure t
+  :init
+  (dimmer-configure-org)
+  (dimmer-configure-helm)
+  (dimmer-configure-which-key)
+  :config
+  (dimmer-mode t))
+
 (use-package page-break-lines
   :ensure t
   :diminish
