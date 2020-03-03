@@ -28,3 +28,5 @@
 *** https://bzg.fr/index.xml
 *** https://drewdevault.com/feed.xml
 *** http://xenodium.com/rss.xml
+*** https://planet.emacslife.com/atom.xml
+*** https://with-emacs.com/rss.xml
