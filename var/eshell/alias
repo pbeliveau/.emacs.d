@@ -5,6 +5,7 @@ alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
 alias ff find-file $1
 alias ffalias find-file ~/.config/emacs/var/eshell/alias
 alias gmute pamixer --sink 0 --get-mute
+alias gsoptimizepdf gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$*
 alias gvol pamixer --sink 0 --get-volume
 alias install sudo pacman -S $*
 alias ipify ~/.config/scripts/ipify
