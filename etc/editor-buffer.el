@@ -14,6 +14,13 @@
         '("^\\*helm\\b"
           "^\\*swiper\\*$")))
 
+(use-package bufler
+  :straight (bufler :type git
+                    :host github
+                    :repo "alphapapa/bufler.el")
+  :bind (("C-x C-b" . bufler)
+         ("C-x b"   . bufler-switch-buffer)))
+
 (use-package ibuffer
   :bind (:map ibuffer-mode-map
         ("M-o" . nil)
