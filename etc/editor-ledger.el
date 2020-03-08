@@ -1,6 +1,5 @@
 (use-package ledger-mode
   :if (not (memq window-system '(w32)))
-  :ensure t
   :mode (("\\.ledger\\'" . ledger-mode)
          ("\\.dat\\'"    . ledger-mode))
   :bind ("C-c L" . my-ledger-start-entry)

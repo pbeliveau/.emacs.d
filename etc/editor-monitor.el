@@ -7,7 +7,6 @@
   (display-battery-mode 1))
 
 (use-package daemons
-  :ensure t
   :bind ("<f11>" . daemons)
   :config
   (setq daemons-always-sudo t))
@@ -23,7 +22,6 @@
                '(tiny tree pid pcpu rss (args comm))))
 
 (use-package pulseaudio-control
-  :ensure t
   :config
   (pulseaudio-control-default-keybindings))
 
@@ -36,7 +34,6 @@
 
 (use-package symon
   :if (not (memq window-system '(w32)))
-  :ensure t
   :diminish
   :config
   (setq symon-sparkline-type 'plain

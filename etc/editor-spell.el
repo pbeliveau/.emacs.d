@@ -1,10 +1,8 @@
 (use-package alt-codes
-  :ensure t
   :defer t
   :bind ("C-x c" . alt-codes-insert))
 
 (use-package flycheck
-  :ensure t
   :commands (flycheck-mode
              flycheck-next-error
              flycheck-previous-error)
@@ -14,7 +12,6 @@
 
   (use-package flycheck-ledger
     :if (not (memq window-system '(w32)))
-    :ensure t
     :after ledger-mode)
 
   :config
@@ -25,7 +22,6 @@
     (flycheck-plantuml-setup)))
 
 (use-package flyspell-correct
-    :ensure t
     :diminish flyspell-correct-auto-mode
     :bind (("C-c i n" . flyspell-correct-next)
            ("C-c i p" . flyspell-correct-previous))
@@ -48,7 +44,6 @@
     (setq flyspell-correct-interface #'frog-menu-flyspell-correct))
 
 (use-package lorem-ipsum
-  :ensure t
   :bind (("M-g C-l s" . lorem-ipsum-insert-sentences)
          ("M-g C-l p" . lorem-ipsum-insert-paragraphs)
          ("M-g C-l l" . lorem-ipsum-insert-list)))

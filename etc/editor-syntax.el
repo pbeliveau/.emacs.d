@@ -7,27 +7,21 @@
   ((markdown-mode text-mode org-mode tex-mode pdf-annot-minor-mode)))
 
 (use-package dynamic-spaces
-  :ensure t
   :diminish dynamic-spaces-mode
   :config
   (dynamic-spaces-global-mode t))
 
-(use-package format-all
-  :disabled
-  :ensure t)
+(use-package format-all)
 
 (use-package fix-word
-  :ensure t
   :bind (("M-u" . fix-word-upcase)
          ("M-l" . fix-word-downcase)
          ("M-c" . fix-word-capitalize)))
 
 (use-package fold-this
-  :ensure t
   :bind ("C-c C-f" . fold-this))
 
 (use-package origami
-  :ensure t
   :diminish
   :commands origami-mode
   :bind (("C-c C-o t" . origami-toggle-node)
@@ -41,7 +35,6 @@
          ("C-c C-o f" . origami-forward-fold)))
 
 (use-package ws-butler
-  :ensure t
   :defer t
   :diminish ws-butler-mode
   :hook (prog-mode . ws-butler-mode))

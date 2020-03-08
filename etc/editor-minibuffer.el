@@ -1,6 +1,5 @@
 (use-package counsel
   :diminish
-  :ensure t
   :demand t
   :bind (("C-*"     . counsel-org-agenda-headlines)
          ("C-x C-f" . counsel-find-file)
@@ -23,7 +22,6 @@
 (use-package ivy
   :diminish
   :demand t
-  :ensure t
   :bind (("C-x b"   . ivy-switch-buffer)
          ("C-x B"   . ivy-switch-buffer-other-window)
          ("M-H"     . ivy-resume)
@@ -78,25 +76,21 @@
   :straight (all-the-icons-ivy-rich :type git
                                     :host github
                                     :repo "seagle0128/all-the-icons-ivy-rich")
-  :ensure t
   :init (all-the-icons-ivy-rich-mode 1))
 
 (use-package all-the-icons-ibuffer
   :straight (all-the-icons-ibuffer :type git
                                    :host github
                                    :repo "seagle0128/all-the-icons-ibuffer")
-  :ensure t
   :init (all-the-icons-ibuffer-mode 1))
 
   (use-package ivy-prescient
-    :ensure t
     :after ivy
     :config
     (progn
       (ivy-prescient-mode t)))
 
 (use-package swiper
-  :ensure t
   :after ivy
   :bind (("C-s"   . swiper)
          ("C-S-s" . swiper-isearch)

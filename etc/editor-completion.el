@@ -1,5 +1,4 @@
 (use-package company
-  :ensure t
   :diminish
   :init (global-company-mode 1)
   :commands (company-mode)
@@ -17,11 +16,9 @@
         company-show-numbers          t))
 
 (use-package company-auctex
-  :ensure t
   :after (company latex))
 
 (use-package company-anaconda
-  :ensure t
   :after (company python-mode anaconda-mode))
 
 (use-package hippie-exp
@@ -36,7 +33,6 @@
         try-complete-lisp-symbol)))
 
 (use-package which-key
-  :ensure t
   :defer 5
   :diminish
   :commands which-key-mode
@@ -53,19 +49,16 @@
         ))
 
 (use-package smex
-  :ensure t
   :defer 10
   :commands smex
   :bind ("M-x" . smex))
 
 (use-package prescient
-  :ensure t
   :config
   (progn
     (prescient-persist-mode t)))
 
 (use-package company-prescient
-  :ensure t
   :after company
   :config
   (progn

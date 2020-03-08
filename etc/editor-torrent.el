@@ -1,6 +1,5 @@
 (use-package mentor
   :if (not (memq window-system '(w32)))
-  :ensure t
   :defer t
   :config
   (setq mentor-rtorrent-download-directory "~/tmp"

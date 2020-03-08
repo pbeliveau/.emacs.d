@@ -114,12 +114,10 @@
                                           "/system/journal.org"))))
 
 (use-package org-bullets
-  :ensure t
   :hook (org-mode . org-bullets-mode))
 
 (use-package org-download
   :if (not (memq window-system '(w32)))
-  :ensure t
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
         org-download-method            'attach
@@ -225,7 +223,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
        org-tags-exclude-from-inheritance (quote ("crypt"))))
 
 (use-package org-journal
-  :ensure t
   :after org
   :bind
   ("C-c n j" . org-journal-new-entry)
@@ -249,8 +246,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-file-format               "%Y-%m-%d.org"
         org-journal-time-format               ""))
 
-(use-package helm-org-rifle
-  :ensure t)
+(use-package helm-org-rifle)
 
 (use-package ox-word
   :after (:all org-ref ox)
@@ -267,7 +263,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                             :repo "alphapapa/org-graph-view"))
 
 (use-package ox-hugo
-  :ensure t
   :after ox
   :config
   (setq org-hugo-default-section-directory "posts"
@@ -276,7 +271,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-index)
 (use-package org-ql)
 (use-package org-brain
-  :ensure t
   :if (not (memq window-system '(w32)))
   :init
   (setq org-brain-path (concat org-directory "/records"))
@@ -325,5 +319,4 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                                        :repo "pbeliveau/portable-org-screenshot")
     :bind ("C-c 6" . portable-org-screenshot))
 
-(use-package zpresent
-  :ensure t)
+(use-package zpresent)

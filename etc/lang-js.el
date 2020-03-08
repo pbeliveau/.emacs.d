@@ -2,7 +2,6 @@
   :straight (eldoc :type built-in))
 
 (use-package js2-mode
-  :ensure t
   :mode "\\.js\\'"
   :interpreter "node"
   :config

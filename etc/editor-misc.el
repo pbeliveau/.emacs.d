@@ -1,2 +1,2 @@
 (use-package sudoku
-  :ensure t)
+  :defer t)

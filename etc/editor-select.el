@@ -1,11 +1,9 @@
 (use-package xah-lookup
-  :ensure t
   :diminish
   :init
   (setq xah-lookup-browser-function 'eww))
 
 (use-package selected
-  :ensure t
   :demand t
   :diminish selected-minor-mode
   :bind (:map selected-keymap
@@ -31,7 +29,6 @@
   (selected-global-mode 1))
 
 (use-package palimpsest
-  :ensure t
   :defer t
   :diminish palimpsest-mode
   :config

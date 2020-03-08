@@ -3,7 +3,6 @@
   :hook clojure-mode)
 
 (use-package clojure-mode
-  :ensure t
   :mode (("\\.edn$"    . clojure-mode)
          ("\\.boot$"   . clojure-mode)
          ("\\.cljs.*$" . clojure-mode)
@@ -23,7 +22,6 @@
   (use-package clojure-mode-extra-font-locking))
 
 (use-package cider
-  :ensure t
   :bind (("C-c C-v"  . cider-start-http-server)
          ("C-M-r"    . cider-refresh)
          ("C-c u"    . cider-user-ns)

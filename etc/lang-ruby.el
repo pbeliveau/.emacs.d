@@ -10,5 +10,4 @@
   (defun my-ruby-mode-hook ()
     (set-fill-column 80)))
 
-(use-package ruby-additional
-  :ensure t)
+(use-package ruby-additional)

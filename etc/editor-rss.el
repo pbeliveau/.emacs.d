@@ -1,5 +1,4 @@
 (use-package elfeed
-  :ensure t
   :commands elfeed
   :bind (("C-c 3" . elfeed)
          :map elfeed-search-mode-map
@@ -55,7 +54,6 @@
   (shr-width 80))
 
 (use-package elfeed-org
-  :ensure t
   :after elfeed
   :config
   (elfeed-org)

@@ -48,7 +48,6 @@
 ;;; theme
 (use-package naysayer-theme :defer t)
 (use-package doom-themes
-  :ensure t
   :config
    (defun set-light-theme ()
      (interactive)
@@ -73,7 +72,6 @@
 
 
 (use-package doom-modeline
-  :ensure t
   :after doom-themes
   :init
   (setq doom-modeline-bar-width                 3
@@ -102,7 +100,6 @@
   (solaire-mode-swap-bg))
 
 (use-package dimmer
-  :ensure t
   :init
   (dimmer-configure-org)
   (dimmer-configure-helm)
@@ -111,7 +108,6 @@
   (dimmer-mode t))
 
 (use-package page-break-lines
-  :ensure t
   :diminish
   :init
   (global-page-break-lines-mode))
@@ -130,12 +126,8 @@
                                 space-before-tab::tab
                                 space-before-tab::space)))
 
-(use-package darkroom
-  :pin gnu
-  :ensure t)
-
+(use-package darkroom)
 (use-package writeroom-mode
-  :ensure t
   :defer t
   :config
   (setq writeroom-width                 140
