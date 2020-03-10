@@ -5,6 +5,7 @@
       '(
         browse-kill-ring
         easy-kill
+        kill-region
         org-beginning-of-line
         org-delete-char
         org-end-of-line
