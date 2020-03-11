@@ -107,6 +107,13 @@
   :config
   (dimmer-mode t))
 
+(use-package modern-fringes
+  :straight (modern-fringes :type git
+                            :host github
+                            :repo "SpecialBomb/emacs-modern-fringes")
+  :config
+  (modern-fringes-invert-arrows))
+
 (use-package page-break-lines
   :diminish
   :init
