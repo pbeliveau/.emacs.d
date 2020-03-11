@@ -217,9 +217,10 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package org-crypt
  :straight (org-crypt :local-repo nil)
- :after org
+ :init
+ (org-crypt-use-before-save-magic)
  :config
- (setq org-crypt-key "8BED3C59AE2C7F3632720D33F40268B8FFE4102A"
+ (setq org-crypt-key nil
        org-tags-exclude-from-inheritance (quote ("crypt"))))
 
 (use-package org-journal
@@ -244,6 +245,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
         org-journal-file-format               "%Y-%m-%d.org"
+        org-journal-file-header               (concat "#+SETUPFILE: " org-directory "/system/config.org")
         org-journal-time-format               ""))
 
 (use-package helm-org-rifle)
