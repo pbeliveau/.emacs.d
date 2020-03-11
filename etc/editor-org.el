@@ -51,9 +51,8 @@
           ("TOBLOG" :foreground "dark sea green" :weight bold)
           ("WRITING" :foreground "sea green" :weight bold)
           ("TOMAIL" :foreground "steelblue3" :weight bold)
-          ("DRAFT" :foreground "steelblue" :weight bold))))
-  (if (not (memq window-system '(w32)))
-    (setq org-default-notes-file     (concat org-directory "/system/journal.org")))
+          ("DRAFT" :foreground "steelblue" :weight bold)))
+    org-default-notes-file   (concat org-directory "/system/journal.org"))
 
   ;; Functions to add custom id to headers
   (defun org-custom-id-get (&optional pom create prefix)
@@ -217,11 +216,12 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package org-crypt
  :straight (org-crypt :local-repo nil)
- :init
- (org-crypt-use-before-save-magic)
+ :after org
  :config
  (setq org-crypt-key nil
-       org-tags-exclude-from-inheritance (quote ("crypt"))))
+       org-tags-exclude-from-inheritance (quote ("crypt")))
+ :custom
+ (org-crypt-use-before-save-magic))
 
 (use-package org-journal
   :after org
@@ -244,8 +244,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-journal-dir                       (concat org-directory "/records")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         t
+        org-journal-encrypt-journal           t
         org-journal-file-format               "%Y-%m-%d.org"
-        org-journal-file-header               (concat "#+SETUPFILE: " org-directory "/system/config.org")
         org-journal-time-format               ""))
 
 (use-package helm-org-rifle)
