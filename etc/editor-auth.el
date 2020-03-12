@@ -25,7 +25,10 @@
   (eval-when-compile
     (defvar epa-pinentry-mode))
   :init
-  (setq epa-pinentry-mode 'loopback))
+  (setq epa-pinentry-mode 'loopback)
+  :config
+  (setq epa-file-select-keys nil
+        epa-file-cache-passphrase-for-symmetric-encryption t))
 
 (use-package epg
   :straight (epg :type built-in)
