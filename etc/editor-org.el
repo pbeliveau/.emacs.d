@@ -20,12 +20,12 @@
   (use-package org-checklist
     :straight (org-checklist :local-repo nil))
   (setq fill-column                     80
-        org-adapt-indentation           nil
+        org-adapt-indentation           t
         org-hide-leading-stars          t
         org-id-link-to-org-use-id       'create-if-interactive-and-no-custom-id
         org-list-description-max-indent 4
         org-startup-folded              (quote overview)
-        org-startup-indented            nil
+        org-startup-indented            t
         org-src-tab-acts-natively       t
         org-cycle-separator-lines       0
         org-catch-invisible-edits       'show-and-error
@@ -243,7 +243,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (setq org-journal-date-format               "%A, %d %B %Y"
         org-journal-dir                       (concat org-directory "/records")
         org-journal-enable-agenda-integration t
-        org-journal-enable-encryption         t
+        org-journal-enable-encryption         nil
         org-journal-encrypt-journal           t
         org-journal-file-format               "%Y-%m-%d.org"
         org-journal-time-format               ""))
@@ -290,11 +290,12 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :bind
   ("C-c n d" . deft)
   :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
   (deft-directory org-directory)
-  (deft-use-filename-as-title t))
+  (deft-recursive t)
+  (deft-use-filename-as-title nil)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension '("org" "txt" "text" "md" "markdown" "org.gpg"))
+  (deft-default-extension "org"))
 
 (use-package org-roam
   :after org
