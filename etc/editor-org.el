@@ -124,7 +124,7 @@
 (use-package org-download
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
-        org-download-method            'attach)
+        org-download-method            'directory)
 
   (if (eq system-type 'gnu/linux)
       (setq org-download-screenshot-method "grim -g \"$(slurp)\" %s"))
