@@ -112,11 +112,16 @@
                                               (concat org-directory
                                           "/system/journal.org"))))
 
+(use-package org-super-agenda
+  :config
+  (let ((org-super-agenda-groups
+         '((:auto-category t))))
+    (org-agenda-list)))
+
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode))
 
 (use-package org-download
-  :if (not (memq window-system '(w32)))
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
         org-download-method            'attach
@@ -273,6 +278,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 
 (use-package org-index)
 (use-package org-ql)
+(use-package org-sidebar)
 (use-package org-brain
   :if (not (memq window-system '(w32)))
   :init
