@@ -241,10 +241,11 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     (find-file (get-journal-file-yesterday)))
   :config
   (setq org-journal-date-format               "%A, %d %B %Y"
+        org-journal-date-prefix               "#+TITLE: "
         org-journal-dir                       (concat org-directory "/records")
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         nil
-        org-journal-encrypt-journal           t
+        org-journal-encrypt-journal           nil
         org-journal-file-format               "%Y-%m-%d.org"
         org-journal-time-format               ""))
 
@@ -292,7 +293,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :custom
   (deft-directory org-directory)
   (deft-recursive t)
-  (deft-use-filename-as-title nil)
+  (deft-use-filename-as-title t)
   (deft-use-filter-string-for-filename t)
   (deft-default-extension '("org" "txt" "text" "md" "markdown" "org.gpg"))
   (deft-default-extension "org"))
@@ -302,17 +303,18 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :hook ((org-mode   . org-roam-mode)
          (after-init . org-roam--build-cache-async))
   :straight (:type git
-                   :host github
-                   :repo "jethrokuan/org-roam"
-                   :branch "develop")
+             :host github
+             :repo "jethrokuan/org-roam")
   :bind
+  ("C-c n b" . org-roam-switch-to-buffer)
   ("C-c n f" . org-roam-find-file)
   ("C-c n g" . org-roam-show-graph)
   ("C-c n i" . org-roam-insert)
   ("C-c n l" . org-roam)
   ("C-c n t" . org-roam-today)
   :init
-  (setq org-roam-directory org-directory
+  (setq org-roam-directory (concat org-directory "/records")
+        org-roam-completion-system 'ivy
         org-roam-mute-cache-build t
         org-roam-graph-viewer (executable-find "imv")))
 

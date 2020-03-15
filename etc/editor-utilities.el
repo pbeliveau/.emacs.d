@@ -1,21 +1,14 @@
-(use-package chronometer
-  :defer t)
-
-(use-package key-quiz
-  :defer t)
-
-(use-package md4rd
-  :defer t)
+(use-package chronometer)
+(use-package key-quiz)
+(use-package md4rd)
+(use-package memory-usage)
+(use-package noccur)
+(use-package speed-type)
+(use-package spray)
 
 (use-package mount
   :commands mount-mode
   :straight (mount :type git :host github :repo "zellerin/mount-mode"))
-
-(use-package speed-type
-  :defer t)
-
-(use-package spray
-  :defer t)
 
 (use-package deadgrep
   :bind (("C-c r" . deadgrep)))
@@ -33,8 +26,6 @@
   (setq memento-mori-birth-date age_string)
   (memento-mori-mode))
 
-(use-package memory-usage)
-(use-package noccur)
 (use-package url-shortener
   :if (not (memq window-system '(w32)))
   :init

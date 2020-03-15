@@ -21,6 +21,12 @@
 (use-package company-anaconda
   :after (company python-mode anaconda-mode))
 
+(use-package company-org-roam
+  :straight nil
+  :after org-roam company org
+  :config
+  (company-org-roam-init))
+
 (use-package hippie-exp
   :straight (hippie-exp :type built-in)
   :bind ("M-/" . hippie-expand)
