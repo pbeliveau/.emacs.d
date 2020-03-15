@@ -124,8 +124,13 @@
 (use-package org-download
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
-        org-download-method            'attach
-        org-download-screenshot-method "scrot -s %s")
+        org-download-method            'attach)
+
+  (if (eq system-type 'gnu/linux)
+      (setq org-download-screenshot-method "grim -g \"$(slurp)\" %s"))
+
+  (if (eq system-type 'windows-nt)
+      (setq org-download-screenshot-method "i_view64 /capture=4 /convert=\"%s\""))
   (org-download-enable))
 
 (use-package org-pomodoro
