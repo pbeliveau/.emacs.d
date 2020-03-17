@@ -8,4 +8,4 @@
 (use-package ob-mermaid
   :disabled
   :config
-  (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc"))
+  (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc.cmd"))
