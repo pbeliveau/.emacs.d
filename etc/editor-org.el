@@ -125,7 +125,7 @@
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")
         org-download-method            'directory
-        org-download-screenshot-method "magick convert clipboard: %s")w
+        org-download-screenshot-method "magick convert clipboard: %s")
   (org-download-enable))
 
 (use-package org-pomodoro
