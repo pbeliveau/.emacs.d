@@ -92,15 +92,13 @@
     (easy-kill 1)))
 
 (use-package org-contacts
-  :if (not (memq window-system '(w32)))
   :straight nil
   :custom
   (org-contacts-files '(concat org-directory
                                "/system/contacts.org")))
 
 (use-package org-agenda
-  :if (not (memq window-system '(w32)))
-  :straight (org-agenda :local-repo nil)
+  :straight nil
   :bind (("C-c a" . org-agenda))
   :after org
   :config
@@ -129,14 +127,12 @@
   (org-download-enable))
 
 (use-package org-pomodoro
-  :if (not (memq window-system '(w32)))
   :config
   (setq org-pomodoro-format " %s"
         org-pomodoro-short-break-format "☕%s"
         org-pomodoro-long-break-format  " %s"))
 
 (use-package org-capture
-  :if (not (memq window-system '(w32)))
   :straight (org-capture :local-repo nil)
   :bind (("C-c c" . org-capture))
   :after org
@@ -280,7 +276,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
 (use-package org-ql)
 (use-package org-sidebar)
 (use-package org-brain
-  :if (not (memq window-system '(w32)))
   :init
   (setq org-brain-path (concat org-directory "/records"))
   :config

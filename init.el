@@ -7,7 +7,6 @@
       straight-use-package-by-default t
       straight-cache-autoloads t
       straight-treat-as-init t
-      ;; use-package-always-defer t
       use-package-expand-minimally t
       use-package-verbose nil)
 
