@@ -24,6 +24,13 @@
 (use-package eshell-toggle
   :bind ("C-'" . eshell-toggle))
 
+(use-package eshell-prompt-extras
+  :config
+  (with-eval-after-load "esh-opt"
+    (autoload 'epe-theme-lambda "eshell-prompt-extras")
+    (setq eshell-highlight-prompt nil
+          eshell-prompt-function 'epe-theme-lambda)))
+
 (use-package better-shell
     :bind (("C-c ;" . better-shell-shell)
            ("C-c '" . better-shell-remote-open)))
