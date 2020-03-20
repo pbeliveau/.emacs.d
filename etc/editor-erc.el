@@ -1,5 +1,4 @@
 (use-package erc
-  :if (not (memq window-system '(w32)))
   :straight (erc :type built-in)
   :bind (("C-c s" . start-irc)
          ("C-c q" . stop-irc))

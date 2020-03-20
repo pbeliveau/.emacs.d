@@ -40,10 +40,7 @@
             (progn
               (set-frame-font "Consolas:pixelsize=13")
               (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
-            ))
-      (progn
-        (set-frame-font "Fira Code:pixelsize=12")
-        (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))))
+            ))))
 
 ;;; theme
 (use-package naysayer-theme :defer t)
@@ -85,10 +82,9 @@
         doom-modeline-major-mode-icon           t
         doom-modeline-minor-modes               nil)
   :config
-  (if (memq window-system '(w32))
-      (setq doom-modeline-icon                  nil
-            doom-modeline-major-mode-icon       nil
-            doom-modeline-major-mode-color-icon nil))
+  (setq doom-modeline-icon                nil
+      doom-modeline-major-mode-icon       nil
+      doom-modeline-major-mode-color-icon nil)
   (doom-modeline-mode))
 
 (use-package solaire-mode

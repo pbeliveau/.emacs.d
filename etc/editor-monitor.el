@@ -1,15 +1,8 @@
 (use-package battery
-  :disabled
   :straight nil
   :config
   (setq battery-update-interval 300
-        battery-mode-line-format " %p%% %L")
-  (display-battery-mode 1))
-
-(use-package daemons
-  :bind ("<f11>" . daemons)
-  :config
-  (setq daemons-always-sudo t))
+        battery-mode-line-format " %p%% %L"))
 
 (use-package esup
   :commands (esup))
@@ -21,10 +14,6 @@
   (add-to-list 'proced-format-alist
                '(tiny tree pid pcpu rss (args comm))))
 
-(use-package pulseaudio-control
-  :config
-  (pulseaudio-control-default-keybindings))
-
 (use-package time
   :straight (time :type built-in)
   :config
@@ -33,9 +22,7 @@
   (display-time))
 
 (use-package symon
-  :if (not (memq window-system '(w32)))
   :diminish
   :config
   (setq symon-sparkline-type 'plain
-        symon-sparkline-width 120)
-  (symon-mode))
+        symon-sparkline-width 120))

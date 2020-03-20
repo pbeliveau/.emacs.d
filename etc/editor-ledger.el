@@ -1,12 +1,11 @@
 (use-package ledger-mode
-  :if (not (memq window-system '(w32)))
   :mode (("\\.ledger\\'" . ledger-mode)
          ("\\.dat\\'"    . ledger-mode))
   :bind ("C-c L" . my-ledger-start-entry)
   :init
   (defun my-ledger-start-entry (&optional arg)
     (interactive "p")
-    (find-file-other-window (concat no-littering-var-directory "/ledger/me.ledger"))
+    (find-file-other-window (concat no-littering-var-directory "/org/system/me.ledger"))
     (goto-char (point-max))
     (skip-syntax-backward " ")
     (if (looking-at "\n\n")

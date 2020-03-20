@@ -1,4 +1,5 @@
 (use-package chronometer)
+(use-package disk-usage)
 (use-package key-quiz)
 (use-package md4rd)
 (use-package memory-usage)
@@ -14,7 +15,6 @@
   :bind (("C-c r" . deadgrep)))
 
 (use-package memento-mori
-  :if (not (memq window-system '(w32)))
   :diminish
   :init
   (load (concat no-littering-var-directory "private/.memento"))
@@ -23,7 +23,6 @@
   (memento-mori-mode))
 
 (use-package url-shortener
-  :if (not (memq window-system '(w32)))
   :init
   (load (concat no-littering-var-directory "private/.bitly"))
   :config

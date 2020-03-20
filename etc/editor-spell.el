@@ -11,7 +11,6 @@
   :init
 
   (use-package flycheck-ledger
-    :if (not (memq window-system '(w32)))
     :after ledger-mode)
 
   :config
@@ -58,11 +57,6 @@
            ("C-c i w" . ispell-word)))
 
 (use-package mw-thesaurus)
-
-(use-package smog
-  :if (not (string-equal system-type "windows-nt"))
-  :config
-  (setq smog-command "style -L en -l 25"))
 
 (use-package typopunct
   :straight (typopunct :type git
