@@ -244,6 +244,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (setq org-journal-date-format               "%A, %d %B %Y"
         org-journal-date-prefix               "#+TITLE: "
         org-journal-dir                       (concat org-directory "/records")
+        org-journal-file-header               "#+SETUPFILE: ../system/config.org"
         org-journal-enable-agenda-integration t
         org-journal-enable-encryption         nil
         org-journal-encrypt-journal           nil
