@@ -30,3 +30,4 @@
 *** http://xenodium.com/rss.xml
 *** https://planet.emacslife.com/atom.xml
 *** https://with-emacs.com/rss.xml
+*** https://www.manueluberti.eu/feed.xml

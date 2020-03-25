@@ -9,3 +9,7 @@
   :disabled
   :config
   (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc.cmd"))
+
+(use-package mermaid-mode
+  :config
+  (setq mermaid-mmdc-location "~/node_modules/.bin/mmdc.cmd"))

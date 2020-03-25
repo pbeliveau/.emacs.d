@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         browse-kill-ring
+        dired-mark
         easy-kill
         kill-region
         org-beginning-of-line
@@ -12,6 +13,7 @@
         org-force-self-insert
         org-self-insert-command
         org-yank
+        proced-mark
         tab-to-tab-stop
         zap-up-to-char
         ))

@@ -23,4 +23,10 @@
           (ielm-mode             . turn-on-eldoc-mode)
           (cider-mode            . turn-on-eldoc-mode)))
 
+(use-package eldoc-eval
+  :diminish
+  :config
+  (autoload 'eldoc-in-minibuffer-mode "eldoc-eval")
+  (eldoc-in-minibuffer-mode 1))
+
 (use-package with-emacs)

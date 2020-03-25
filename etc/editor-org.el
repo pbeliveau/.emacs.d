@@ -262,7 +262,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                      :files ("ox-word.el")))
 
 (use-package org-graph-view
-  :disabled
   :straight (org-graph-view :type git
                             :host github
                             :repo "alphapapa/org-graph-view"))

@@ -12,7 +12,7 @@
 
 (use-package projectile
   :init
-  :bind (("C-c p" . projectile-command-map)))
+  :bind (("C-c C-p" . projectile-command-map)))
 
 (use-package magit
   :defer t

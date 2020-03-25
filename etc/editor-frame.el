@@ -44,6 +44,18 @@
   :config
   (setq golden-ratio-auto-scale t))
 
+
+(use-package goto-addr
+  :hook ((compilation-mode . goto-address-mode)
+         (prog-mode . goto-address-prog-mode)
+         (elfeed-show-mode . goto-address-mode)
+         (eshell-mode . goto-address-mode)
+         (shell-mode . goto-address-mode))
+  :bind (:map goto-address-highlight-keymap
+              ("C-c C-l" . goto-address-at-point))
+  :commands (goto-address-prog-mode
+             goto-address-mode))
+
 (use-package link-hint
   :bind
   ("C-c p o" . link-hint-open-link)
