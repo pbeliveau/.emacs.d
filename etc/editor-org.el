@@ -319,6 +319,19 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
         org-roam-mute-cache-build t
         org-roam-graph-viewer (executable-find "imv")))
 
+(use-package org-spacer
+  :straight (org-spacer :type git
+                        :host github
+                        :repo "dustinlacewell/org-spacer.el")
+  :config
+  (setq org-spacer-element-blanks
+        '((0 headline plain-list)
+          (1 src-block table property-drawer)
+          ))
+  (add-hook 'org-mode-hook
+          (lambda () (add-hook 'before-save-hook
+                          'org-spacer-enforce nil 'make-it-local))))
+
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git
                                        :host github
