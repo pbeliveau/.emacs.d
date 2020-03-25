@@ -1,40 +1,17 @@
-alias bridge ~/.config/scripts/bridge $*
-alias connect ~/.config/scripts/network $*
 alias d dired $1
-alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
 alias ff find-file $1
 alias ffalias find-file ~/.emacs.d/var/eshell/alias
-alias gmute pamixer --sink 0 --get-mute
 alias gsoptimizepdf gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$*
-alias gvol pamixer --sink 0 --get-volume
-alias install sudo pacman -S $*
-alias ipify ~/.config/scripts/ipify
+alias install sudo scoop install $*
 alias l1 ls -1a $1
 alias l1l ls -1at $1
 alias la ls -la $1
-alias layout ~/.config/scripts/active-layout
 alias ll ls -lat $1
-alias modprobe sudo modprobe $*
-alias mount sudo mount $*
 alias nuke killall -9 $*
-alias pastebin ~/.config/scripts/pastebin $*
-alias phaxio ~/documents/software/bash/phaxio-cli/phaxio-cli $*
-alias pmake git pull && makepkg -sim --needed --noconfirm
-alias remove sudo pacman -Rs $*
-alias scan ~/documents/software/bash/scan2pdf/scan2pdf.sh $*
-alias scan-ocr ~/documents/software/bash/scan2pdf/scan2pdf-ocr.sh $*
-alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
-alias speedtest ~/documents/software/bash/speedtest/speedtest.sh
-alias svol pamixer --sink 0 --set-volume $1
-alias sysd sudo systemctl $*
-alias sysdu systemctl --user $*
-alias sysuser systemctl --user $*
-alias tmute pamixer --sink 0 -t
+alias remove sudo scoop uninstall $*
+alias toclipboard magick.exe clipboard: $*
 alias tping ping -c 3 archlinux.org
-alias umount sudo umount $*
-alias undervolt sudo undervolt $*
-alias update ~/.config/scripts/update $*
-alias vpn sudo /usr/bin/protonvpn $*
+alias update sudo topgrade
 alias winconvert magick.exe convert $*
 alias winconvertpreset winconvert -density 300 -strip -alpha off $*
 alias youtube-dl-audio youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 $*
