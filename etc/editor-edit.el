@@ -11,6 +11,8 @@
         delete-old-versions   t
         auto-save-default     nil))
 
+(use-package iedit)
+
 (use-package misc
   :straight (misc :type built-in)
   :bind ("M-z" . zap-up-to-char))

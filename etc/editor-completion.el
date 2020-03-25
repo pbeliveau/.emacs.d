@@ -30,6 +30,15 @@
   :config
   (company-org-roam-init))
 
+(use-package company-emoji
+  :config
+  (add-to-list 'company-backends 'company-emoji))
+
+(use-package emojify
+  :config
+  (setq emojify-company-tooltips-p t)
+  (add-hook 'after-init-hook #'global-emojify-mode))
+
 (use-package hippie-exp
   :straight (hippie-exp :type built-in)
   :bind ("M-/" . hippie-expand)

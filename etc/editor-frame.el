@@ -1,5 +1,6 @@
 (use-package avy
-  :bind (("C-c f" . avy-goto-char)
+  :bind (("C-q"   . avy-goto-char-in-line)
+         ("C-c f" . avy-goto-char)
          ("C-c h" . avy-goto-char-2)
          ("C-c l" . avy-goto-line)
          ("C-c w" . avy-goto-word-1)
@@ -44,6 +45,9 @@
   :config
   (setq golden-ratio-auto-scale t))
 
+(use-package goto-last-point
+  :bind ("C-<" . goto-last-point)
+  :config (goto-last-point-mode))
 
 (use-package goto-addr
   :hook ((compilation-mode . goto-address-mode)
