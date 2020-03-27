@@ -116,8 +116,8 @@
          '((:auto-category t))))
     (org-agenda-list)))
 
-(use-package org-bullets
-  :hook (org-mode . org-bullets-mode))
+(use-package org-superstar
+  :hook (org-mode . org-superstar-mode))
 
 (use-package org-download
   :config
@@ -300,12 +300,8 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   (deft-default-extension "org"))
 
 (use-package org-roam
-  :after org
-  :hook ((org-mode   . org-roam-mode)
-         (after-init . org-roam--build-cache-async))
-  :straight (:type git
-             :host github
-             :repo "jethrokuan/org-roam")
+  :hook
+  (after-init . org-roam-mode)
   :bind
   ("C-c n b" . org-roam-switch-to-buffer)
   ("C-c n f" . org-roam-find-file)
@@ -316,8 +312,7 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
   :init
   (setq org-roam-directory (concat org-directory "/records")
         org-roam-completion-system 'ivy
-        org-roam-mute-cache-build t
-        org-roam-graph-viewer (executable-find "imv")))
+        org-roam-mute-cache-build t))
 
 (use-package org-spacer
   :straight (org-spacer :type git

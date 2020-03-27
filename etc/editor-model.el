@@ -6,7 +6,7 @@
         plantuml-output-type "png"))
 
 (use-package ob-mermaid
-  :disabled
+  :after org
   :config
   (setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc.cmd"))
 

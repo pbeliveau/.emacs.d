@@ -6,7 +6,7 @@
          ("C-c w" . avy-goto-word-1)
          ("C-c o" . avy-org-goto-heading-timer)
          ("M-g a" . avy-copy-line)
-         ("M-g r" . avy-copy-region)
+         ("M-g d" . avy-copy-region)
          ("M-g y" . avy-kill-ring-save-whole-line)
          ("M-g w" . avy-kill-whole-line)
          ("M-g l" . avy-move-line)

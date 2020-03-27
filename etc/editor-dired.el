@@ -7,9 +7,12 @@
   :config
   (setq wdired-create-parent-directories   t
         wdired-allow-to-change-permissions t)
+  (defun jump-to-dots ()
+    (interactive)
+    (dired "~/.emacs.d"))
   (add-hook 'dired-mode-hook
             (lambda ()
-                   (setq truncate-lines nil))))
+              (setq truncate-lines nil))))
 
 (use-package dired-avfs
   :straight (dired-avfs :type git

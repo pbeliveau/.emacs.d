@@ -1,4 +1,5 @@
 (use-package ts
+  :demand
   :straight (ts :type git :host github :repo "alphapapa/ts.el")
   :bind (("C-c 7" . insert-timestamp)
          ("C-c 8" . insert-today))

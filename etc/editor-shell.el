@@ -19,7 +19,29 @@
     (let ((qualified-path (if (string-match "^/" path)
                               path
                             (concat (expand-file-name (eshell/pwd)) "/" path))))
-      (find-file (concat "/sudo::" qualified-path)))))
+      (find-file (concat "/sudo::" qualified-path))))
+
+  (defun pb/clean-records ()
+    (interactive)
+    (with-current-buffer "*eshell*"
+      (eshell-return-to-prompt)
+      (eshell-kill-input)
+      (insert "cd ~/.emacs.d/var/org/records/")
+      (eshell-send-input)
+      (eshell-return-to-prompt)
+      (eshell-kill-input)
+      (insert "mv *.pdf ~/.emacs.d/var/org/prints/")
+      (eshell-send-input)
+      (eshell-return-to-prompt)
+      (eshell-kill-input)
+      (insert "rm *.tex")
+      (eshell-send-input)
+      (eshell-return-to-prompt)
+      (eshell-kill-input)
+      (insert "mv *.png ~/.emacs.d/var/org/png/")
+      (eshell-send-input)
+      (eshell-return-to-prompt)
+      (eshell-kill-input))))
 
 (use-package eshell-toggle
   :bind ("C-'" . eshell-toggle))

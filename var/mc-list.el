@@ -6,6 +6,7 @@
         browse-kill-ring
         dired-mark
         easy-kill
+        indent-for-tab-command
         kill-region
         org-beginning-of-line
         org-delete-char
