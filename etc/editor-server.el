@@ -30,3 +30,5 @@
     (interactive)
     (save-some-buffers t)
     (kill-emacs)))
+
+(use-package impatient-mode)

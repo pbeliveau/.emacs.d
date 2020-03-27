@@ -63,7 +63,7 @@
      (load-theme theme 'no-confirm)
      (set-font-emacs))
 
-   (if (>= (ts-hour (ts-now)) 22)
+   (if (>= (ts-hour (ts-now)) 13)
        (pb/switch-theme 'doom-nord)
     (pb/switch-theme 'doom-one-light)))
 

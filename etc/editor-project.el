@@ -10,6 +10,8 @@
   :config
   (global-diff-hl-mode))
 
+(use-package git-auto-commit-mode)
+
 (use-package projectile
   :init
   :bind (("C-c C-p" . projectile-command-map)))
