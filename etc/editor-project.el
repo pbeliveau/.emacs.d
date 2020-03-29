@@ -10,7 +10,9 @@
   :config
   (global-diff-hl-mode))
 
-(use-package git-auto-commit-mode)
+(use-package git-auto-commit-mode
+  :config
+  (setq gac-debounce-interval 600))
 
 (use-package projectile
   :init

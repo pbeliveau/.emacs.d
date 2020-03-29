@@ -1,6 +1,7 @@
 alias d dired $1
 alias ff find-file $1
 alias ffalias find-file ~/.emacs.d/var/eshell/alias
+alias ffimg dired ~/.emacs.d/var/org/img
 alias gsoptimizepdf gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$*
 alias install *sudo scoop install $*
 alias l1 ls -1a $1

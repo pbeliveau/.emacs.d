@@ -321,12 +321,11 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                         :repo "dustinlacewell/org-spacer.el")
   :config
   (setq org-spacer-element-blanks
-        '((0 headline plain-list)
-          (1 src-block table property-drawer)
-          ))
+          '((0 headline plain-list)
+            (1 src-block table property-drawer)))
   (add-hook 'org-mode-hook
-          (lambda () (add-hook 'before-save-hook
-                          'org-spacer-enforce nil 'make-it-local))))
+            (lambda () (add-hook 'before-save-hook
+                                 'org-spacer-enforce nil 'make-it-local))))
 
 (use-package portable-org-screenshot
     :straight (portable-org-screenshot :type git
@@ -335,3 +334,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :bind ("C-c 6" . portable-org-screenshot))
 
 (use-package zpresent)
+(use-package anki-editor
+  :config
+  (setq anki-editor-create-decks t))

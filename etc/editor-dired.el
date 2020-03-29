@@ -12,7 +12,8 @@
     (dired "~/.emacs.d"))
   (add-hook 'dired-mode-hook
             (lambda ()
-              (setq truncate-lines nil))))
+              (setq truncate-lines nil)
+              (dired-sort-toggle-or-edit))))
 
 (use-package dired-avfs
   :straight (dired-avfs :type git
