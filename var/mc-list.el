@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        apply-macro-to-region-lines
         browse-kill-ring
         dired-mark
         easy-kill
