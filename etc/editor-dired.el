@@ -10,6 +10,12 @@
   (defun jump-to-dots ()
     (interactive)
     (dired "~/.emacs.d"))
+  (defun jump-to-start ()
+    (interactive)
+    (dired "~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"))
+  (defun jump-to-scripts ()
+    (interactive)
+    (dired "~/.config/scripts"))
   (add-hook 'dired-mode-hook
             (lambda ()
               (setq truncate-lines nil)
@@ -29,34 +35,6 @@
                             :files ("dired-collapse.el"))
   :bind (:map dired-mode-map
               ("," . dired-collapse-mode)))
-
-(use-package dired-open
-  :straight (dired-open :type git
-                        :host github
-                        :repo "Fuco1/dired-hacks"
-                        :files ("dired-open.el"))
-  :bind (:map dired-mode-map
-        ("M-RET" . dired-open-xdg))
-  :init
-  (setq open-extensions
-        '(("webm"  . "mpv")
-          ("avi"   . "mpv")
-          ("mp4"   . "mpv")
-          ("mkv"   . "mpv")
-          ("ogv"   . "mpv")
-          ("mp3"   . "mpv")
-          ("png"   . "nomacs")
-          ("jpeg"  . "nomacs")
-          ("jpg"   . "nomacs")
-          ("pdf"   . "sumatrapdf")
-          ("xlsx"  . "Microsoft Excel")
-          ("xlsm"  . "Microsoft Excel")
-          ("xlsb"  . "Microsoft Excel")
-          ("xls"   . "Microsoft Excel")
-          ("docx"  . "Microsoft Word")
-          ("doc"   . "Microsoft Word")))
-  :config
-  (setq dired-open-extensions open-extensions))
 
 (use-package dired-hacks-utils
   :straight t)
@@ -208,3 +186,11 @@
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
+
+(use-package w32-browser
+  :bind
+  ("C-c w e" . w32explore)
+  ("C-c w b" . w32-browser)
+  (:map dired-mode-map
+        ("M-RET" . dired-w32-browser)
+        ("<C-return>" . dired-w32explore)))

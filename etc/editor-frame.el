@@ -3,7 +3,6 @@
          ("C-c f" . avy-goto-char)
          ("C-c h" . avy-goto-char-2)
          ("C-c l" . avy-goto-line)
-         ("C-c w" . avy-goto-word-1)
          ("C-c o" . avy-org-goto-heading-timer)
          ("M-g a" . avy-copy-line)
          ("M-g d" . avy-copy-region)
