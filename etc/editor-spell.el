@@ -58,6 +58,10 @@
 
 (use-package mw-thesaurus)
 
+(use-package string-inflection
+  :bind (:map prog-mode-map
+              ("C-M-j" . string-inflection-all-cycle)))
+
 (use-package typopunct
   :straight (typopunct :type git
                        :host github

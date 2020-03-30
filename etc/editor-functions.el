@@ -153,3 +153,7 @@ Version 2018-10-12"
               (shell-command $cmd-str $outputb ))
           (error "No recognized program file suffix for this file."))))
     (run-hooks 'xah-run-current-file-after-hook)))
+
+(defun img-to-clipboard (filename)
+  (interactive "sFile path:")
+  (shell-command (concat "nircmdc.exe clipboard copyimage " "'" filename "'")))

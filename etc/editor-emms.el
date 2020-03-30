@@ -41,6 +41,8 @@
   (use-package emms-browser
     :straight (emms-browser :local-repo nil)))
 
+(use-package vlc)
+
 (use-package bongo
   :config
   (setq bongo-enabled-backends '(mplayer)))

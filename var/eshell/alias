@@ -10,7 +10,7 @@ alias la ls -la $1
 alias ll ls -lat $1
 alias nuke killall -9 $*
 alias remove *sudo scoop uninstall $*
-alias toclipboard magick.exe clipboard: $*
+alias toclipboard nircmdc.exe clipboard copyimage $*
 alias tping ping -c 3 archlinux.org
 alias update *sudo topgrade
 alias winconvert magick.exe convert $*
