@@ -22,6 +22,16 @@
   :defer t
   :bind ("C-c 4" . magit))
 
+(use-package git-identity
+  :disabled ;; Not working currently
+  :after magit
+  :bind (:map magit-status-mode
+              ("I" . git-identity-info))
+  :hook (magit-status-mode . git-identity-magit-mode)
+  :config
+  (setq git-identity-verify t
+        git-identity-default-username user-full-name))
+
 (use-package saveplace
   :straight (saveplace :type built-in)
   :defer 5
