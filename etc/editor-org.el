@@ -29,7 +29,7 @@
         org-src-tab-acts-natively       t
         org-cycle-separator-lines       0
         org-catch-invisible-edits       'show-and-error
-        org-image-actual-width          500
+        ;; org-image-actual-width          500
         org-tag-alist                   '(
                                           ("crypt" . ?C))
         org-todo-keywords

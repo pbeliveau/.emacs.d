@@ -3,6 +3,7 @@
   :config
   (setq require-final-newline t
         version-control       t
+        enable-local-eval     t
         backup-by-copying     t
         make-backup-files     t
         delete-old-versions   t

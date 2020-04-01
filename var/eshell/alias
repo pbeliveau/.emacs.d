@@ -1,3 +1,4 @@
+alias antidote "c:/Program Files (x86)/Druide/Connectix 10/Application/Bin64/API/Antidote.exe" $*
 alias d dired $1
 alias ff find-file $1
 alias ffalias find-file ~/.emacs.d/var/eshell/alias
@@ -9,6 +10,7 @@ alias l1l ls -1at $1
 alias la ls -la $1
 alias ll ls -lat $1
 alias nuke killall -9 $*
+alias ocrpdf wsl ocrmypdf $*
 alias remove *sudo scoop uninstall $*
 alias toclipboard nircmdc.exe clipboard copyimage $*
 alias tping ping -c 3 archlinux.org
