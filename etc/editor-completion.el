@@ -22,13 +22,9 @@
   :after (company python-mode anaconda-mode))
 
 (use-package company-org-roam
-  :straight (company-org-roam :type git
-                              :host github
-                              :repo "jethrokuan/org-roam"
-                              :files ("company-org-roam.el"))
-  :after org-roam company org
+  :straight (:host github :repo "jethrokuan/company-org-roam")
   :config
-  (company-org-roam-init))
+  (push 'company-org-roam company-backends))
 
 (use-package company-emoji
   :config
