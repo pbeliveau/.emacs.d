@@ -58,6 +58,14 @@
 
 (use-package mw-thesaurus)
 
+(use-package spell-fu
+  :straight (spell-fu :type git
+                      :host gitlab
+                      :repo "ideasman42/emacs-spell-fu")
+  :hook org-mode
+  :config
+  (setq spell-fu-faces-exclude '(org-meta-line org-link org-code)))
+
 (use-package string-inflection
   :bind (:map prog-mode-map
               ("C-M-j" . string-inflection-all-cycle)))
