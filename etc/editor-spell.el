@@ -48,23 +48,28 @@
          ("M-g C-l l" . lorem-ipsum-insert-list)))
 
 (use-package ispell
-    :straight (ispell :type built-in)
-    :bind (("C-c i c" . ispell-comments-and-strings)
-           ("C-c i d" . ispell-change-dictionary)
-           ("C-c i k" . ispell-kill-ispell)
-           ("C-c i m" . ispell-message)
-           ("C-c i r" . ispell-region)
-           ("C-c i w" . ispell-word)))
+  :disabled ;; Until find a way to point to a wsl application
+  :straight (ispell :type built-in)
+  :bind (("C-c i c" . ispell-comments-and-strings)
+         ("C-c i d" . ispell-change-dictionary)
+         ("C-c i k" . ispell-kill-ispell)
+         ("C-c i m" . ispell-message)
+         ("C-c i r" . ispell-region)
+         ("C-c i w" . ispell-word))
+  :config
+  (setq ispell-program-name "wsl.exe -e /usr/bin/aspell"))
 
 (use-package mw-thesaurus)
 
 (use-package spell-fu
+  :disabled ;; Until find a way to point to a wsl application, see ispell above
   :straight (spell-fu :type git
                       :host gitlab
                       :repo "ideasman42/emacs-spell-fu")
-  :hook org-mode
+  :hook (org-mode . spell-fu-mode)
   :config
-  (setq spell-fu-faces-exclude '(org-meta-line org-link org-code)))
+  (setq spell-fu-faces-exclude '(org-meta-line org-link org-code)
+        spell-fu-directory (concat no-littering-var-directory "spell-fu")))
 
 (use-package string-inflection
   :bind (:map prog-mode-map
