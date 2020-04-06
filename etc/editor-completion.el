@@ -1,5 +1,6 @@
 (use-package company
   :diminish
+  :demand t
   :init (global-company-mode 1)
   :commands (company-mode)
   :bind (:map company-active-map

@@ -120,6 +120,19 @@
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode))
 
+(use-package ox-latex
+  :straight nil
+  :demand t
+  :config
+  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+
+(use-package org-ref
+  :after org
+  :config
+  (setq org-ref-default-bibliography '("~/.emacs.d/var/org/data/refs.bib")
+        org-ref-pdf-directory (concat org-directory "/prints/")
+        doi-utils-toggle-pdf-download t))
+
 (use-package org-download
   :config
   (setq org-download-image-dir         (concat org-directory "/img/")

@@ -9,7 +9,6 @@
   :bind (("C-c i b"   . flyspell-buffer)
          ("C-c i f"   . flyspell-mode))
   :init
-
   (use-package flycheck-ledger
     :after ledger-mode)
 

@@ -63,3 +63,34 @@
      rotate entire document."
     (interactive "P")
     (pdf-view--rotate :counterclockwise (not arg))))
+
+
+
+(use-package org-pdftools
+  :straight (org-pdftools :type git
+			  :host github
+			  :repo "fuxialexander/org-pdftools")
+  :config (setq org-pdftools-root-dir (concat org-directory "prints")
+                org-pdftools-search-string-separator "??")
+  (with-eval-after-load 'org
+    (org-link-set-parameters "pdftools"
+                             :follow #'org-pdftools-open
+                             :complete #'org-pdftools-complete-link
+                             :store #'org-pdftools-store-link
+                             :export #'org-pdftools-export)
+    (add-hook 'org-store-link-functions 'org-pdftools-store-link)))
+
+(use-package org-noter
+  :commands (org-noter)
+  :after (org)
+  :config
+  (with-eval-after-load 'pdf-tools
+    (setq pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note))
+  (setq org-noter-notes-mode-map (make-sparse-keymap)))
+
+(use-package org-noter-pdftools
+  :straight (org-noter-pdftools :type git
+				:host github
+				:repo "fuxialexander/org-pdftools"
+				:files ("org-noter-pdftools.el"))
+  :after (org-noter))
