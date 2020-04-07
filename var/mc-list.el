@@ -26,4 +26,5 @@
         counsel-M-x
         swiper-mc
         wdired-finish-edit
+        wdired-next-line
         ))
