@@ -17,6 +17,7 @@
         org-self-insert-command
         org-yank
         proced-mark
+        string-inflection-upcase
         tab-to-tab-stop
         zap-up-to-char
         ))
@@ -24,6 +25,7 @@
 (setq mc/cmds-to-run-once
       '(
         counsel-M-x
+        repunctuate-sentences
         swiper-mc
         wdired-finish-edit
         wdired-next-line
