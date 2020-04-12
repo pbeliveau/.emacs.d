@@ -6,7 +6,7 @@
 
 (use-package simpleclip
   :disabled t
-  :diminish
+  :blackout t
   :config
   (simpleclip-mode 1))
 

@@ -1,5 +1,5 @@
 (use-package counsel
-  :diminish
+  :blackout t
   :demand t
   :bind (("C-*"     . counsel-org-agenda-headlines)
          ("C-x C-f" . counsel-find-file)
@@ -39,7 +39,7 @@
   (setq counsel-web-search-action #'browse-url))
 
 (use-package ivy
-  :diminish
+  :blackout t
   :demand t
   :bind (("C-x b"   . ivy-switch-buffer)
          ("C-x B"   . ivy-switch-buffer-other-window)

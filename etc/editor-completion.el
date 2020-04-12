@@ -1,5 +1,5 @@
 (use-package company
-  :diminish
+  :blackout t
   :demand t
   :init (global-company-mode 1)
   :commands (company-mode)
@@ -14,7 +14,8 @@
   (setq company-idle-delay            0.1
         company-minimum-prefix-length 3
         company-selection-wrap-around t
-        company-show-numbers          t))
+        company-show-numbers          t)
+  (add-to-list 'company-backends 'company-elisp))
 
 (use-package company-auctex
   :after (company latex))
@@ -49,7 +50,7 @@
 
 (use-package which-key
   :defer 5
-  :diminish
+  :blackout t
   :commands which-key-mode
   :config
   (which-key-mode))
@@ -60,13 +61,7 @@
   :init
   (recentf-mode 1)
   :config
-  (setq recentf-max-menu-items 100
-        ))
-
-(use-package smex
-  :defer 10
-  :commands smex
-  :bind ("M-x" . smex))
+  (setq recentf-max-menu-items 100))
 
 (use-package prescient
   :config
@@ -78,3 +73,10 @@
   :config
   (progn
     (company-prescient-mode t)))
+
+(use-package yankpad
+  :defer t
+  :init
+  (setq yankpad-file (concat org-directory "/system/yankpad.org"))
+  :config
+  (add-to-list 'company-backends #'company-yankpad))

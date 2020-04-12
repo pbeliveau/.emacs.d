@@ -16,3 +16,12 @@
   :init
   (setq-default shr-inhibit-images t
                 shr-use-fonts      nil))
+
+(use-package shrface
+  :after shr
+  :init
+  (use-package org-bullets)
+  :straight
+  (shrface :type git
+           :host github
+           :repo "chenyanming/shrface"))

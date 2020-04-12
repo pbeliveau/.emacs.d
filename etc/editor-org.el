@@ -348,6 +348,5 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
     :bind ("C-c 6" . portable-org-screenshot))
 
 (use-package zpresent)
-(use-package anki-editor
-  :config
-  (setq anki-editor-create-decks t))
+(use-package org-kanban)
+(use-package org-make-toc)

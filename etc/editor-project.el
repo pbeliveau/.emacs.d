@@ -1,10 +1,10 @@
 (use-package annotate
-  :diminish
+  :blackout t
   :config
   (setq annotate-file (concat no-littering-var-directory "var/.notes")))
 
 (use-package diff-hl
-  :diminish diff-hl-mode
+  :blackout diff-hl-mode
   :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
          (dired-mode         . diff-hl-dired-mode))
   :config

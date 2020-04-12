@@ -1,13 +1,13 @@
 (use-package auto-fill-mode
   :straight (saveplace :type built-in)
-  :diminish
+  :blackout t
   :init
   (setq-default fill-column 80)
   :hook
   ((markdown-mode text-mode org-mode tex-mode pdf-annot-minor-mode)))
 
 (use-package dynamic-spaces
-  :diminish dynamic-spaces-mode
+  :blackout dynamic-spaces-mode
   :config
   (dynamic-spaces-global-mode t))
 
@@ -22,7 +22,7 @@
   :bind ("C-c C-f" . fold-this))
 
 (use-package origami
-  :diminish
+  :blackout t
   :commands origami-mode
   :bind (("C-c C-o t" . origami-toggle-node)
          ("C-c C-o r" . origami-toggle-all-nodes)
@@ -36,7 +36,7 @@
 
 (use-package ws-butler
   :defer t
-  :diminish ws-butler-mode
+  :blackout ws-butler-mode
   :hook (prog-mode . ws-butler-mode))
 
 ;; Don't use hard tabs

@@ -1,5 +1,5 @@
 (use-package elmacro
-  :diminish elmacro
+  :blackout elmacro
   :bind (("C-c C-e" . elmacro-mode)
          ("C-x C-)" . elmacro-show-last-macro)))
 
@@ -8,3 +8,9 @@
                          :host gitlab
                          :repo "howardabrams/emacs-piper")
   :bind ("C-c C-|" . piper))
+
+(use-package dot-mode
+  :config
+  (global-dot-mode))
+
+(use-package copy-as-format)

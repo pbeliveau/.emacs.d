@@ -18,9 +18,13 @@
   :bind ("M-o" . ace-window))
 
 (use-package beacon
-  :diminish
+  :blackout t
   :config
   (beacon-mode 1))
+
+(use-package beginend
+  :config
+  (beginend-global-mode))
 
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
@@ -39,7 +43,7 @@
   :bind ("M-g f" . frog-jump-buffer))
 
 (use-package golden-ratio
-  :diminish
+  :blackout t
   :bind ("C-c g" . golden-ratio-mode)
   :config
   (setq golden-ratio-auto-scale t))
@@ -70,7 +74,7 @@
         browse-url-generic-program "firefox"))
 
 (use-package minimap
-  :diminish
+  :blackout t
   :bind ("C-c m" . minimap-mode)
   :config
   (setq minimap-window-location 'right
@@ -102,7 +106,7 @@
 
 (use-package winum
   :defer t
-  :diminish winum-mode
+  :blackout winum-mode
   :bind (("M-1" . winum-select-window-1)
          ("M-2" . winum-select-window-2)
          ("M-3" . winum-select-window-3)

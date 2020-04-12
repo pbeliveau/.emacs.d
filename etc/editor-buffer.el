@@ -15,6 +15,7 @@
           "^\\*swiper\\*$")))
 
 (use-package bufler
+  :demand
   :straight (bufler :type git
                     :host github
                     :repo "alphapapa/bufler.el")
@@ -37,7 +38,7 @@
 
 (use-package simple
   :straight (simple :type built-in)
-  :bind (("C-."   . kill-current-buffer)
+  :bind (("<C-return>"  . kill-current-buffer)
          ("C-c 0" . toggle-truncate-lines))
   :config
   (setq column-number-mode t))

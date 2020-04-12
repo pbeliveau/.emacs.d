@@ -111,13 +111,17 @@
   (modern-fringes-invert-arrows))
 
 (use-package page-break-lines
-  :diminish
+  :blackout t
   :init
   (global-page-break-lines-mode))
 
+(use-package hide-mode-line
+  :hook
+  ((elfeed-show-mode elfeed-search-mode) . hide-mode-line-mode))
+
 (use-package whitespace
   :straight (whitespace :type built-in)
-  :diminish
+  :blackout t
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)
   :config

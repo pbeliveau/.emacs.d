@@ -20,26 +20,9 @@
     (flycheck-plantuml-setup)))
 
 (use-package flyspell-correct
-    :diminish flyspell-correct-auto-mode
+    :blackout flyspell-correct-auto-mode
     :bind (("C-c i n" . flyspell-correct-next)
-           ("C-c i p" . flyspell-correct-previous))
-    :config
-    (defun frog-menu-flyspell-correct (candidates word)
-      (let* ((corrects (if flyspell-sort-corrections
-                       (sort candidates 'string<)
-                     candidates))
-         (actions `(("C-s" "Save word"         (save    . ,word))
-                    ("C-a" "Accept (session)"  (session . ,word))
-                    ("C-b" "Accept (buffer)"   (buffer  . ,word))
-                    ("C-c" "Skip"              (skip    . ,word))))
-         (prompt   (format "Dictionary: [%s]"  (or ispell-local-dictionary
-                                                   ispell-dictionary
-                                                   "default")))
-         (res      (frog-menu-read prompt corrects actions)))
-        (unless res
-          (error "Quit"))
-        res))
-    (setq flyspell-correct-interface #'frog-menu-flyspell-correct))
+           ("C-c i p" . flyspell-correct-previous)))
 
 (use-package lorem-ipsum
   :bind (("M-g C-l s" . lorem-ipsum-insert-sentences)
@@ -47,7 +30,6 @@
          ("M-g C-l l" . lorem-ipsum-insert-list)))
 
 (use-package ispell
-  :disabled ;; Until find a way to point to a wsl application
   :straight (ispell :type built-in)
   :bind (("C-c i c" . ispell-comments-and-strings)
          ("C-c i d" . ispell-change-dictionary)
@@ -56,12 +38,12 @@
          ("C-c i r" . ispell-region)
          ("C-c i w" . ispell-word))
   :config
-  (setq ispell-program-name "wsl.exe -e /usr/bin/aspell"))
+  (setq ispell-program-name "~/scoop/apps/msys2/current/mingw64/bin/aspell.exe"))
 
 (use-package mw-thesaurus)
 
 (use-package spell-fu
-  :disabled ;; Until find a way to point to a wsl application, see ispell above
+  :disabled ;; For now, causes error when generating 'words_default.txt'
   :straight (spell-fu :type git
                       :host gitlab
                       :repo "ideasman42/emacs-spell-fu")

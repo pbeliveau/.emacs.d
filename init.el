@@ -31,7 +31,11 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 ;; dependencies
-(use-package diminish   :demand t)
+(use-package blackout
+  :straight (:type git
+             :host github
+             :repo "raxod502/blackout")
+  :demand t)
 (use-package async      :demand t)
 (use-package dash       :demand t)
 (use-package ht         :demand t)
@@ -40,6 +44,7 @@
 (use-package queue      :demand t)
 (use-package epl        :demand t)
 (use-package pkg-info   :demand t)
+(use-package request    :demand t)
 
 ;; make use of standard directories
 (use-package no-littering
@@ -49,7 +54,7 @@
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
   (setq auto-save-file-name-transforms
-      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
 ; Package management, unix systems only.
 (use-package use-package-ensure-system-package

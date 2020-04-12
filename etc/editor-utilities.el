@@ -12,7 +12,8 @@
   :straight (mount :type git :host github :repo "zellerin/mount-mode"))
 
 (use-package deadgrep
-  :bind (("C-c r" . deadgrep))
+  :demand t
+  :bind (("C-c r" . dg))
   :config
   (defun dg (search-term directory)
     "Start a ripgrep search for SEARCH-TERM from DIRECTORY. If
@@ -26,7 +27,7 @@ don't actually start the search."
     (deadgrep search-term))))
 
 (use-package memento-mori
-  :diminish
+  :blackout t
   :init
   (load (concat no-littering-var-directory "private/.memento"))
   :config

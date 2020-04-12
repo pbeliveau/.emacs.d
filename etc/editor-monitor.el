@@ -20,9 +20,8 @@
   (setq display-time-day-and-date t
         display-time-default-load-average nil)
   (display-time))
-
 (use-package symon
-  :diminish
+  :blackout t
   :config
   (setq symon-sparkline-type 'plain
         symon-sparkline-width 120))

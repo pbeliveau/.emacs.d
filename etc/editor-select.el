@@ -1,11 +1,11 @@
 (use-package xah-lookup
-  :diminish
+  :blackout t
   :init
   (setq xah-lookup-browser-function 'eww))
 
 (use-package selected
   :demand t
-  :diminish selected-minor-mode
+  :blackout selected-minor-mode
   :bind (:map selected-keymap
               ("U" . unfill-region)
               ("R" . query-replace)
@@ -30,7 +30,7 @@
 
 (use-package palimpsest
   :defer t
-  :diminish palimpsest-mode
+  :blackout palimpsest-mode
   :config
   (setq palimpsest-trash-file-suffix (concat
                                       no-littering-var-directory
