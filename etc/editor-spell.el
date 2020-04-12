@@ -60,7 +60,8 @@
   :straight (typopunct :type git
                        :host github
                        :repo "emacsmirror/typopunct")
-  :bind ("M-g t" . typopunct-mode))
+  :bind ("M-g t" . typopunct-mode)
+  :hook (org-mode . typopunct-mode))
 
 ;; mule-cmds.el settings
 (setq default-input-method "latin-1-prefix")
@@ -71,3 +72,4 @@
   (if use-default-input-method
       (activate-input-method default-input-method)
     (inactivate-input-method)))
+(add-hook 'org-mode-hook 'activate-default-input-method)
