@@ -281,12 +281,6 @@ Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
                             :host github
                             :repo "alphapapa/org-graph-view"))
 
-(use-package ox-hugo
-  :after ox
-  :config
-  (setq org-hugo-default-section-directory "posts"
-        org-hugo-export-with-toc           nil))
-
 (use-package org-index)
 (use-package org-ql)
 (use-package org-sidebar)
