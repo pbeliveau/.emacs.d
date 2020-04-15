@@ -43,10 +43,6 @@
 (use-package mw-thesaurus)
 
 (use-package spell-fu
-  :disabled ;; For now, causes error when generating 'words_default.txt'
-  :straight (spell-fu :type git
-                      :host gitlab
-                      :repo "ideasman42/emacs-spell-fu")
   :hook (org-mode . spell-fu-mode)
   :config
   (setq spell-fu-faces-exclude '(org-meta-line org-link org-code)
