@@ -127,20 +127,20 @@
   (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
 (use-package helm-bibtex
-  :diabled
+  :disabled
   :straight (helm-bibtex :type git
                          :host github
                          :repo "tmalsburg/helm-bibtex"))
 
 (use-package bibtex-completion
-  :diabled
+  :disabled
   :straight (bibtex-completion :type git
 			       :host github
 			       :repo "tmalsburg/helm-bibtex"
 			       :files ("bibtex-completion.el")))
 
 (use-package org-ref
-  :diabled
+  :disabled
   :after org
   :config
   (setq org-ref-default-bibliography '("~/.emacs.d/var/org/data/refs.bib")
