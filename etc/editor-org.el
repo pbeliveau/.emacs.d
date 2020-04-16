@@ -126,7 +126,21 @@
   :config
   (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
+(use-package helm-bibtex
+  :diabled
+  :straight (helm-bibtex :type git
+                         :host github
+                         :repo "tmalsburg/helm-bibtex"))
+
+(use-package bibtex-completion
+  :diabled
+  :straight (bibtex-completion :type git
+			       :host github
+			       :repo "tmalsburg/helm-bibtex"
+			       :files ("bibtex-completion.el")))
+
 (use-package org-ref
+  :diabled
   :after org
   :config
   (setq org-ref-default-bibliography '("~/.emacs.d/var/org/data/refs.bib")
@@ -146,89 +160,6 @@
   (setq org-pomodoro-format " %s"
         org-pomodoro-short-break-format "☕%s"
         org-pomodoro-long-break-format  " %s"))
-
-(use-package org-capture
-  :straight (org-capture :local-repo nil)
-  :bind (("C-c c" . org-capture))
-  :after org
-  :init
-  (defvar my/org-contacts-template "* %(org-contacts-template-name)
-:PROPERTIES:
-:GEO: %^{GEO}
-:COMPANY:
-:BIRTHDAY: %^{yyyy-mm-dd}
-:EMAIL: %(org-contacts-template-email)
-:PHONE: %^{PHONE}
-:NOTE: %^{NOTE}
-:END:" "Template for org-contacts.")
-
-  (defvar my/org-schedule-template "* %?
-:PROPERTIES:
-:LOCATION: %^{LOCATION}
-:END:" "template for calendar")
-
-  (defvar my/org-task-template "* TODO %^{TASK}
-:PROPERTIES:
-:EFFORT: %^{effort|0:05|0:15|0:30|1:00|2:00|4:00}
-:LINK: %^{LINK}
-:END:
-Captured %<%Y-%m-%d %H:%M>" "Template for basic task.")
-
-  (defvar my/org-mail-template "* TOMAIL %^{TASK}
-:PROPERTIES:
-:TO: %^{TO}
-:SUBJECT: %^{SUBJECT}
-:END:" "Template for mail.")
-
-  (defun org-journal-find-location ()
-    (org-journal-new-entry t)
-    (goto-char (point-min)))
-
-  (defvar my/org-journal-template "* %(format-time-string org-journal-time-format)
-%^{Title}
-%i%?")
-
-  :config
-  (setq org-capture-templates
-   `(("f" "contact-friend" entry
-      (file+headline "system/contacts.org" "friend"),
-      my/org-contacts-template
-      :empty-lines 1)
-     ("a" "contact-family" entry
-      (file+headline "system/contacts.org" "family"),
-      my/org-contacts-template
-      :empty-lines 1)
-     ("w" "contact-work" entry
-      (file+headline "system/contacts.org" "work"),
-      my/org-contacts-template
-      :empty-lines 1)
-     ("o" "contact-other" entry
-      (file+headline "system/contacts.org" "other"),
-      my/org-contacts-template
-      :empty-lines 1)
-     ("t" "todo" entry
-      (file+headline "system/tasks.org" "tasks"),
-      my/org-task-template
-      :empty-lines 1
-      :immediate-finish t)
-     ("j" "journal" entry
-      (function org-journal-find-location),
-      my/org-journal-template)
-     ("l" "link" entry
-      (file+headline "system/notes.org" "links")
-           "* %? %^L %^g \n%T"
-           :prepend t
-           :immediate-finish t)
-     ("b" "blog" entry
-      (file+headline "system/tasks.org" "tasks")
-           "* TOBLOG %?"
-           :prepend t)
-     ("s" "schedule" entry
-      (file "system/schedule.org"),
-      my/org-schedule-template)
-     ("m" "mail todo" entry
-      (file+headline "system/tasks.org" "Mail")
-        my/org-mail-template))))
 
 (use-package org-crypt
  :straight (org-crypt :local-repo nil)
