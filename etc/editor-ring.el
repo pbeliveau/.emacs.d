@@ -4,11 +4,7 @@
 (use-package easy-kill
   :bind ("M-w" . easy-kill))
 
-(use-package simpleclip
-  :disabled t
-  :blackout t
-  :config
-  (simpleclip-mode 1))
+(use-package mark-thing-at)
 
 (use-package undo-fu
   :bind (("C-z"   . undo-fu-only-undo)
