@@ -1,3 +1,6 @@
+(use-package embrace
+  :bind ("C-o" . embrace-commander))
+
 (use-package files
   :straight (files :type built-in)
   :config

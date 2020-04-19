@@ -63,3 +63,5 @@
 (use-package elfeed-goodies
   :config
   (elfeed-goodies/setup))
+
+(use-package pocket-reader)
