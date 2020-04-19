@@ -50,6 +50,13 @@
     (interactive)
     (bookmark-maybe-load-default-file)
     (bookmark-jump "elfeed-blog"))
+
+  ;; From ieure config
+  (defun ime-elfeed-podcast-tagger (entry)
+    (when (elfeed-entry-enclosures entry)
+      (elfeed-tag entry 'podcast)))
+  (add-hook 'elfeed-new-entry-hook #'ime-elfeed-podcast-tagger)
+
   :custom
   (shr-width 80))
 
