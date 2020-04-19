@@ -21,6 +21,11 @@
               (setq truncate-lines nil)
               (dired-sort-toggle-or-edit))))
 
+(use-package dired-async
+  :straight nil
+  :after (dired)
+  :hook (dired-mode . dired-async-mode))
+
 (use-package dired-avfs
   :straight (dired-avfs :type git
                         :host github
