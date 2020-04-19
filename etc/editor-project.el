@@ -22,6 +22,8 @@
   :defer t
   :bind ("C-c 4" . magit))
 
+(use-package markdown-changelog)
+
 (use-package git-identity
   :disabled ;; Not working currently
   :after magit
