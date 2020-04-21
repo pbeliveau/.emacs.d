@@ -28,6 +28,11 @@
          ("C-S-c C-S-c"   . mc/edit-lines)
          ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
 
+(use-package mc-calc
+  :straight (mc-calc :type git
+                     :host github
+                     :repo "hatheroldev/mc-calc"))
+
 (prefer-coding-system 'utf-8)
 (set-charset-priority 'unicode)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
