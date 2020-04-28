@@ -6,13 +6,13 @@
               ("D"   . pdf-annot-delete)
               ("C-s" . isearch-forward)
               ("s"   . save-some-buffers))
-  :config
   :init
   (pdf-tools-install)
   (add-hook 'activate-default-input-method #'pdf-annot-minor-mode)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (add-hook 'pdf-view-mode-hook (lambda() (cua-mode 0)))
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+  :config
   (setq pdf-view-resize-factor 1.1
         pdf-view-display-size  1.0
         pdf-annot-activate-created-annotations t)
