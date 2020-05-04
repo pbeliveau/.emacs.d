@@ -5,6 +5,7 @@
       '(
         apply-macro-to-region-lines
         browse-kill-ring
+        calc-at-point-add
         dired-mark
         easy-kill
         indent-for-tab-command
@@ -19,6 +20,7 @@
         proced-mark
         string-inflection-upcase
         tab-to-tab-stop
+        typopunct-insert-typographical-dashes
         zap-up-to-char
         ))
 

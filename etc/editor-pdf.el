@@ -1,4 +1,5 @@
 (use-package pdf-tools
+  :disabled
   :magic ("%PDF" . pdf-view-mode)
   :bind (:map pdf-view-mode-map
               ("h"   . pdf-annot-add-highlight-markup-annotation)
@@ -67,6 +68,8 @@
 
 
 (use-package org-pdftools
+  :disabled
+  :after pdf-tools
   :straight (org-pdftools :type git
 			  :host github
 			  :repo "fuxialexander/org-pdftools")
@@ -81,6 +84,8 @@
     (add-hook 'org-store-link-functions 'org-pdftools-store-link)))
 
 (use-package org-noter
+  :disabled
+  :after pdf-tools
   :commands (org-noter)
   :after (org)
   :config
@@ -89,6 +94,8 @@
   (setq org-noter-notes-mode-map (make-sparse-keymap)))
 
 (use-package org-noter-pdftools
+  :disabled
+  :after pdf-tools
   :straight (org-noter-pdftools :type git
 				:host github
 				:repo "fuxialexander/org-pdftools"

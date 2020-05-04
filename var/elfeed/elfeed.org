@@ -32,3 +32,5 @@
 *** https://with-emacs.com/rss.xml
 *** https://www.manueluberti.eu/feed.xml
 *** https://blog.networkprofile.org/rss/
+** journal                                                         :journal:
+*** https://www.aupress.ca/feed/
