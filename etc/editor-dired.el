@@ -16,6 +16,9 @@
   (defun jump-to-scripts ()
     (interactive)
     (dired "~/.config/scripts"))
+  (defun jump-to-org ()
+    (interactive)
+    (dired "~/.config/org/"))
   (add-hook 'dired-mode-hook
             (lambda ()
               (setq truncate-lines nil)
