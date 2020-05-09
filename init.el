@@ -8,6 +8,7 @@
       straight-cache-autoloads t
       straight-treat-as-init t
       use-package-expand-minimally t
+      straight-recipes-gnu-elpa-use-mirror t
       use-package-verbose nil)
 
 (defvar bootstrap-version)

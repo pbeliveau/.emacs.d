@@ -24,6 +24,7 @@
   :after (company python-mode anaconda-mode))
 
 (use-package company-org-roam
+  :disabled
   :straight (:host github :repo "jethrokuan/company-org-roam")
   :config
   (push 'company-org-roam company-backends))
@@ -77,6 +78,6 @@
 (use-package yankpad
   :defer t
   :init
-  (setq yankpad-file (concat org-directory "/system/yankpad.org"))
+  (setq yankpad-file (concat no-littering-var-directory "org/system/yankpad.org"))
   :config
   (add-to-list 'company-backends #'company-yankpad))
