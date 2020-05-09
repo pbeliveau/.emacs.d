@@ -28,6 +28,7 @@
   (defun kill-server ()
     "Exit server and kill daemon"
     (interactive)
+    (delete-file (concat server-auth-dir "server") nil)
     (save-some-buffers t)
     (kill-emacs)))
 
