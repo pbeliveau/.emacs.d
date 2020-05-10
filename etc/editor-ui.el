@@ -17,6 +17,16 @@
 
 ; remove windows ugly top bar
 (setq default-frame-alist '((undecorated . t)))
+(use-package frame-cmds
+  :straight (frame-cmds :type git
+                        :host github
+                        :repo "emacsmirror/frame-cmds")
+  :bind (("M-<up>"      . move-frame-up)
+         ("M-<down>"    . move-frame-down)
+         ("M-<left>"    . move-frame-left)
+         ("M-<right>"   . move-frame-right)
+         ("C-M-<up>"    . increase-frame-transparency)
+         ("C-M-<down>"  . decrease-frame-transparency)))
 
 ;;; + line numbers
 ;;; - blinking cursor
