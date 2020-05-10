@@ -28,21 +28,6 @@
       apropos-do-all t
       mouse-yank-at-point t)
 
-;; Will be merged into editor-dpi.el
-;; (defun set-font-emacs ()
-;;     (interactive)
-;;     (set-face-attribute 'default nil :height 110)
-;;     (if (eq system-type 'windows-nt)
-;;         (progn
-;;           (if (member "Fira Code" (font-family-list))
-;;               (progn
-;;                 (set-frame-font "Fira Code:pixelsize=12")
-;;                 (setq default-frame-alist '((font . "Fira Code:pixelsize=12"))))
-;;             (progn
-;;               (set-frame-font "Consolas:pixelsize=13")
-;;               (setq default-frame-alist '((font . "Consolas:pixelsize=13"))))
-;;             ))))
-
 ;;; theme
 (use-package naysayer-theme :defer t)
 (use-package doom-themes

@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         apply-macro-to-region-lines
+        avy-copy-line
         browse-kill-ring
         calc-at-point-add
         dired-mark
@@ -18,6 +19,7 @@
         org-self-insert-command
         org-yank
         proced-mark
+        sp-newline
         string-inflection-upcase
         tab-to-tab-stop
         typopunct-insert-typographical-dashes
