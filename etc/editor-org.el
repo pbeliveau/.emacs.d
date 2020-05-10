@@ -1,3 +1,7 @@
+(use-package git-auto-commit-mode
+  :init
+  (setq gac-debounce-interval 1000))
+
 (use-package org
   :demand t
   :straight org-plus-contrib
