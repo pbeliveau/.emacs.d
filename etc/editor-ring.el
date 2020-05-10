@@ -4,7 +4,9 @@
 (use-package easy-kill
   :bind ("M-w" . easy-kill))
 
-(use-package mark-thing-at)
+(use-package mark-thing-at
+  :config
+  (mark-thing-at-mode))
 
 (use-package undo-fu
   :bind (("C-z"   . undo-fu-only-undo)
