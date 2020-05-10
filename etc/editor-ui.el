@@ -15,6 +15,9 @@
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 (setq-default frame-title-format "%b (%f)")
 
+; remove windows ugly top bar
+(setq default-frame-alist '((undecorated . t)))
+
 ;;; + line numbers
 ;;; - blinking cursor
 ;;; - no bell sound
