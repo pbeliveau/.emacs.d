@@ -33,7 +33,7 @@
     (t "Triplicate T4c"))))
 
 (defvar my-preferred-font-size (my-preferred-font-size))
-(defvar my-regular-font (format "%s-%d:weight=normal" (triplicate-preferred-font) my-preferred-font-size))
+(defvar my-regular-font (format "%s-%d" (triplicate-preferred-font) my-preferred-font-size))
 
 ;; Function to force font settings when using emacsclient
 (defun setup-fonts (&rest frame)
