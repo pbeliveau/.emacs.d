@@ -31,6 +31,12 @@
 ;; Dashboard
 (use-package dashboard
   :config
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
+        dashboard-center-content t
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-set-navigator t
+        dashboard-startup-banner 3)
   (dashboard-setup-startup-hook))
 
 ;;; theme
