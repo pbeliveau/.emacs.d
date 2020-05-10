@@ -28,6 +28,11 @@
       apropos-do-all t
       mouse-yank-at-point t)
 
+;; Dashboard
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
 ;;; theme
 (use-package naysayer-theme :defer t)
 (use-package doom-themes
