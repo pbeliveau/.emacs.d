@@ -55,6 +55,7 @@
           (set-fontset-font t 'symbol "Symbola" nil 'append)
           (set-fontset-font t 'unicode "FontAwesome" nil 'append)
           (set-fontset-font t 'unicode "Material Icons" nil 'append)
+          (set-fontset-font t 'unicode "OpenMoji" nil 'append)
           (set-fontset-font t 'unicode "Weather Icons" nil 'append)
           (set-fontset-font t 'unicode "all-the-icons" nil 'append)
           (set-fontset-font t 'unicode "file-icons" nil 'append)
