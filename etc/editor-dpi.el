@@ -23,8 +23,7 @@
   (cond
     ((< dpi 110) 10)
     ((< dpi 130) 11)
-    ((< dpi 160) 12)
-    (t 13))))
+    (t 11))))
 
 (defun triplicate-preferred-font ()
   (let ((font-point (my-preferred-font-size)))
@@ -32,16 +31,16 @@
     ((< font-point 15) "Triplicate T3c")
     (t "Triplicate T4c"))))
 
-(defvar my-preferred-font-size (my-preferred-font-size))
-(defvar my-regular-font (format "%s-%d" (triplicate-preferred-font) my-preferred-font-size))
+(defvar my-font-size (my-preferred-font-size))
+(defvar my-regular-font (format "%s-%d" (triplicate-preferred-font) my-font-size))
 
 ;; Function to force font settings when using emacsclient
 (defun setup-fonts (&rest frame)
   (if window-system
       (let ((f (if (car frame)
-		   (car frame)
-		 (selected-frame))))
-	(progn
+                   (car frame)
+                 (selected-frame))))
+        (progn
           ;; Code and writing
           (set-frame-font my-regular-font t t)
           (set-fontset-font t 'cyrillic my-regular-font nil)
