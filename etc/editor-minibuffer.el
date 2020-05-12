@@ -10,26 +10,7 @@
          ("C-c e l" . counsel-find-library)
          ("C-c e q" . counsel-set-variable)
          ("C-c e u" . counsel-unicode-char)
-         ("C-x r b" . counsel-bookmark))
-  :config
-  (defun adviced:counsel-M-x-action (orig-fun &rest r)
-    "Additional support for multiple cursors."
-    (apply orig-fun r)
-    (let ((cmd (intern (counsel--string-trim-left (nth 0 r) "\\^"))))
-      (when (and (boundp 'multiple-cursors-mode)
-                 multiple-cursors-mode
-                 cmd
-                 (not (memq cmd mc--default-cmds-to-run-once))
-                 (not (memq cmd mc/cmds-to-run-once))
-                 (or mc/always-run-for-all
-                     (memq cmd mc--default-cmds-to-run-for-all)
-                     (memq cmd mc/cmds-to-run-for-all)
-                     (mc/prompt-for-inclusion-in-whitelist cmd)))
-        (mc/execute-command-for-all-fake-cursors cmd))))
-
-  (advice-add #'counsel-M-x-action
-              :around
-              #'adviced:counsel-M-x-action))
+         ("C-x r b" . counsel-bookmark)))
 
 (use-package counsel-web
   :straight (counsel-web :type git
