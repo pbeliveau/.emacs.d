@@ -8,6 +8,8 @@
   :config
   (mark-thing-at-mode))
 
+(use-package ox-clip)
+
 (use-package undo-fu
   :bind (("C-z"   . undo-fu-only-undo)
          ("C-S-z" . undo-fu-only-redo)))
