@@ -46,3 +46,5 @@
 (use-package bongo
   :config
   (setq bongo-enabled-backends '(mplayer)))
+
+(use-package ytel)
