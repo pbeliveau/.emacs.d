@@ -94,6 +94,7 @@
               ("b" . date2name-dired-add-datetime-to-name)))
 
 
+(use-package counsel-fd)
 (use-package fd-dired)
 (use-package helm-fd
   :bind (:map helm-command-map
