@@ -57,11 +57,6 @@
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
-; Package management, unix systems only.
-(use-package use-package-ensure-system-package
-  :if (not (memq window-system '(w32)))
-  :demand t)
-
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)
 (defvar ido-default-item nil)
@@ -80,7 +75,3 @@
 (setq custom-file (make-temp-file "emacs-custom"))
 (if (file-exists-p custom-file)
     (load (file-name-sans-extension custom-file)))
-
-;; Started
-(if (string-equal system-type "gnu/linux")
-    (shell-command "notify-send 'Emacs Loaded'"))
