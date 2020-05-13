@@ -19,3 +19,8 @@
   (setq undo-fu-session-directory (concat no-littering-var-directory "undo-fu")
         undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
   (global-undo-fu-session-mode))
+
+(use-package volatile-highlights
+  :blackout t
+  :config
+  (volatile-highlights-mode t))
