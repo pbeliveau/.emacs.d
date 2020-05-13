@@ -215,6 +215,7 @@
                             :host github
                             :repo "alphapapa/org-graph-view"))
 
+(use-package org-chef)
 (use-package org-index)
 (use-package org-ql)
 (use-package org-sidebar)
