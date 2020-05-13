@@ -7,6 +7,19 @@
 (use-package speed-type)
 (use-package spray)
 
+(use-package keypression
+  :straight (keypression :type git
+                         :host github
+                         :repo "chuntaro/emacs-keypression")
+  :config
+  (setq keypression-use-child-frame nil
+        keypression-fade-out-delay 1.0
+        keypression-frame-justify 'keypression-left-justified
+        keypression-cast-command-name t
+        keypression-cast-command-name-format "%s  %s"
+        keypression-combine-same-keystrokes t
+        keypression-font-face-attribute '(:width normal :height 200 :weight bold)))
+
 (use-package mount
   :commands mount-mode
   :straight (mount :type git :host github :repo "zellerin/mount-mode"))
