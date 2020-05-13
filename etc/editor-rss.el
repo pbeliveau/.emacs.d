@@ -11,7 +11,9 @@
          ("P" . pb/elfeed-show-pol)
          ("R" . elfeed-mark-all-as-read)
          ("T" . pb/elfeed-show-tech)
-         ("U" . elfeed-update))
+         ("U" . elfeed-update)
+         ("f" . elfeed-firefox-open)
+         ("e" . elfeed-eww-open))
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (defun elfeed-mark-all-as-read ()
@@ -56,6 +58,29 @@
     (when (elfeed-entry-enclosures entry)
       (elfeed-tag entry 'podcast)))
   (add-hook 'elfeed-new-entry-hook #'ime-elfeed-podcast-tagger)
+
+  ;; From nooker blog.
+  (defun elfeed-eww-open (&optional use-generic-p)
+    "open with eww"
+    (interactive "P")
+    (let ((entries (elfeed-search-selected)))
+      (cl-loop for entry in entries
+               do (elfeed-untag entry 'unread)
+               when (elfeed-entry-link entry)
+               do (eww-browse-url it))
+      (mapc #'elfeed-search-update-entry entries)
+      (unless (use-region-p) (forward-line))))
+
+  (defun elfeed-firefox-open (&optional use-generic-p)
+    "open with firefox"
+    (interactive "P")
+    (let ((entries (elfeed-search-selected)))
+      (cl-loop for entry in entries
+               do (elfeed-untag entry 'unread)
+               when (elfeed-entry-link entry)
+               do (browse-url-firefox it))
+      (mapc #'elfeed-search-update-entry entries)
+      (unless (use-region-p) (forward-line))))
 
   :custom
   (shr-width 80))
