@@ -90,7 +90,7 @@
   :config
   (elfeed-org)
   (setq rmh-elfeed-org-files (list (concat no-littering-var-directory
-                                           "/elfeed/elfeed.org"))))
+                                           "/private/elfeed.org"))))
 
 (use-package elfeed-goodies
   :config
