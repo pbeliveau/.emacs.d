@@ -69,8 +69,8 @@
 (use-package org-pdftools
   :after pdf-tools
   :straight (org-pdftools :type git
-			  :host github
-			  :repo "fuxialexander/org-pdftools")
+                          :host github
+                          :repo "fuxialexander/org-pdftools")
   :config (setq org-pdftools-root-dir (concat org-directory "prints")
                 org-pdftools-search-string-separator "??")
   (with-eval-after-load 'org
@@ -93,7 +93,7 @@
 (use-package org-noter-pdftools
   :after pdf-tools
   :straight (org-noter-pdftools :type git
-				:host github
-				:repo "fuxialexander/org-pdftools"
-				:files ("org-noter-pdftools.el"))
+                                :host github
+                                :repo "fuxialexander/org-pdftools"
+                                :files ("org-noter-pdftools.el"))
   :after (org-noter))
