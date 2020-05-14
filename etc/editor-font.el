@@ -1,6 +1,5 @@
 ;; From https://emacs.stackexchange.com/questions/28390/quickly-adjusting-text-to-dpi-changes
 ;; Original author: @gavenkoa
-
 (defun my-dpi ()
   (let* ((attrs (car (display-monitor-attributes-list)))
          (size (assoc 'mm-size attrs))
@@ -71,3 +70,15 @@
 
 ;; Run at start
 (setup-fonts)
+
+;; Default fonts per buffer type
+(defun pb/buffer-face-mode-variable ()
+  "Set font to a variable width (proportional) fonts in current buffer"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Concourse T4" :height 120))
+  (buffer-face-mode))
+
+;; hooks to change to variable fonts for reading buffer
+(add-hook 'elfeed-show-mode-hook 'pb/buffer-face-mode-variable)
+(add-hook 'elfeed-search-mode-hook 'pb/buffer-face-mode-variable)
+(add-hook 'pocket-reader-mode 'pb/buffer-face-mode-variable)
