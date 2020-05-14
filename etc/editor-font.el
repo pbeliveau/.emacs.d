@@ -78,7 +78,14 @@
   (setq buffer-face-mode-face '(:family "Concourse T4" :height 120))
   (buffer-face-mode))
 
+(defun pb/buffer-face-mode-serif ()
+  "Set font to a variable width (proportional) fonts in current buffer"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Valkyrie T4" :height 120))
+  (buffer-face-mode))
+
 ;; hooks to change to variable fonts for reading buffer
 (add-hook 'elfeed-show-mode-hook 'pb/buffer-face-mode-variable)
 (add-hook 'elfeed-search-mode-hook 'pb/buffer-face-mode-variable)
 (add-hook 'pocket-reader-mode 'pb/buffer-face-mode-variable)
+(add-hook 'nov-mode 'pb/buffer-face-mode-serif)
