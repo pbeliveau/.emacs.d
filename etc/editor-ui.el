@@ -128,7 +128,7 @@
 
 (use-package hide-mode-line
   :hook
-  ((elfeed-show-mode elfeed-search-mode pocket-reader-mode) . hide-mode-line-mode))
+  ((elfeed-show-mode elfeed-search-mode pocket-reader-mode nov-mode) . hide-mode-line-mode))
 
 (use-package whitespace
   :straight (whitespace :type built-in)
