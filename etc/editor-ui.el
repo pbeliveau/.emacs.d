@@ -25,12 +25,10 @@
          ("M-<down>"    . move-frame-down)
          ("M-<left>"    . move-frame-left)
          ("M-<right>"   . move-frame-right)
-         ("C-M-<up>"    . increase-frame-transparency)
-         ("C-M-<down>"  . decrease-frame-transparency)
-         ("C-M-<left>"  . enlarge-frame)
+         ("C-M-<up>"    . enlarge-frame)
+         ("C-M-<down>"  . shrink-frame)
          ("C-M-<right>" . enlarge-frame-horizontally)
-         ("C-<left>"    . shrink-frame)
-         ("C-<right>"   . shrink-frame-horizontally)))
+         ("C-M-<left>"  . shrink-frame-horizontally)))
 
 ;;; + line numbers
 ;;; - blinking cursor
