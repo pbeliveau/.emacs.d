@@ -1,5 +1,9 @@
 (use-package dired
   :straight (dired :type built-in)
+  :bind (("C-c j d" . jump-to-dots)
+         ("C-c j f" . jump-to-start)
+         ("C-c j o" . jump-to-org)
+         ("C-c j s" . jump-to-scripts))
   :init
   (use-package dired-x
     :straight (dired :type built-in))
