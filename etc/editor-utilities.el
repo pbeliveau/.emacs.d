@@ -7,6 +7,13 @@
 (use-package speed-type)
 (use-package spray)
 
+(use-package help
+  :straight nil
+  :config
+  (define-key help-map "h" (lambda () (interactive)
+                             "Go to the *Help* buffer"
+                             (display-buffer "*Help*"))))
+
 (use-package keypression
   :straight (keypression :type git
                          :host github
