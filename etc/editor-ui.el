@@ -15,7 +15,8 @@
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 (setq-default frame-title-format "%b (%f)")
 
-; remove windows ugly top bar
+;; remove windows ugly top bar and add bindings
+;; to move frame
 (setq default-frame-alist '((undecorated . t)))
 (use-package frame-cmds
   :straight (frame-cmds :type git
