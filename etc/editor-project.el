@@ -27,6 +27,13 @@
   (add-hook 'after-revert-hook #'bm-buffer-restore)
   (add-hook 'magit-pre-refresh-hook #'bm-buffer-save))
 
+(use-package bookmark
+  :straight nil
+  :init
+  (setq bookmark-default-file (concat
+                               no-littering-var-directory
+                               "private/bookmark-default.el")))
+
 (use-package diff-hl
   :blackout diff-hl-mode
   :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
