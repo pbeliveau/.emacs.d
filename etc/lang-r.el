@@ -6,7 +6,8 @@
   (setq ess-style 'Rstudio
         ess-eval-visibly nil
         ess-tab-complete-in-script t
-        ess-ask-for-ess-directory nil))
+        ess-ask-for-ess-directory nil)
+  '(ess-smart-S-assign-key nil))
 
 (use-package ess-R-data-view
   :after  (:any ess-r-mode inferior-ess-r-mode ess-r-transcript-mode))
