@@ -14,6 +14,11 @@
                              "Go to the *Help* buffer"
                              (display-buffer "*Help*"))))
 
+(use-package explain-pause-mode
+  :straight (explain-pause-mode :type git
+                         :host github
+                         :repo "lastquestion/explain-pause-mode"))
+
 (use-package keypression
   :straight (keypression :type git
                          :host github
