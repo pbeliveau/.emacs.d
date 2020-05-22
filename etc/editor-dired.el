@@ -49,9 +49,6 @@
   :bind (:map dired-mode-map
               ("," . dired-collapse-mode)))
 
-(use-package dired-hacks-utils
-  :straight t)
-
 (use-package dired-filter
   :straight (dired-filter :type git
                           :host github
@@ -61,6 +58,18 @@
               ("f" . dired-filter-mode))
   :init
   (add-hook 'dired-mode-hook 'dired-filter-mode))
+
+(use-package dired-hacks-utils
+  :straight t)
+
+(use-package dired-k
+  :after dired
+  :bind (:map dired-mode-map
+              ("M-k" . dired-k))
+  :hook ((dired-initial-position-hook . dired-k)
+         (dired-after-readin-hook . dired-k-no-revert))
+  :config
+  (setq dired-k-style 'git))
 
 (use-package dired-narrow
   :straight (dired-narrow :type git
@@ -109,9 +118,6 @@
   :after dired
   :bind (:map dired-mode-map
         ("P" . pack-dired-dwim)))
-
-(use-package poporg
-      :bind (("C-c /" . poporg-dwim)))
 
 (use-package speedbar
   :config
