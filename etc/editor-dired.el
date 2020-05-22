@@ -9,8 +9,9 @@
     :straight (dired :type built-in))
   (use-package all-the-icons-dired)
   :config
-  (setq wdired-create-parent-directories   t
-        wdired-allow-to-change-permissions t)
+  (setq wdired-create-parent-directories        t
+        wdired-allow-to-change-permissions      t
+        dired-listing-switches                  "-alh")
   (defun jump-to-dots ()
     (interactive)
     (dired "~/.emacs.d"))
