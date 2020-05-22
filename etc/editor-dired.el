@@ -110,6 +110,9 @@
   :bind (:map dired-mode-map
         ("P" . pack-dired-dwim)))
 
+(use-package poporg
+      :bind (("C-c /" . poporg-dwim)))
+
 (use-package speedbar
   :config
   (setq speedbar-use-images         nil

@@ -34,6 +34,9 @@
          ("C-c C-o p" . origami-previous-fold)
          ("C-c C-o f" . origami-forward-fold)))
 
+(use-package poporg
+      :bind (("C-c /" . poporg-dwim)))
+
 (use-package ws-butler
   :defer t
   :blackout ws-butler-mode
