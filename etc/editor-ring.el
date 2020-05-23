@@ -4,6 +4,9 @@
 (use-package easy-kill
   :bind ("M-w" . easy-kill))
 
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
 (use-package mark-thing-at
   :config
   (mark-thing-at-mode))

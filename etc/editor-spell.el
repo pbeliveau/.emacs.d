@@ -38,7 +38,9 @@
          ("C-c i r" . ispell-region)
          ("C-c i w" . ispell-word))
   :config
-  (setq ispell-program-name "~/scoop/apps/msys2/current/mingw64/bin/aspell.exe"))
+  (setq ispell-program-name "hunspell.exe")
+        ispell-local-dictionary-alist
+        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)))
 
 (use-package mw-thesaurus)
 
