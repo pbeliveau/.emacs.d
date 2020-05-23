@@ -123,6 +123,10 @@
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode))
 
+(use-package org-num-mode
+  :straight nil
+  :hook (org-mode . org-num-mode))
+
 (use-package ox-latex
   :straight nil
   :demand t
