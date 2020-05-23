@@ -23,6 +23,9 @@
         undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
   (global-undo-fu-session-mode))
 
+(use-package undo-propose
+  :bind ("C-c u"))
+
 (use-package volatile-highlights
   :blackout t
   :config
