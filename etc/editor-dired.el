@@ -218,6 +218,7 @@
         ("M-RET" . dired-w32-browser)
         ("<C-return>" . dired-w32explore)))
 
+(use-package w32-symlinks)
 
 ;; Function from http://xenodium.com/enrich-your-dired-batching-toolbox/index.html
 ;;; -*- lexical-binding: t; -*-
