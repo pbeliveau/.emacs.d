@@ -8,12 +8,7 @@
   (when (equal window-system 'w32)
     (setq server-use-tcp t))
   (setq server-auth-dir
-      (let ((dir (concat user-emacs-directory
-                         "server_" (format "%s_%s"
-                                           emacs-major-version
-                                           emacs-minor-version)
-                         "_" (system-name)
-                         "/")))
+      (let ((dir (concat user-emacs-directory "server/")))
         (make-directory dir :parents)
         dir))
   :config
