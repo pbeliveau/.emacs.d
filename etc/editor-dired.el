@@ -29,6 +29,12 @@
               (setq truncate-lines nil)
               (dired-sort-toggle-or-edit))))
 
+(use-package dired-sort-menu
+  :defer t)
+
+(use-package dired-sort-menu+
+  :defer t)
+
 (use-package dired-async
   :straight nil
   :after (dired)
