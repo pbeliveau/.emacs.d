@@ -26,6 +26,17 @@
   :config
   (beginend-global-mode))
 
+(use-package dbc
+  :config
+  (dbc-add-ruleset "pop-up-frame" dbc-pop-up-frame-action)
+  (dbc-add-ruleset "same-frame" dbc-same-window-action)
+  (dbc-add-ruleset "bottom" '(display-buffer-reuse-window display-buffer-below-selected))
+  (dbc-add-ruleset "right" '((display-buffer-reuse-window display-buffer-in-side-window) . ((side . right) (window-width . 0.4))))
+  (dbc-add-rule "pop-up-frame" "magit" :newmajor "magit")
+  (dbc-add-rule "same-frame" "help" :newname "\\*help\\*")
+  (dbc-add-rule "same-frame" "proced" :newname "\\*proced\\*"))
+
+
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
          ("M-g j" . dumb-jump-go)
@@ -96,14 +107,7 @@
   :straight (window :type built-in)
   :bind (("M-o"   . other-window)
          ("C-,"   . delete-window)
-         ("C-M-," . delete-other-windows))
-  :init
-  (setq pop-up-windows t)
-  (add-to-list 'same-window-regexps "*Help*")
-  (add-to-list 'same-window-buffer-names "*Proced*")
-  (add-to-list 'same-window-buffer-names "*Password-Store*")
-  (add-to-list 'same-window-buffer-names "*system-packages")
-  (add-to-list 'same-window-buffer-names "*Packages*"))
+         ("C-M-," . delete-other-windows)))
 
 (use-package winum
   :defer t
