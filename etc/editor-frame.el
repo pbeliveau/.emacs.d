@@ -34,7 +34,8 @@
   (dbc-add-ruleset "right" '((display-buffer-reuse-window display-buffer-in-side-window) . ((side . right) (window-width . 0.4))))
   (dbc-add-rule "pop-up-frame" "magit" :newmajor "magit")
   (dbc-add-rule "same-frame" "help" :newname "\\*help\\*")
-  (dbc-add-rule "same-frame" "proced" :newname "\\*proced\\*"))
+  (dbc-add-rule "same-frame" "proced" :newname "\\*proced\\*")
+  (dbc-add-rule "same-frame" "deadgrep" :newmajor "deadgrep"))
 
 
 (use-package dumb-jump
@@ -107,7 +108,11 @@
   :straight (window :type built-in)
   :bind (("M-o"   . other-window)
          ("C-,"   . delete-window)
-         ("C-M-," . delete-other-windows)))
+         ("C-M-," . delete-other-windows))
+  :config
+  (add-to-list 'display-buffer-alist
+               (cons "\\*Async Shell Command\\*.*"
+                     (cons #'display-buffer-no-window nil))))
 
 (use-package winum
   :defer t
