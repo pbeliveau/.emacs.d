@@ -75,3 +75,10 @@
 (setq custom-file (make-temp-file "emacs-custom"))
 (if (file-exists-p custom-file)
     (load (file-name-sans-extension custom-file)))
+
+;; Notify user that daemon is loaded – Windows 10 only
+;; Requires pwsh and module for notifications
+(save-window-excursion
+  (let ((buf (generate-new-buffer "async")))
+    (async-shell-command "pwsh.exe -Command New-BurntToastNotification -Text 'Emacs is loaded'" buf)
+    (run-with-timer 10 nil (lambda (buf) (kill-buffer buf)) buf)))
