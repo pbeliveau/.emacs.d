@@ -31,6 +31,56 @@
          ("C-M-<right>" . enlarge-frame-horizontally)
          ("C-M-<left>"  . shrink-frame-horizontally)))
 
+;; New hydra function to change window size, splits, etc.
+(use-package move-border
+  :straight (move-border :type git
+                         :host github
+                         :repo "ramnes/move-border"))
+
+(use-package pretty-hydra
+  :config
+  (defun with-faicon (icon str &optional height v-adjust)
+    (s-concat (all-the-icons-faicon icon :v-adjust (or v-adjust 0) :height (or height 1)) " " str))
+
+  (defvar pb-window--title (with-faicon "windows" "Window Management" 1 -0.05))
+
+  (pretty-hydra-define pb-window (:foreign-keys warn :title pb-window--title :quit-key "q")
+    ("Actions"
+     (("TAB" other-window "switch")
+      ("x" ace-delete-window "delete")
+      ("m" ace-delete-other-windows "maximize")
+      ("s" ace-swap-window "swap")
+      ("a" ace-select-window "select"))
+
+     "Resize"
+     (("h" move-border-left "←")
+      ("j" move-border-down "↓")
+      ("k" move-border-up "↑")
+      ("l" move-border-right "→")
+      ("=" balance-windows "balance")
+      ("F" toggle-frame-fullscreen "toggle fullscreen"))
+
+     "Window"
+     (("p" move-frame-up "↑")
+      ("n" move-frame-down "↓")
+      ("b" move-frame-left "←")
+      ("f" move-frame-right "→")
+      ("e" enlarge-frame)
+      ("E" enlarge-frame-horizontally)
+      ("s" shrink-frame)
+      ("S" shrink-frame-horizontally))
+
+     "Split"
+     (("a" split-window-right "horizontally")
+      ("A" split-window-horizontally-instead "horizontally instead")
+      ("v" split-window-below "vertically")
+      ("V" split-window-vertically-instead "vertically instead"))
+
+     "Zoom"
+     (("+" text-scale-increase "in")
+      ("-" text-scale-decrease "out")
+      ("0" text-scale-adjust "reset")))))
+
 ;;; + line numbers
 ;;; - blinking cursor
 ;;; - no bell sound

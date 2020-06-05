@@ -19,6 +19,13 @@
   :config
   (setq counsel-web-search-action #'browse-url))
 
+(use-package hydra
+  :config
+  (defhydra hydra-zoom (global-map "<f12>")
+    "zoom"
+    ("g" text-scale-increase "in")
+    ("l" text-scale-decrease "out")))
+
 (use-package ivy
   :blackout t
   :demand t
