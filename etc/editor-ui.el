@@ -38,6 +38,7 @@
                          :repo "ramnes/move-border"))
 
 (use-package pretty-hydra
+  :bind ("<C-return>" . pb-window/body)
   :config
   (defun with-faicon (icon str &optional height v-adjust)
     (s-concat (all-the-icons-faicon icon :v-adjust (or v-adjust 0) :height (or height 1)) " " str))
@@ -52,6 +53,12 @@
       ("s" ace-swap-window "swap")
       ("a" ace-select-window "select"))
 
+     "Appearance"
+     (("B" writeroom-mode "blackout")
+      ("F" darkroom-mode "focus")
+      ("D" set-dark-theme "dark theme")
+      ("L" set-light-theme "light theme"))
+
      "Resize"
      (("h" move-border-left "←")
       ("j" move-border-down "↓")
@@ -60,21 +67,21 @@
       ("=" balance-windows "balance")
       ("F" toggle-frame-fullscreen "toggle fullscreen"))
 
-     "Window"
-     (("p" move-frame-up "↑")
-      ("n" move-frame-down "↓")
-      ("b" move-frame-left "←")
-      ("f" move-frame-right "→")
-      ("e" enlarge-frame)
-      ("E" enlarge-frame-horizontally)
-      ("s" shrink-frame)
-      ("S" shrink-frame-horizontally))
-
      "Split"
      (("a" split-window-right "horizontally")
       ("A" split-window-horizontally-instead "horizontally instead")
       ("v" split-window-below "vertically")
       ("V" split-window-vertically-instead "vertically instead"))
+
+     "Window"
+     (("p" move-frame-up "↑")
+      ("n" move-frame-down "↓")
+      ("b" move-frame-left "←")
+      ("f" move-frame-right "→")
+      ("e" enlarge-frame "+ frame")
+      ("E" enlarge-frame-horizontally "+ frame horizontally")
+      ("s" shrink-frame "- frame")
+      ("S" shrink-frame-horizontally "- frame horizontally"))
 
      "Zoom"
      (("+" text-scale-increase "in")
