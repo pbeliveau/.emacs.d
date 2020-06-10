@@ -38,7 +38,7 @@
                          :repo "ramnes/move-border"))
 
 (use-package pretty-hydra
-  :bind ("<C-return>" . pb-window/body)
+  :bind ("C-c 1" . pb-window/body)
   :config
   (defun with-faicon (icon str &optional height v-adjust)
     (s-concat (all-the-icons-faicon icon :v-adjust (or v-adjust 0) :height (or height 1)) " " str))
@@ -54,8 +54,8 @@
       ("a" ace-select-window "select"))
 
      "Appearance"
-     (("B" writeroom-mode "blackout")
-      ("F" darkroom-mode "focus")
+     (("W" writeroom-mode "writeroom")
+      ("B" darkroom-mode "darkroom")
       ("D" set-dark-theme "dark theme")
       ("L" set-light-theme "light theme"))
 
