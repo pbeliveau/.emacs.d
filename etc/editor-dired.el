@@ -1,7 +1,6 @@
 (use-package dired
   :straight (dired :type built-in)
-  :bind (("C-c j d" . jump-to-dots)
-         ("C-c j f" . jump-to-start)
+  :bind (("C-c j f" . jump-to-start)
          ("C-c j o" . jump-to-org)
          ("C-c j s" . jump-to-scripts))
   :init
@@ -12,9 +11,6 @@
   (setq wdired-create-parent-directories        t
         wdired-allow-to-change-permissions      t
         dired-listing-switches                  "-alh")
-  (defun jump-to-dots ()
-    (interactive)
-    (dired "~/.emacs.d"))
   (defun jump-to-start ()
     (interactive)
     (dired "~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"))

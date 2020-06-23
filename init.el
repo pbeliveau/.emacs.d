@@ -57,6 +57,11 @@
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
+;; add bindings to reach init file
+(use-package iqa
+  :config
+  (iqa-setup-default))
+
 ;; variables to remove compile-log warnings
 (defvar ido-cur-item nil)
 (defvar ido-default-item nil)
