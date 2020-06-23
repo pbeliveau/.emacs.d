@@ -1,9 +1,10 @@
 (use-package crux
-  :bind (("C-k"         . crux-smart-kill-line)
-         ("C-c k"       . crux-kill-other-buffers)
-         ("C-c c"       . crux-cleanup-buffer-or-region)
-         ("C-c M-d"     . crux-delete-file-and-buffer)
-         ("C-c M-c"     . crux-copy-file-preserve-attributes)))
+  :bind (("C-k"          . crux-smart-kill-line)
+         ("C-c k"        . crux-kill-other-buffers)
+         ("C-c c"        . crux-cleanup-buffer-or-region)
+         ("C-c M-d"      . crux-delete-file-and-buffer)
+         ("C-c M-c"      . crux-copy-file-preserve-attributes)
+         ("<deletechar>" . crux-kill-whole-line)))
 
 (use-package embrace
   :bind ("C-o" . embrace-commander))

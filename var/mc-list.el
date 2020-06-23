@@ -11,6 +11,7 @@
         easy-kill
         indent-for-tab-command
         kill-region
+        move-text-up
         org-beginning-of-line
         org-delete-char
         org-end-of-line

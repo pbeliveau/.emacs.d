@@ -1,5 +1,5 @@
 (use-package powershell
-  :mode "\\.ps[12]?$"
+  :mode ("\\.ps[12]?$" . powershell-mode)
   :config
   (setq powershell-indent 2))
 

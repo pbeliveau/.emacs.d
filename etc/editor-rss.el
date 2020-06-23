@@ -76,9 +76,7 @@
     (interactive "P")
     (let ((entries (elfeed-search-selected)))
       (cl-loop for entry in entries
-               do (elfeed-untag entry 'unread)
-               when (elfeed-entry-link entry)
-               do (browse-url-firefox it))
+               do (browse-url-firefox (elfeed-entry-link entry)))
       (mapc #'elfeed-search-update-entry entries)
       (unless (use-region-p) (forward-line))))
 

@@ -50,12 +50,12 @@
      (("TAB" other-window "switch")
       ("x" ace-delete-window "delete")
       ("m" ace-delete-other-windows "maximize")
-      ("s" ace-swap-window "swap")
+      ("w" ace-swap-window "swap")
       ("a" ace-select-window "select"))
 
      "Appearance"
      (("W" writeroom-mode "writeroom")
-      ("B" darkroom-mode "darkroom")
+      ("B" pb/toggle-writing-mode "darkroom")
       ("D" set-dark-theme "dark theme")
       ("L" set-light-theme "light theme"))
 
@@ -202,7 +202,19 @@
                                 space-before-tab::tab
                                 space-before-tab::space)))
 
-(use-package darkroom)
+(use-package olivetti
+  :config
+  (defun pb/toggle-writing-mode ()
+    "Toggle a distraction-free environment for writing."
+    (interactive)
+    (cond ((bound-and-true-p olivetti-mode)
+           (linum-mode 1)
+           (olivetti-mode -1))
+          (t
+           (linum-mode -1)
+           (olivetti-set-width 100)
+           (olivetti-mode 1)))))
+
 (use-package writeroom-mode
   :defer t
   :config
