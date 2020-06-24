@@ -15,9 +15,12 @@
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 (setq-default frame-title-format "%b (%f)")
 
-;; remove windows ugly top bar and add bindings
+;; Wish I could remove this in Windows 10.
+;; Unfortunatly, can't move Emacs with Win32 snap
+;; movement or the mouse without the top bar... ;(
+;; (setq default-frame-alist '((undecorated . t)))
+
 ;; to move frame
-(setq default-frame-alist '((undecorated . t)))
 (use-package frame-cmds
   :straight (frame-cmds :type git
                         :host github
