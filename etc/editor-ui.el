@@ -116,9 +116,11 @@
 (use-package naysayer-theme :defer t)
 (use-package doom-themes
   :config
-   (defun set-light-theme ()
-     (interactive)
-     (pb/switch-theme 'doom-one-light))
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  (defun set-light-theme ()
+    (interactive)
+    (pb/switch-theme 'doom-nord-light))
 
    (defun set-dark-theme ()
      (interactive)
@@ -134,7 +136,7 @@
 
    (if (>= (ts-hour (ts-now)) 13)
        (pb/switch-theme 'doom-nord)
-    (pb/switch-theme 'doom-one-light)))
+    (pb/switch-theme 'doom-nord-light)))
 
 
 (use-package doom-modeline
