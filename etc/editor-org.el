@@ -1,7 +1,3 @@
-(use-package git-auto-commit-mode
-  :init
-  (setq gac-debounce-interval 1000))
-
 (use-package org
   :demand t
   :straight org-plus-contrib
@@ -120,6 +116,13 @@
          '((:auto-category t))))
     (org-agenda-list)))
 
+(use-package org-taskforecast
+  :config
+  (setq org-taskforecast-dailylist-file (concat org-directory
+                                                "/system"
+                                                "/taskforecast"
+                                                "/%Y-%m-%d.org")))
+
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode))
 
@@ -142,9 +145,9 @@
 (use-package bibtex-completion
   :disabled
   :straight (bibtex-completion :type git
-			       :host github
-			       :repo "tmalsburg/helm-bibtex"
-			       :files ("bibtex-completion.el")))
+                               :host github
+                               :repo "tmalsburg/helm-bibtex"
+                               :files ("bibtex-completion.el")))
 
 (use-package org-ref
   :disabled

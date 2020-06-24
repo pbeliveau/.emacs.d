@@ -41,6 +41,10 @@
   :config
   (global-diff-hl-mode))
 
+(use-package git-auto-commit-mode
+  :init
+  (setq gac-debounce-interval 1000))
+
 (use-package projectile
   :init
   :bind (("C-c C-p" . projectile-command-map)))
