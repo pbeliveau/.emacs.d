@@ -29,6 +29,9 @@
   :straight (misc :type built-in)
   :bind ("M-z" . zap-up-to-char))
 
+(use-package multifiles
+  :bind ("C-!" . mf/mirror-region-in-multifile))
+
 (use-package multiple-cursors
   :bind (("C->"           . mc/mark-next-like-this)
          ("C-<"           . mc/mark-previous-like-this)
