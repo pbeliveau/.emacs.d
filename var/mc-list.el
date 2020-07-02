@@ -7,6 +7,7 @@
         avy-copy-line
         browse-kill-ring
         calc-at-point-add
+        crux-smart-kill-line
         dired-mark
         easy-kill
         indent-for-tab-command
