@@ -53,6 +53,11 @@ don't actually start the search."
   (let ( (deadgrep-project-root-function (list 'lambda '() directory)) )
     (deadgrep search-term))))
 
+(use-package wgrep)
+
+;; Using rg until the pull request in wgrep for deadgrep is merged.
+(use-package rg)
+
 (use-package memento-mori
   :blackout t
   :init
