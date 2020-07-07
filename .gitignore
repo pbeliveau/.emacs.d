@@ -14,3 +14,6 @@
 !var/elfeed/elfeed.org
 !var/bookmark-default.el
 !var/mc-list.el
+!var/windows/
+!var/windows/*
+!*.png
