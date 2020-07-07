@@ -53,11 +53,18 @@ don't actually start the search."
   (let ( (deadgrep-project-root-function (list 'lambda '() directory)) )
     (deadgrep search-term))))
 
-(use-package wgrep)
+(use-package wgrep
+  :config
+  (setq wgrep-auto-save-buffer t
+        wgrep-change-readonly-file t
+        wgrep-enable-key "r"))
 
-;; Using rg until the pull request in wgrep for deadgrep is merged.
+;; Using rg until the pull request in wgrep for deadgrep is merged. ;(
 (use-package rg
-  :bind (("C-c r" . rg)))
+  :config
+  (setq rg-default-alias-fallback "everything"
+        rg-keymap-prefix "r")
+  (rg-enable-menu))
 
 (use-package memento-mori
   :blackout t
