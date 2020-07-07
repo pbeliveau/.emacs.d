@@ -10,7 +10,6 @@
          ("f" . elfeed-firefox-open)
          ("e" . elfeed-eww-open))
   :init
-  (setq pathtofile (concat no-littering-var-directory "private/.ttrss"))
   (use-package elfeed-protocol
     :config
     (setq elfeed-protocol-ttrss-maxsize 10))
