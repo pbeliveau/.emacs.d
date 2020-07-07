@@ -10,13 +10,11 @@
          ("f" . elfeed-firefox-open)
          ("e" . elfeed-eww-open))
   :init
-  (use-package elfeed-protocol
-    :config
-    (setq elfeed-protocol-ttrss-maxsize 10))
+  (use-package elfeed-protocol)
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (setq elfeed-use-curl t
-        elfeed-protocol-ttrss-maxsize 10
+        elfeed-protocol-ttrss-maxsize 50
         elfeed-feeds
         '(
           ("ttrss+https://pbeliveau@feed.pbeliveau.ca"
