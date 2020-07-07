@@ -40,7 +40,7 @@
 
 (use-package deadgrep
   :demand t
-  :bind (("C-c r" . dg))
+  ;; :bind (("C-c r" . dg))
   :config
   (defun dg (search-term directory)
     "Start a ripgrep search for SEARCH-TERM from DIRECTORY. If
@@ -56,7 +56,8 @@ don't actually start the search."
 (use-package wgrep)
 
 ;; Using rg until the pull request in wgrep for deadgrep is merged.
-(use-package rg)
+(use-package rg
+  :bind (("C-c r" . rg)))
 
 (use-package memento-mori
   :blackout t
