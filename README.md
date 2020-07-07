@@ -14,14 +14,14 @@ to be removed if you try to copy your config on mine.
 I use autohotkey and powershell scripts to start emacs at login, and to open new
 emacsclient. You will find scripts in the windows directory of var.
 
-## General recommandations
-If you need to use Windows with Emacs, here are my recommandations for what it's
+## General recommendations
+If you need to use Windows with Emacs, here are my recommendations for what it's
 worth:
   * Use [scoop](https://scoop.sh/) to install Emacs, msys2, coreutils, etc.
   * Add [kiennq scoop bucket](https://github.com/kiennq/scoop-misc) to install
     emacs-snapshot for version 28.
   * If you have admin rights on your machine, install the following to increase
-    privacy and stop Microsoft from doing too much neferious stuff:
+    privacy and stop Microsoft from doing too much nefarious stuff:
     * [W10Privacy](https://www.w10privacy.de/english-home/), GUI tool to change
       multiple settings and registries. Documentation in German.
     * [Setup script for new Windows 10](https://github.com/Disassembler0/Win10-Initial-Setup-Script)
