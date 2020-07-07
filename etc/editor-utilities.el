@@ -53,6 +53,15 @@ don't actually start the search."
   (let ( (deadgrep-project-root-function (list 'lambda '() directory)) )
     (deadgrep search-term))))
 
+(use-package pomidor
+  :config (setq pomidor-sound-tick nil
+                pomidor-sound-tack nil)
+  :hook (pomidor-mode . (lambda ()
+                          (display-line-numbers-mode -1)
+                          (setq left-fringe-width 0 right-fringe-width 0)
+                          (setq left-margin-width 2 right-margin-width 0)
+                          (set-window-buffer nil (current-buffer)))))
+
 (use-package wgrep
   :config
   (setq wgrep-auto-save-buffer t
