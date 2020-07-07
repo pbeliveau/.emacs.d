@@ -2,7 +2,11 @@
   :straight (auth-source :type built-in)
   :preface
   (eval-when-compile
-    (defvar auth-sources)))
+    (defvar auth-sources))
+  :config
+  (setq auth-sources
+        (list
+         (concat no-littering-var-directory "private/.authinfo.gpg"))))
 
 (use-package pinentry
   :config
