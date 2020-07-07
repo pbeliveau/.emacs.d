@@ -32,7 +32,7 @@
   (dbc-add-ruleset "same-frame" dbc-same-window-action)
   (dbc-add-ruleset "bottom" '(display-buffer-reuse-window display-buffer-below-selected))
   (dbc-add-ruleset "right" '((display-buffer-reuse-window display-buffer-in-side-window) . ((side . right) (window-width . 0.4))))
-  (dbc-add-rule "pop-up-frame" "magit" :newmajor "magit")
+  (dbc-add-rule "same-frame" "magit" :newmajor "magit")
   (dbc-add-rule "same-frame" "help" :newname "\\*help\\*")
   (dbc-add-rule "same-frame" "proced" :newname "\\*proced\\*")
   (dbc-add-rule "same-frame" "deadgrep" :newmajor "deadgrep"))
