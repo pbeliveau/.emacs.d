@@ -247,3 +247,17 @@
 (use-package zpresent)
 (use-package org-kanban)
 (use-package org-make-toc)
+
+(use-package org-caldav
+  :preface
+  (setq org-caldav-save-directory (concat org-directory "/system/")
+        org-caldav-files (list (concat org-directory "/system/tasks.org"))
+        org-caldav-backup-file (concat org-directory "/system/backup.org")
+        org-caldav-inbox (concat org-directory "/system/calendar.org"))
+  :init
+  (load (concat no-littering-var-directory "private/.caldav"))
+  (setq org-icalendar-timezone "Amercia/Toronto"
+        org-caldav-url davurl
+        org-caldav-delete-org-entries 'always
+        org-caldav-delete-calendar-entries 'always
+        org-caldav-calendar-id "personal"))
