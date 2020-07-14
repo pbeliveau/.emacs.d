@@ -76,16 +76,18 @@ don't actually start the search."
   (rg-enable-menu))
 
 (use-package memento-mori
+  :defer t
   :blackout t
   :init
-  (load (concat no-littering-var-directory "private/.memento"))
+  (load (concat no-littering-var-directory "private/.memento") nil t)
   :config
   (setq memento-mori-birth-date age_string)
   (memento-mori-mode))
 
 (use-package url-shortener
+  :defer t
   :init
-  (load (concat no-littering-var-directory "private/.bitly"))
+  (load (concat no-littering-var-directory "private/.bitly") nil t)
   :config
   (setq bitly-access-token bitly_token))
 

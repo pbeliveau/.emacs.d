@@ -23,7 +23,8 @@
         delete-old-versions   t
         auto-save-default     nil))
 
-(use-package iedit)
+(use-package iedit
+  :bind ("C-;" . iedit-mode))
 
 (use-package misc
   :straight (misc :type built-in)

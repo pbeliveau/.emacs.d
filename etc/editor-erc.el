@@ -24,7 +24,7 @@
   (use-package erc-spelling
     :straight (erc-spelling :type built-in))
 
-  (load (concat no-littering-var-directory "private/.erc-auth"))
+  (load (concat no-littering-var-directory "private/.erc-auth") nil t)
 
   (defun start-irc ()
      "Connect to IRC."
