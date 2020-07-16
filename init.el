@@ -39,10 +39,14 @@
 
 ;; quelpa with quelpa-use-package
 ;; for packages outside of package archives
+(use-package silence
+  :load-path "var/lisp")
+
 (use-package quelpa
   :init
   (setq quelpa-dir "~/.emacs.d/var/quelpa"
-        quelpa-update-melpa-p nil))
+        quelpa-update-melpa-p nil)
+  (advice-add 'quelpa-build :around #'silence))
 
 (use-package quelpa-use-package
   :after quelpa
