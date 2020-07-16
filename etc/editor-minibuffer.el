@@ -13,9 +13,7 @@
          ("C-x r b" . counsel-bookmark)))
 
 (use-package counsel-web
-  :straight (counsel-web :type git
-                         :host github
-                         :repo "mnewt/counsel-web")
+  :quelpa t
   :config
   (setq counsel-web-search-action #'browse-url))
 
@@ -80,15 +78,11 @@
   (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
 
 (use-package all-the-icons-ivy-rich
-  :straight (all-the-icons-ivy-rich :type git
-                                    :host github
-                                    :repo "seagle0128/all-the-icons-ivy-rich")
+  :quelpa t
   :init (all-the-icons-ivy-rich-mode 1))
 
 (use-package all-the-icons-ibuffer
-  :straight (all-the-icons-ibuffer :type git
-                                   :host github
-                                   :repo "seagle0128/all-the-icons-ibuffer")
+  :quelpa t
   :init (all-the-icons-ibuffer-mode 1))
 
   (use-package ivy-prescient

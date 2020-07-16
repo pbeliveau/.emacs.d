@@ -10,7 +10,7 @@
   :bind ("C-o" . embrace-commander))
 
 (use-package files
-  :straight (files :type built-in)
+  :ensure nil
   :config
   (setq require-final-newline t
         version-control       t
@@ -27,7 +27,7 @@
   :bind ("C-;" . iedit-mode))
 
 (use-package misc
-  :straight (misc :type built-in)
+  :ensure nil
   :bind ("M-z" . zap-up-to-char))
 
 (use-package multifiles
@@ -40,11 +40,7 @@
          ("C-S-c C-S-c"   . mc/edit-lines)
          ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
 
-(use-package mc-calc
-  :straight (mc-calc :type git
-                     :host github
-                     :repo "hatheroldev/mc-calc"))
-
+(use-package mc-calc)
 (use-package visual-regexp)
 
 (prefer-coding-system 'utf-8)

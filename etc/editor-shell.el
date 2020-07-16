@@ -1,5 +1,5 @@
 (use-package eshell
-  :straight (eshell :type built-in)
+  :ensure nil
   :bind (([f2] . eshell))
   :config
   (setq eshell-smart-space-goes-to-end t)

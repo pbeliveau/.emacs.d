@@ -1,5 +1,5 @@
 (use-package sh-mode
-  :straight (sh-mode :type built-in)
+  :ensure nil
   :hook flycheck-mode
   :mode (("PKGBUILD\\'"   . sh-mode)
          ("\\.install\\'" . sh-mode)

@@ -1,5 +1,5 @@
 (use-package eww
-  :straight (eww :type built-in)
+  :ensure nil
   :after shr
   :bind (:map eww-mode-map
               ("I" . my/eww-toggle-images))
@@ -12,16 +12,13 @@
              (if shr-inhibit-images "off" "on"))))
 
 (use-package shr
-  :straight (shr :type built-in)
+  :ensure nil
   :init
   (setq-default shr-inhibit-images t
                 shr-use-fonts      nil))
 
 (use-package shrface
+  :ensure t
   :after shr
   :init
-  (use-package org-bullets)
-  :straight
-  (shrface :type git
-           :host github
-           :repo "chenyanming/shrface"))
+  (use-package org-bullets))

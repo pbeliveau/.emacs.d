@@ -24,8 +24,6 @@
   :after (company python-mode anaconda-mode))
 
 (use-package company-org-roam
-  :disabled
-  :straight (:host github :repo "jethrokuan/company-org-roam")
   :config
   (push 'company-org-roam company-backends))
 
@@ -39,7 +37,7 @@
   (add-hook 'after-init-hook #'global-emojify-mode))
 
 (use-package hippie-exp
-  :straight (hippie-exp :type built-in)
+  :ensure nil
   :bind ("M-/" . hippie-expand)
   :config
   (setq hippie-expand-try-functions-list
@@ -57,7 +55,7 @@
   (which-key-mode))
 
 (use-package recentf
-  :straight (recentf :type built-in)
+  :ensure nil
   :defer 10
   :init
   (recentf-mode 1)

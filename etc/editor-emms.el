@@ -39,7 +39,7 @@
                            emms-player-ogg123
                            emms-player-mplayer))
   (use-package emms-browser
-    :straight (emms-browser :local-repo nil)))
+    :ensure nil))
 
 (use-package vlc)
 

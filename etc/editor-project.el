@@ -28,7 +28,7 @@
   (add-hook 'magit-pre-refresh-hook #'bm-buffer-save))
 
 (use-package bookmark
-  :straight nil
+  :ensure nil
   :init
   (setq bookmark-default-file (concat
                                no-littering-var-directory
@@ -62,7 +62,7 @@
         git-identity-default-username user-full-name))
 
 (use-package saveplace
-  :straight (saveplace :type built-in)
+  :ensure nil
   :defer 5
   :config
   (setq save-place t))

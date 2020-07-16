@@ -1,6 +1,7 @@
 (use-package org
+  :pin org
+  :ensure org-plus-contrib
   :demand t
-  :straight org-plus-contrib
   :bind (:map org-mode-map
               ("C-c i" . org-add-ids-to-headlines)
               ("C-c s" . org-table-mark-field)
@@ -15,10 +16,8 @@
   (add-to-list
    'org-src-lang-modes '("plantuml" . plantuml))
   :config
-  (use-package org-id
-    :straight (org-id :local-repo nil))
-  (use-package org-checklist
-    :straight (org-checklist :local-repo nil))
+  (use-package org-id :ensure nil)
+  (use-package org-checklist :ensure nil)
   (setq fill-column                     80
         org-adapt-indentation           t
         org-hide-leading-stars          t
@@ -92,13 +91,13 @@
     (easy-kill 1)))
 
 (use-package org-contacts
-  :straight nil
+  :ensure nil
   :custom
   (org-contacts-files '(concat org-directory
                                "/system/contacts.org")))
 
 (use-package org-agenda
-  :straight nil
+  :ensure nil
   :bind (("C-c a" . org-agenda))
   :after org
   :config
@@ -127,30 +126,24 @@
   :hook (org-mode . org-superstar-mode))
 
 (use-package org-num-mode
-  :straight nil
+  :ensure nil
   :hook (org-mode . org-num-mode))
 
 (use-package ox-latex
-  :straight nil
+  :ensure nil
   :demand t
   :config
   (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
 (use-package helm-bibtex
   :disabled
-  :straight (helm-bibtex :type git
-                         :host github
-                         :repo "tmalsburg/helm-bibtex"))
+  :quelpa t)
 
 (use-package bibtex-completion
   :disabled
-  :straight (bibtex-completion :type git
-                               :host github
-                               :repo "tmalsburg/helm-bibtex"
-                               :files ("bibtex-completion.el")))
+  :quelpa t)
 
 (use-package org-ref
-  :disabled
   :after org
   :config
   (setq org-ref-default-bibliography '("~/.emacs.d/var/org/data/refs.bib")
@@ -172,13 +165,13 @@
         org-pomodoro-long-break-format  " %s"))
 
 (use-package org-crypt
- :straight (org-crypt :local-repo nil)
- :after org
- :config
- (setq org-crypt-key nil
-       org-tags-exclude-from-inheritance (quote ("crypt")))
- :custom
- (org-crypt-use-before-save-magic))
+  :ensure nil
+  :after org
+  :config
+  (setq org-crypt-key nil
+        org-tags-exclude-from-inheritance (quote ("crypt")))
+  :custom
+  (org-crypt-use-before-save-magic))
 
 (use-package org-journal
   :after org
@@ -212,24 +205,22 @@
 (use-package ox-word
   :after (:all org-ref ox)
   :demand t
-  :straight (ox-word :type git
-                     :host github
-                     :repo "jkitchin/scimax"
-                     :files ("ox-word.el")))
+  :quelpa (ox-word
+           :fetcher url
+           :url "https://raw.githubusercontent.com/jkitchin/scimax/master/ox-word.el"))
 
 (use-package org-graph-view
-  :straight (org-graph-view :type git
-                            :host github
-                            :repo "alphapapa/org-graph-view"))
-
+  :quelpa (org-graph-view
+           :fetcher github
+           :repo "alphapapa/org-graph-view"))
 (use-package org-chef)
 (use-package org-ql)
 (use-package org-sidebar)
 
 (use-package org-spacer
-  :straight (org-spacer :type git
-                        :host github
-                        :repo "dustinlacewell/org-spacer.el")
+  :quelpa (org-spacer
+           :fetcher github
+           :repo "dustinlacewell/org-spacer.el")
   :config
   (setq org-spacer-element-blanks
           '((0 headline plain-list)
@@ -239,9 +230,9 @@
                                  'org-spacer-enforce nil 'make-it-local))))
 
 (use-package portable-org-screenshot
-    :straight (portable-org-screenshot :type git
-                                       :host github
-                                       :repo "pbeliveau/portable-org-screenshot")
+    :quelpa (portable-org-screenshot
+             :fetcher github
+             :repo "pbeliveau/portable-org-screenshot")
     :bind ("C-c 6" . portable-org-screenshot))
 
 (use-package zpresent)

@@ -7,7 +7,8 @@
               ("C-s" . isearch-forward)
               ("s"   . save-some-buffers))
   :init
-  (pdf-tools-install)
+  (setq pdf-tools-msys2-directory "~/scoop/apps/msys2/current")
+  (pdf-tools-install t)
   (add-hook 'activate-default-input-method #'pdf-annot-minor-mode)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (add-hook 'pdf-view-mode-hook (lambda() (cua-mode 0)))
@@ -68,9 +69,6 @@
 
 (use-package org-pdftools
   :after pdf-tools
-  :straight (org-pdftools :type git
-                          :host github
-                          :repo "fuxialexander/org-pdftools")
   :config (setq org-pdftools-root-dir (concat org-directory "prints")
                 org-pdftools-search-string-separator "??")
   (with-eval-after-load 'org
@@ -92,8 +90,4 @@
 
 (use-package org-noter-pdftools
   :after pdf-tools
-  :straight (org-noter-pdftools :type git
-                                :host github
-                                :repo "fuxialexander/org-pdftools"
-                                :files ("org-noter-pdftools.el"))
   :after (org-noter))

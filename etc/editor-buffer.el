@@ -1,5 +1,5 @@
 (use-package bird-mode
-  :straight (bird-mode :type git :host github :repo "rakete/bird-mode")
+  :load-path "var/lisp"
   :bind ("M-g v" . bird-mode))
 
 (use-package buffer-expose
@@ -13,14 +13,6 @@
   (setq buffer-flip-skip-patterns
         '("^\\*helm\\b"
           "^\\*swiper\\*$")))
-
-(use-package bufler
-  :demand
-  :straight (bufler :type git
-                    :host github
-                    :repo "alphapapa/bufler.el")
-  :bind (("C-x C-b" . bufler)
-         ("C-x b"   . bufler-switch-buffer)))
 
 (use-package ibuffer
   :bind (:map ibuffer-mode-map
@@ -37,17 +29,18 @@
   :bind ("C-c b" . scratch))
 
 (use-package simple
-  :straight (simple :type built-in)
+  :ensure nil
   :bind (("C-."   . kill-current-buffer)
          ("C-c 0" . toggle-truncate-lines))
   :config
   (setq column-number-mode t))
 
 ;; Prior to 27.1, not included.
-(use-package so-long
-  :straight (so-long :type git
-                     :repo "https://git.savannah.gnu.org/git/so-long.git")
-  :config
+(if (version<= "27" emacs-version)
+    (progn (use-package so-long
+      :load-path ("var/lisp")
+      :config
+      (global-so-long-mode)))
   (global-so-long-mode))
 
 ;; Force warning buffer into smaller frame

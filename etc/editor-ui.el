@@ -21,10 +21,14 @@
 ;; (setq default-frame-alist '((undecorated . t)))
 
 ;; to move frame
+(use-package frame-fns
+  :quelpa (frame-fns
+           :fetcher github
+           :repo "emacsmirror/frame-fns"))
 (use-package frame-cmds
-  :straight (frame-cmds :type git
-                        :host github
-                        :repo "emacsmirror/frame-cmds")
+  :quelpa (frame-cmds
+           :fetcher github
+           :repo "emacsmirror/frame-cmds")
   :bind (("M-<up>"      . move-frame-up)
          ("M-<down>"    . move-frame-down)
          ("M-<left>"    . move-frame-left)
@@ -36,9 +40,9 @@
 
 ;; New hydra function to change window size, splits, etc.
 (use-package move-border
-  :straight (move-border :type git
-                         :host github
-                         :repo "ramnes/move-border"))
+  :quelpa (move-border
+           :fetcher github
+           :repo "ramnes/move-border"))
 
 (use-package pretty-hydra
   :bind ("C-c 1" . pb-window/body)
@@ -178,9 +182,6 @@
   (dimmer-mode t))
 
 (use-package modern-fringes
-  :straight (modern-fringes :type git
-                            :host github
-                            :repo "SpecialBomb/emacs-modern-fringes")
   :config
   (modern-fringes-invert-arrows))
 
@@ -194,7 +195,7 @@
   ((elfeed-show-mode elfeed-search-mode pocket-reader-mode nov-mode) . hide-mode-line-mode))
 
 (use-package whitespace
-  :straight (whitespace :type built-in)
+  :ensure nil
   :blackout t
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)

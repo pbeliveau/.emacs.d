@@ -1,5 +1,5 @@
 (use-package subword-mode
-  :straight (subword-mode :type built-in)
+  :ensure nil
   :hook clojure-mode)
 
 (use-package clojure-mode

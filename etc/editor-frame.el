@@ -48,9 +48,7 @@
 
 (use-package focus)
 
-(use-package frog-menu
-  :straight (frog-menu :type git :host github :repo "clemera/frog-menu"))
-
+(use-package frog-menu :quelpa t)
 (use-package frog-jump-buffer
   :bind ("M-g f" . frog-jump-buffer))
 
@@ -100,12 +98,12 @@
          ("M-p" . move-text-up)))
 
 (use-package uniquify
-  :straight (uniquify :type built-in)
+  :ensure nil
   :config
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package window
-  :straight (window :type built-in)
+  :ensure nil
   :bind (("M-o"   . other-window)
          ("C-,"   . delete-window)
          ("C-M-," . delete-other-windows))

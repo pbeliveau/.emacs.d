@@ -1,5 +1,5 @@
 (use-package bat-mode
-  :straight nil
+  :ensure nil
   :config
   (defun pb/bat-template ()
   (interactive)

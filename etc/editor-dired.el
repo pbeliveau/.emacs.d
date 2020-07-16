@@ -1,11 +1,11 @@
 (use-package dired
-  :straight (dired :type built-in)
+  :ensure nil
   :bind (("C-c j f" . jump-to-start)
          ("C-c j o" . jump-to-org)
          ("C-c j s" . jump-to-scripts))
   :init
   (use-package dired-x
-    :straight (dired :type built-in))
+    :ensure nil)
   (use-package all-the-icons-dired)
   :config
   (setq wdired-create-parent-directories        t
@@ -26,43 +26,38 @@
               (dired-sort-toggle-or-edit))))
 
 (use-package dired-sort-menu
-  :defer t)
+  :defer t
+  :quelpa (dired-sort-menu
+           :fetcher github
+           :repo "emacsmirror/dired-sort-menu"))
 
 (use-package dired-sort-menu+
-  :defer t)
+  :defer t
+  :quelpa (dired-sort-menu+
+           :fetcher github
+           :repo "emacsmirror/dired-sort-menu-plus"))
 
 (use-package dired-async
-  :straight nil
+  :ensure nil
   :after (dired)
   :hook (dired-mode . dired-async-mode))
 
-(use-package dired-avfs
-  :straight (dired-avfs :type git
-                        :host github
-                        :repo "Fuco1/dired-hacks"
-                        :files ("dired-avfs.el")))
+(use-package dired-avfs :quelpa t)
 
 (use-package dired-collapse
   :hook (dired-mode . dired-collapse-mode)
-  :straight (dired-collapse :type git
-                            :host github
-                            :repo "Fuco1/dired-hacks"
-                            :files ("dired-collapse.el"))
+  :quelpa t
   :bind (:map dired-mode-map
               ("," . dired-collapse-mode)))
 
 (use-package dired-filter
-  :straight (dired-filter :type git
-                          :host github
-                          :repo "Fuco1/dired-hacks"
-                          :files ("dired-filter.el"))
+  :quelpa t
   :bind (:map dired-mode-map
               ("f" . dired-filter-mode))
   :init
   (add-hook 'dired-mode-hook 'dired-filter-mode))
 
-(use-package dired-hacks-utils
-  :straight t)
+(use-package dired-hacks-utils :ensure nil)
 
 (use-package dired-k
   :after dired
@@ -73,27 +68,17 @@
   :config
   (setq dired-k-style 'git))
 
-(use-package dired-narrow
-  :straight (dired-narrow :type git
-                          :host github
-                          :repo "Fuco1/dired-hacks"
-                          :files ("dired-narrow.el")))
+(use-package dired-narrow :quelpa t)
 
 (use-package dired-ranger
-  :straight (dired-ranger :type git
-                          :host github
-                          :repo "Fuco1/dired-hacks"
-                          :files ("dired-ranger.el"))
+  :quelpa t
   :bind (:map dired-mode-map
               ("W" . dired-ranger-copy)
               ("X" . dired-ranger-move)
               ("Y" . dired-ranger-paste)))
 
 (use-package dired-subtree
-  :straight (dired-subtree :type git
-                           :host github
-                           :repo "Fuco1/dired-hacks"
-                           :files ("dired-subtree.el"))
+  :quelpa t
   :bind (:map dired-mode-map
               ("TAB" . dired-subtree-cycle)
               ("i" . dired-subtree-insert)
@@ -220,7 +205,10 @@
         ("M-RET" . dired-w32-browser)
         ("<C-return>" . dired-w32explore)))
 
-(use-package w32-symlinks)
+(use-package w32-symlinks
+  :quelpa (w32-symlinks
+           :fetcher github
+           :repo "emacsmirror/w32-symlinks"))
 
 ;; Function from http://xenodium.com/enrich-your-dired-batching-toolbox/index.html
 ;;; -*- lexical-binding: t; -*-

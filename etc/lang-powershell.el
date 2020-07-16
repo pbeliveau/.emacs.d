@@ -5,7 +5,4 @@
 
 (use-package ob-pwsh
   :after (org-mode)
-  :straight (ob-pwsh :type git
-                     :host github
-                     :repo "togakangaroo/ob-pwsh"
-                     :files ("src/ob-pwsh.el")))
+  :load-path "var/lisp")

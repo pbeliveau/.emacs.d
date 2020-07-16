@@ -1,6 +1,6 @@
 (use-package server
   :demand t
-  :straight nil
+  :ensure nil
   :bind (("C-x C-c" . my-done)
          ("C-M-c"   . kill-server))
   :defer 5

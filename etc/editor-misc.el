@@ -2,19 +2,19 @@
   :defer t)
 
 (use-package deflayer
-  :straight (deflayer :type git
-                      :host github
-                      :repo "dustinlacewell/deflayer.el"))
+  :quelpa (deflayer
+            :fetcher github
+            :repo "dustinlacewell/deflayer.el"))
 
 (use-package anki-editor
   :config
   (setq anki-editor-create-decks t))
 
-(use-package hypothesise
+(use-package hypothesis
   :defer t
-  :straight (hypothesis :type git
-                        :host github
-                        :repo "kungsgeten/hypothesis")
+  :quelpa (hypothesis
+           :fetcher github
+           :repo "Kungsgeten/hypothesis")
   :init
   (load (concat no-littering-var-directory "private/.hypothesis") nil t)
   :config

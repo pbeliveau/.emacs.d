@@ -1,5 +1,4 @@
-(use-package js
-  :straight (eldoc :type built-in))
+(use-package js :ensure nil)
 
 (use-package js2-mode
   :mode "\\.js\\'"

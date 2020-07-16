@@ -8,23 +8,21 @@
 (use-package spray)
 
 (use-package help
-  :straight nil
+  :ensure nil
   :config
   (define-key help-map "h" (lambda () (interactive)
                              "Go to the *Help* buffer"
                              (display-buffer "*Help*"))))
 
 (use-package explain-pause-mode
-  :straight (explain-pause-mode :type git
-                         :host github
-                         :repo "lastquestion/explain-pause-mode")
+  :quelpa (explain-pause-mode
+           :fetcher github
+           :repo "lastquestion/explain-pause-mode")
   :config
   (setq explain-pause-blocking-too-long-ms 100))
 
 (use-package keypression
-  :straight (keypression :type git
-                         :host github
-                         :repo "chuntaro/emacs-keypression")
+  :quelpa t
   :config
   (setq keypression-use-child-frame nil
         keypression-fade-out-delay 1.0
@@ -33,10 +31,6 @@
         keypression-cast-command-name-format "%s  %s"
         keypression-combine-same-keystrokes t
         keypression-font-face-attribute '(:width normal :height 200 :weight bold)))
-
-(use-package mount
-  :commands mount-mode
-  :straight (mount :type git :host github :repo "zellerin/mount-mode"))
 
 (use-package deadgrep
   :demand t

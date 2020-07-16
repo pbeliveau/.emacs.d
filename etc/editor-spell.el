@@ -30,7 +30,7 @@
          ("M-g C-l l" . lorem-ipsum-insert-list)))
 
 (use-package ispell
-  :straight (ispell :type built-in)
+  :ensure nil
   :bind (("C-c i c" . ispell-comments-and-strings)
          ("C-c i d" . ispell-change-dictionary)
          ("C-c i k" . ispell-kill-ispell)
@@ -56,9 +56,9 @@
               ("C-M-j" . string-inflection-all-cycle)))
 
 (use-package typopunct
-  :straight (typopunct :type git
-                       :host github
-                       :repo "emacsmirror/typopunct")
+  :quelpa (typopunct
+           :fetcher github
+           :repo "emacsmirror/typopunct")
   :bind ("M-g t" . typopunct-mode)
   :hook (org-mode . typopunct-mode))
 

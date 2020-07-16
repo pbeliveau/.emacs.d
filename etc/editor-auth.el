@@ -1,5 +1,5 @@
 (use-package auth-source
-  :straight (auth-source :type built-in)
+  :ensure nil
   :preface
   (eval-when-compile
     (defvar auth-sources))
@@ -17,7 +17,7 @@
      " *gpg-update-tty*")))
 
 (use-package epa
-  :straight (epa :type built-in)
+  :ensure nil
   :after pinentry
   :preface
   (eval-when-compile
@@ -29,7 +29,7 @@
         epa-file-cache-passphrase-for-symmetric-encryption t))
 
 (use-package epg
-  :straight (epg :type built-in)
+  :ensure nil
   :after epa)
 
 (use-package exec-path-from-shell)

@@ -1,5 +1,5 @@
 (use-package erc
-  :straight (erc :type built-in)
+  :ensure nil
   :bind (("C-c s" . start-irc)
          ("C-c q" . stop-irc))
   :init
@@ -19,10 +19,8 @@
         erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                                   "324" "329" "332" "333" "353" "477"))
   :config
-  (use-package erc-log
-    :straight (erc-log :type built-in))
-  (use-package erc-spelling
-    :straight (erc-spelling :type built-in))
+  (use-package erc-log :ensure nil)
+  (use-package erc-spelling :ensure nil)
 
   (load (concat no-littering-var-directory "private/.erc-auth") nil t)
 
