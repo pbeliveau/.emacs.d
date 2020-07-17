@@ -183,6 +183,7 @@
 
 (use-package modern-fringes
   :config
+  (advice-add 'modern-fringes-invert-arrows :around #'silence)
   (modern-fringes-invert-arrows))
 
 (use-package page-break-lines

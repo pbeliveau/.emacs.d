@@ -1,6 +1,7 @@
 ;; bootstrap package and use-package
 (require 'package)
 (setq package-user-dir "~/.emacs.d/var/elpa")
+(setq package-gnupghome-dir "~/.emacs.d/var/elpa/gnupg")
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")))
@@ -11,7 +12,6 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (setq use-package-always-ensure t)
-
 ;; async compilation
 (use-package async
   :demand t
@@ -27,7 +27,12 @@
   (add-to-list 'recentf-exclude no-littering-etc-directory)
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))
-        custom-file (expand-file-name "custom.el" user-emacs-directory)))
+        custom-file (no-littering-expand-var-file-name "custom.el")))
+
+;; to add advice and suppress messsages
+;; of certain functions
+(use-package silence
+  :load-path "var/lisp")
 
 ;; package.el frontend
 (use-package paradox
@@ -35,13 +40,14 @@
   (load (concat no-littering-var-directory "private/.github") nil t)
   (setq paradox-github-token paradox-token)
   :config
-  (paradox-enable))
+  (advice-add 'paradox-enable :around #'silence)
+  (paradox-enable)
+  :config
+  (setq paradox-execute-asynchronously t
+        paradox-automatically-star "No"))
 
 ;; quelpa with quelpa-use-package
 ;; for packages outside of package archives
-(use-package silence
-  :load-path "var/lisp")
-
 (use-package quelpa
   :init
   (setq quelpa-dir "~/.emacs.d/var/quelpa"
