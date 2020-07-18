@@ -43,7 +43,7 @@
   (advice-add 'paradox-enable :around #'silence)
   (paradox-enable)
   :config
-  (setq paradox-execute-asynchronously t
+  (setq paradox-execute-asynchronously nil
         paradox-automatically-star "No"))
 
 ;; quelpa with quelpa-use-package
