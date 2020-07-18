@@ -11,6 +11,7 @@
          ("e" . elfeed-eww-open))
   :init
   (use-package elfeed-protocol)
+  (advice-add 'elfeed :after #'elfeed-protocol-enable)
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (setq elfeed-use-curl t
@@ -18,8 +19,7 @@
         elfeed-feeds
         '(
           ("ttrss+https://pbeliveau@feed.pbeliveau.ca"
-           :use-authinfo t)
-          ))
+           :use-authinfo t)))
 
   (defun elfeed-mark-all-as-read ()
     (interactive)
