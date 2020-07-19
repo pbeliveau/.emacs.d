@@ -14,6 +14,9 @@
         '("^\\*helm\\b"
           "^\\*swiper\\*$")))
 
+(use-package helm
+  :bind ("C-c j v" . helm-occur-visible-buffers))
+
 (use-package ibuffer
   :bind (:map ibuffer-mode-map
         ("M-o" . nil)
