@@ -6,10 +6,35 @@
   :init
   (use-package dired-x
     :ensure nil)
-  (use-package all-the-icons-dired)
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode))
+  (use-package wdired
+    :ensure nil
+    :bind (:map dired-mode-map
+              ("E" . wdired-change-to-wdired-mode))
+    :config
+    (defun pb/wdired-prep ()
+      "Disable all-the-icons and hide details."
+      (dired-hide-details-mode 1)
+      (all-the-icons-dired-mode 0))
+    (defun pb/wdired-restore ()
+      "Restore all-the-icons and switches."
+      (dired-hide-details-mode 0)
+      (all-the-icons-dired-mode 1))
+
+    (advice-add 'wdired-change-to-wdired-mode
+                :before #'pb/wdired-prep)
+    (advice-add 'wdired-finish-edit
+                :after #'pb/wdired-restore)
+    (advice-add 'wdired-abort-changes
+                :after #'pb/wdired-restore))
   :config
   (setq wdired-create-parent-directories        t
         wdired-allow-to-change-permissions      t
+        dired-recursive-copies                  'always
+        dired-recursive-deletes                 'always
+        dired-deletion-confirmer                'y-or-n-p
+        dired-clean-up-buffers-too              nil
         dired-listing-switches                  "-alh")
   (defun jump-to-start ()
     (interactive)
