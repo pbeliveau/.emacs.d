@@ -2,12 +2,13 @@
   :bind (("C-k"          . crux-smart-kill-line)
          ("C-c k"        . crux-kill-other-buffers)
          ("C-c c"        . crux-cleanup-buffer-or-region)
+         ("C-o"          . crux-other-window-or-switch-buffer)
          ("C-c M-d"      . crux-delete-file-and-buffer)
          ("C-c M-c"      . crux-copy-file-preserve-attributes)
          ("<deletechar>" . crux-kill-whole-line)))
 
 (use-package embrace
-  :bind ("C-o" . embrace-commander))
+  :bind ("C-c o" . embrace-commander))
 
 (use-package files
   :ensure nil

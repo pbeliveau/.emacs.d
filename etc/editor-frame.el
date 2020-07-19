@@ -3,7 +3,6 @@
          ("C-c f" . avy-goto-char)
          ("C-c h" . avy-goto-char-2)
          ("C-c l" . avy-goto-line)
-         ("C-c o" . avy-org-goto-heading-timer)
          ("M-g a" . avy-copy-line)
          ("M-g d" . avy-copy-region)
          ("M-g y" . avy-kill-ring-save-whole-line)
@@ -12,10 +11,6 @@
          ("M-g c" . avy-kill-ring-save-region)
          ("M-g m" . avy-move-region)
          ("M-g k" . avy-kill-region)))
-
-(use-package ace-window
-  :disabled
-  :bind ("M-o" . ace-window))
 
 (use-package beacon
   :blackout t
