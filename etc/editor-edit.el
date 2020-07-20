@@ -44,6 +44,15 @@
 (use-package mc-calc)
 (use-package visual-regexp)
 
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs (list
+                          (concat
+                           no-littering-var-directory
+                           "yasnippet/snippets/")))
+  (yas-global-mode 1))
+(use-package yasnippet-snippets)
+
 (prefer-coding-system 'utf-8)
 (set-charset-priority 'unicode)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
