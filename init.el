@@ -29,6 +29,12 @@
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))
         custom-file (no-littering-expand-var-file-name "custom.el")))
 
+;; missing persist in no-littering.
+(use-package persist
+  :config
+  (setq persist--directory-location
+        (concat no-littering-var-directory "persist/")))
+
 ;; to add advice and suppress messsages
 ;; of certain functions
 (use-package silence
