@@ -41,7 +41,7 @@
 ;; Prior to 27.1, not included.
 (if (version<= "27" emacs-version)
     (progn (use-package so-long
-      :load-path ("var/lisp")
+      :load-path "var/lisp"
       :config
       (global-so-long-mode)))
   (global-so-long-mode))

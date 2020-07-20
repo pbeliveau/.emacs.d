@@ -253,3 +253,5 @@
         org-caldav-delete-org-entries 'always
         org-caldav-delete-calendar-entries 'always
         org-caldav-calendar-id "personal"))
+
+(use-package org-drill)
