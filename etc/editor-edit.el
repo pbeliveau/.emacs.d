@@ -13,16 +13,18 @@
 (use-package files
   :ensure nil
   :config
-  (setq require-final-newline t
-        version-control       t
-        enable-local-eval     t
-        backup-by-copying     t
-        make-backup-files     t
-        delete-old-versions   t
-        kept-new-versions     64
-        kept-old-versions     0
-        delete-old-versions   t
-        auto-save-default     nil))
+  (setq auto-save-default      nil
+        backup-by-copying       t
+        confirm-kill-emacs      nil
+        confirm-kill-processes  nil
+        delete-old-versions     t
+        delete-old-versions     t
+        enable-local-eval       t
+        kept-new-versions       64
+        kept-old-versions       0
+        make-backup-files       t
+        require-final-newline   t
+        version-control         t))
 
 (use-package iedit
   :bind ("C-;" . iedit-mode))
