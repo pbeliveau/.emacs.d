@@ -1,6 +1,6 @@
 (use-package auto-fill-mode
   :ensure nil
-  :blackout t
+  :blackout
   :init
   (setq-default fill-column 80)
   :hook
@@ -22,7 +22,7 @@
   :bind ("C-c C-f" . fold-this))
 
 (use-package origami
-  :blackout t
+  :blackout
   :commands origami-mode
   :bind (("C-c C-o t" . origami-toggle-node)
          ("C-c C-o r" . origami-toggle-all-nodes)

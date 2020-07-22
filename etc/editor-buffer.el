@@ -23,6 +23,7 @@
         ("M-g" . nil)))
 
 (use-package fast-scroll
+  :blackout
   :config
   (fast-scroll-config)
   (fast-scroll-advice-scroll-functions)

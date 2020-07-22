@@ -1,5 +1,5 @@
 (use-package annotate
-  :blackout t
+  :blackout
   :config
   (setq annotate-file (concat no-littering-var-directory "var/.notes")))
 

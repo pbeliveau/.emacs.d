@@ -8,6 +8,7 @@
   (use-package dired-x
     :ensure nil)
   (use-package all-the-icons-dired
+    :blackout
     :hook (dired-mode . all-the-icons-dired-mode))
   (use-package wdired
     :ensure nil
@@ -69,6 +70,7 @@
 (use-package dired-async
   :ensure nil
   :after (dired)
+  :blackout
   :hook (dired-mode . dired-async-mode))
 
 (use-package dired-avfs :quelpa t)
@@ -81,6 +83,7 @@
 
 (use-package dired-filter
   :quelpa t
+  :blackout
   :bind (:map dired-mode-map
               ("f" . dired-filter-mode))
   :init

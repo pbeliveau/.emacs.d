@@ -1,5 +1,5 @@
 (use-package company
-  :blackout t
+  :blackout
   :demand t
   :init (global-company-mode 1)
   :commands (company-mode)
@@ -49,7 +49,7 @@
 
 (use-package which-key
   :defer 5
-  :blackout t
+  :blackout
   :commands which-key-mode
   :config
   (which-key-mode))

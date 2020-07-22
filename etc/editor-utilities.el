@@ -71,7 +71,7 @@ don't actually start the search."
 
 (use-package memento-mori
   :defer t
-  :blackout t
+  :blackout
   :init
   (load (concat no-littering-var-directory "private/.memento") nil t)
   :config

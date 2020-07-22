@@ -17,14 +17,14 @@
 
 (use-package eldoc
   :ensure nil
-  :blackout t
+  :blackout
   :hook ((emacs-lisp-mode        . turn-on-eldoc-mode)
           (lisp-interaction-mode . turn-on-eldoc-mode)
           (ielm-mode             . turn-on-eldoc-mode)
           (cider-mode            . turn-on-eldoc-mode)))
 
 (use-package eldoc-eval
-  :blackout t
+  :blackout
   :config
   (autoload 'eldoc-in-minibuffer-mode "eldoc-eval")
   (eldoc-in-minibuffer-mode 1))

@@ -188,7 +188,7 @@
   (modern-fringes-invert-arrows))
 
 (use-package page-break-lines
-  :blackout t
+  :blackout
   :init
   (global-page-break-lines-mode))
 
@@ -198,7 +198,7 @@
 
 (use-package whitespace
   :ensure nil
-  :blackout t
+  :blackout
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)
   :config

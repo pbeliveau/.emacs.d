@@ -1,5 +1,5 @@
 (use-package xah-lookup
-  :blackout t
+  :blackout
   :init
   (setq xah-lookup-browser-function 'eww))
 

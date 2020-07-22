@@ -47,6 +47,7 @@
 (use-package visual-regexp)
 
 (use-package yasnippet
+  :blackout yas-minor-mode
   :config
   (setq yas-snippet-dirs (list
                           (concat

@@ -1,4 +1,5 @@
 (use-package deft
+  :blackout
   :after org
   :bind
   ("C-c n d" . deft)
@@ -11,6 +12,7 @@
   (deft-default-extension "org"))
 
 (use-package zetteldeft
+  :blackout
   :after deft
   :config
     (zetteldeft-set-classic-keybindings)
@@ -29,6 +31,7 @@
         (concat "zdlink:" link))))
 
 (use-package org-roam
+  :blackout
   :hook
   (after-init . org-roam-mode)
   :bind
@@ -44,6 +47,7 @@
         org-roam-mute-cache-build t))
 
 (use-package org-brain
+  :blackout
   :init
   (setq org-brain-path (concat org-directory "/records"))
   :config

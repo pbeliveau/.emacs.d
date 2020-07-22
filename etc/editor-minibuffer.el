@@ -1,5 +1,5 @@
 (use-package counsel
-  :blackout t
+  :blackout
   :demand t
   :bind (("C-*"     . counsel-org-agenda-headlines)
          ("C-x C-f" . counsel-find-file)
@@ -25,7 +25,7 @@
     ("l" text-scale-decrease "out")))
 
 (use-package ivy
-  :blackout t
+  :blackout
   :demand t
   :bind (("C-x b"   . ivy-switch-buffer)
          ("C-x B"   . ivy-switch-buffer-other-window)

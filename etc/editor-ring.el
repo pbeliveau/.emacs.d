@@ -27,6 +27,6 @@
   :bind ("C-c u"))
 
 (use-package volatile-highlights
-  :blackout t
+  :blackout
   :config
   (volatile-highlights-mode t))

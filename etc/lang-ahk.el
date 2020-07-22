@@ -1,3 +1,3 @@
 (use-package ahk-mode
-  :blackout t
+  :blackout
   :mode "\\.ahk\\'")

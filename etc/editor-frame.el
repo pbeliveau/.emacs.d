@@ -13,11 +13,12 @@
          ("M-g k" . avy-kill-region)))
 
 (use-package beacon
-  :blackout t
+  :blackout
   :config
   (beacon-mode 1))
 
 (use-package beginend
+  :blackout
   :config
   (beginend-global-mode))
 
@@ -48,7 +49,7 @@
   :bind ("M-g f" . frog-jump-buffer))
 
 (use-package golden-ratio
-  :blackout t
+  :blackout
   :bind ("C-c g" . golden-ratio-mode)
   :config
   (setq golden-ratio-auto-scale t))
@@ -79,7 +80,7 @@
         browse-url-generic-program "firefox"))
 
 (use-package minimap
-  :blackout t
+  :blackout
   :bind ("C-c m" . minimap-mode)
   :config
   (setq minimap-window-location 'right

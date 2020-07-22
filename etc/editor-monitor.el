@@ -21,7 +21,7 @@
         display-time-default-load-average nil)
   (display-time))
 (use-package symon
-  :blackout t
+  :blackout
   :config
   (setq symon-sparkline-type 'plain
         symon-sparkline-width 120))
