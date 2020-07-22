@@ -1,6 +1,7 @@
 (use-package dired
   :ensure nil
-  :bind (("C-c j f" . jump-to-start)
+  :bind (("C-c j a" . jump-to-apps)
+         ("C-c j f" . jump-to-start)
          ("C-c j o" . jump-to-org)
          ("C-c j s" . jump-to-scripts))
   :init
@@ -36,6 +37,9 @@
         dired-deletion-confirmer                'y-or-n-p
         dired-clean-up-buffers-too              nil
         dired-listing-switches                  "-alh")
+  (defun jump-to-apps ()
+    (interactive)
+    (dired "~/scoop/apps"))
   (defun jump-to-start ()
     (interactive)
     (dired "~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"))
