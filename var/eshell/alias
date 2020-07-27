@@ -1,20 +1,38 @@
+;; win only alias
 alias antidote "c:/Program Files (x86)/Druide/Connectix 10/Application/Bin64/API/Antidote.exe" $*
+alias winconvert magick.exe convert $*
+alias winconvertpreset winconvert -density 300 -strip -alpha off $*
+alias winocrpdf wsl ocrmypdf $*
+alias wintoclipboard nircmdc.exe clipboard copyimage $*
+
+;; win/linux alias
 alias d dired $1
 alias ff find-file $1
 alias ffalias find-file ~/.emacs.d/var/eshell/alias
 alias ffimg dired ~/.emacs.d/var/org/img
+alias youtube-dl-audio youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 $*
+
+;; linux only alias
+alias disconnect sudo netctl stop-all && sudo systemctl reset-failed
+alias gmute pamixer --sink 0 --get-mute
 alias gsoptimizepdf gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$*
-alias install *sudo scoop install $*
+alias gvol pamixer --sink 0 --get-volume
+alias install sudo pacman -S $*
 alias l1 ls -1a $1
 alias l1l ls -1at $1
 alias la ls -la $1
 alias ll ls -lat $1
+alias modprobe sudo modprobe $*
+alias mount sudo mount $*
 alias nuke killall -9 $*
-alias ocrpdf wsl ocrmypdf $*
-alias remove *sudo scoop uninstall $*
-alias toclipboard nircmdc.exe clipboard copyimage $*
+alias pmake git pull && makepkg -sim --needed --noconfirm
+alias remove sudo pacman -Rs $*
+alias sff 'find-file "${pwd}/$1"(:s,^,/sudo::,:s,::/ssh:,:,)'
+alias svol pamixer --sink 0 --set-volume $1
+alias sysd sudo systemctl $*
+alias sysdu systemctl --user $*
+alias sysuser systemctl --user $*
+alias tmute pamixer --sink 0 -t
 alias tping ping -c 3 archlinux.org
-alias update *sudo topgrade
-alias winconvert magick.exe convert $*
-alias winconvertpreset winconvert -density 300 -strip -alpha off $*
-alias youtube-dl-audio youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 $*
+alias umount sudo umount $*
+alias vpn sudo /usr/bin/protonvpn $*

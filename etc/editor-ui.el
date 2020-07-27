@@ -147,7 +147,6 @@
 
 
 (use-package doom-modeline
-  :disabled
   :after doom-themes
   :init
   (setq doom-modeline-bar-width                 3

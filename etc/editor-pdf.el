@@ -7,8 +7,8 @@
               ("C-s" . isearch-forward)
               ("s"   . save-some-buffers))
   :init
-  (setq pdf-tools-msys2-directory "~/scoop/apps/msys2/current")
-  (pdf-tools-install t)
+  ;; (setq pdf-tools-msys2-directory "~/scoop/apps/msys2/current")
+  ;; (pdf-tools-install t)
   (add-hook 'activate-default-input-method #'pdf-annot-minor-mode)
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (add-hook 'pdf-view-mode-hook (lambda() (cua-mode 0)))

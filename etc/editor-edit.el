@@ -44,6 +44,10 @@
          ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
 
 (use-package mc-calc)
+
+(use-package sudo-edit
+  :if (string-equal system-type "gnu/linux"))
+
 (use-package visual-regexp)
 
 (use-package yasnippet

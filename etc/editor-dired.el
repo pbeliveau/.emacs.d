@@ -1,9 +1,11 @@
 (use-package dired
   :ensure nil
   :bind (("C-c j a" . jump-to-apps)
+         ("C-c j b" . jump-to-bin)
          ("C-c j f" . jump-to-start)
          ("C-c j o" . jump-to-org)
-         ("C-c j s" . jump-to-scripts))
+         ("C-c j s" . jump-to-scripts)
+         ("C-c j w" . jump-to-sway))
   :init
   (use-package dired-x
     :ensure nil)
@@ -41,12 +43,18 @@
   (defun jump-to-apps ()
     (interactive)
     (dired "~/scoop/apps"))
+  (defun jump-to-bin ()
+    (interactive)
+    (dired "~/.local/bin"))
   (defun jump-to-start ()
     (interactive)
     (dired "~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"))
   (defun jump-to-scripts ()
     (interactive)
     (dired "~/.config/scripts"))
+  (defun jump-to-sway ()
+    (interactive)
+    (dired "~/.config/sway"))
   (defun jump-to-org ()
     (interactive)
     (dired "~/.config/org/"))
@@ -54,6 +62,9 @@
             (lambda ()
               (setq truncate-lines nil)
               (dired-sort-toggle-or-edit))))
+
+(use-package dired-toggle-sudo
+  :if (string-equal system-type "gnu/linux"))
 
 (use-package dired-sort-menu
   :defer t
@@ -229,7 +240,21 @@
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
 
+(use-package dired-open
+  :if (not (string-equal system-type "windows-nt"))
+  :bind
+  (:map dired-mode-map
+        ("M-RET" . dired-open-xdg))
+  :config
+  (setq open-extensions
+        '(("docx" . "libreoffice")
+          ("doc"  . "libreoffice")
+          ("xlsx" . "libreoffice")
+          ("xls"  . "libreoffice")))
+  (setq dired-open-extensions open-extensions))
+
 (use-package w32-browser
+  :if (string-equal system-type "windows-nt")
   :bind
   ("C-c w e" . w32explore)
   ("C-c w b" . w32-browser)
@@ -238,6 +263,7 @@
         ("<C-return>" . dired-w32explore)))
 
 (use-package w32-symlinks
+  :if (string-equal system-type "windows-nt")
   :quelpa (w32-symlinks
            :fetcher github
            :repo "emacsmirror/w32-symlinks"))

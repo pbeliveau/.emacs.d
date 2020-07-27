@@ -37,3 +37,10 @@
 (use-package keychain-environment
   :config
   (keychain-refresh-environment))
+
+;; if on linux, reopen automagically admin files as root
+(use-package auto-sudoedit
+  :if (string-equal system-type "gnu/linux")
+  :blackout
+  :config
+  (auto-sudoedit-mode 1))

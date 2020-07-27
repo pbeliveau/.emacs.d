@@ -20,6 +20,7 @@
   (setq display-time-day-and-date t
         display-time-default-load-average nil)
   (display-time))
+
 (use-package symon
   :blackout
   :config

@@ -1,6 +1,8 @@
 (use-package eshell
   :ensure nil
-  :bind (([f2] . eshell))
+  :bind (([f2] . eshell)
+         (:map eshell-mode-map
+              ("<C-return>" . eshell/clear)))
   :config
   (setq eshell-smart-space-goes-to-end t)
   (defun eshell/clear ()
