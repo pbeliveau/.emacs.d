@@ -62,6 +62,13 @@
   :bind ("M-g t" . typopunct-mode)
   :hook (org-mode . typopunct-mode))
 
+(use-package sdcv
+  :quelpa (sdcv
+           :fetcher github
+           :repo "manateelazycat/sdcv")
+  :config
+  (setq sdcv-dictionary-data-dir (expand-file-name "~/.local/share/dic")))
+
 ;; mule-cmds.el settings
 (setq default-input-method "latin-1-prefix")
 (defvar use-default-input-method t)
