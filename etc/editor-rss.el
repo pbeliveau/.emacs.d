@@ -15,7 +15,7 @@
   :config
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   (setq elfeed-use-curl t
-        elfeed-protocol-ttrss-maxsize 50
+        elfeed-protocol-ttrss-maxsize 200
         elfeed-feeds
         '(
           ("ttrss+https://pbeliveau@feed.pbeliveau.ca"

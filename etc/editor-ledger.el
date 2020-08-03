@@ -20,3 +20,9 @@
         ledger-clear-whole-transactions        t
         ledger-post-auto-adjust-amounts        t
         ledger-default-acct-transaction-indent 2))
+
+(use-package company-ledger
+  :after ledger-mode
+  :init
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-ledger)))

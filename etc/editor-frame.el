@@ -1,16 +1,28 @@
 (use-package avy
-  :bind (("C-q"   . avy-goto-char-in-line)
-         ("C-c f" . avy-goto-char)
+  :bind (("C-c f" . avy-goto-char)
          ("C-c h" . avy-goto-char-2)
          ("C-c l" . avy-goto-line)
+         ("C-c q" . avy-goto-char-in-line)
          ("M-g a" . avy-copy-line)
-         ("M-g d" . avy-copy-region)
-         ("M-g y" . avy-kill-ring-save-whole-line)
-         ("M-g w" . avy-kill-whole-line)
-         ("M-g l" . avy-move-line)
          ("M-g c" . avy-kill-ring-save-region)
+         ("M-g d" . avy-copy-region)
+         ("M-g k" . avy-kill-region)
+         ("M-g l" . avy-move-line)
          ("M-g m" . avy-move-region)
-         ("M-g k" . avy-kill-region)))
+         ("M-g w" . avy-kill-whole-line)
+         ("M-g y" . avy-kill-ring-save-whole-line)))
+
+(use-package ace-window
+  :bind ("C-M-." . ace-window))
+
+(use-package move-border
+  :quelpa (move-border
+           :fetcher github
+           :repo "ramnes/move-border")
+  :bind (("C-M-<up>"    . move-border-up)
+         ("C-M-<down>"  . move-border-down)
+         ("C-M-<right>" . move-border-right)
+         ("C-M-<left>"  . move-border-left)))
 
 (use-package beacon
   :blackout
@@ -33,7 +45,6 @@
   (dbc-add-rule "same-frame" "proced" :newname "\\*proced\\*")
   (dbc-add-rule "same-frame" "deadgrep" :newmajor "deadgrep"))
 
-
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
          ("M-g j" . dumb-jump-go)
@@ -43,7 +54,6 @@
   :config (setq dumb-jump-selector 'ivy))
 
 (use-package focus)
-
 (use-package frog-menu :quelpa t)
 (use-package frog-jump-buffer
   :bind ("M-g f" . frog-jump-buffer))
@@ -107,6 +117,15 @@
   (add-to-list 'display-buffer-alist
                (cons "\\*Async Shell Command\\*.*"
                      (cons #'display-buffer-no-window nil))))
+
+(use-package windmove
+  :ensure nil
+  :config
+  (windmove-default-keybindings))
+
+(use-package windswap
+  :config
+  (windswap-default-keybindings 'control))
 
 (use-package winum
   :defer t

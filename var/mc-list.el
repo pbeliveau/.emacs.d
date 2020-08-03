@@ -25,6 +25,7 @@
         string-inflection-upcase
         tab-to-tab-stop
         typopunct-insert-typographical-dashes
+        typopunct-mode
         zap-up-to-char
         ))
 
