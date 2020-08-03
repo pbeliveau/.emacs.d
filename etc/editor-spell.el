@@ -38,14 +38,13 @@
          ("C-c i r" . ispell-region)
          ("C-c i w" . ispell-word))
   :config
-  (setq ispell-program-name "hunspell.exe")
+  (setq ispell-program-name "hunspell")
         ispell-local-dictionary-alist
         '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8)))
 
 (use-package mw-thesaurus)
 
 (use-package spell-fu
-  :disabled
   :hook (org-mode . spell-fu-mode)
   :config
   (setq spell-fu-faces-exclude '(org-meta-line org-link org-code)
